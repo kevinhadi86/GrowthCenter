@@ -1,0 +1,34 @@
+body {
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
+.header {
+    width: 100vw;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    position: fixed;
+    background-color: transparent;
+    transition: background-color 0.5s;
+    padding: 0 150px;
+    font-size: 14px;
+}
+
+.header .nav-link {
+    color: black;
+}
+
+.header .active {
+    font-weight: bold;
+}
+
+.btn-growth {
+    font-size: 14px;
+    background-color: orange;
+}
+
+.header a {
+    text-decoration: none;
+}
