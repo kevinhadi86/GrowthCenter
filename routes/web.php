@@ -12,3 +12,11 @@
 */
 
 Route::get('/', 'HomeController@home')->name('home');
+Route::group(['prefix'=>'admin/growth'], function(){
+
+    #Home
+    Route::get('/', 'Cms\ConfigurationController@index');
+
+    #Testimony
+    Route::get('/testimony', 'Cms\TestimonyController@index');
+});
