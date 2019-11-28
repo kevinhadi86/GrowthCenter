@@ -14,6 +14,7 @@ body {
     transition: background-color 0.5s;
     padding: 0 150px;
     font-size: 14px;
+    z-index: 100;
 }
 
 .header .nav-link {
@@ -25,10 +26,113 @@ body {
 }
 
 .btn-growth {
-    font-size: 14px;
-    background-color: orange;
+    background-color: #FEC222;
 }
 
 .header a {
     text-decoration: none;
+}
+
+.footer {
+    background-color: #005288;
+    padding: 10px 0;
+}
+
+.highlight-clickable {
+
+}
+
+.parallax {
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+}
+
+.gc-title {
+    font-size: 3.7em;
+}
+
+.gc-title-2 {
+    font-size: 2.7em;
+}
+
+.gc-content {
+    font-size: 1.2em;
+}
+
+.gc-content-2 {
+    font-size: 1.3em;
+}
+
+.gc-align-left {
+    text-align: left;
+}
+
+.gc-align-center {
+    text-align: center;
+}
+
+.gc-align-right {
+    text-align: right;
+}
+
+.gc-align-justify {
+    text-align: justify;
+}
+
+.gc-text-bold {
+    font-weight: bold;
+}
+
+.gc-text-lighter {
+    font-weight: lighter;
+}
+
+.gc-georgia {
+    font-family: Georgia;
+}
+
+.gc-helvetica {
+    font-family: Helvetica;
+}
+
+.gc-baskerville {
+    font-family: Baskerville;
+}
+
+.gc-full-height {
+    height: 100%;
+}
+
+.gc-full-width {
+    width: 100%;
+}
+
+.gc-container-center {
+    display: flex;
+    align-items: center;
+}
+
+.gc-container-bottom {
+    display: flex;
+    align-items: flex-end;
+}
+
+.gc-container-justify-center {
+    display: flex;
+    justify-content: center;
+}
+
+.gc-color-white {
+    color: white;
+}
+
+.gc-full-bg-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
 }

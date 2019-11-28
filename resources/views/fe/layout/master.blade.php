@@ -27,18 +27,26 @@
         </li>
         <li class="nav-item">
             <a href="">
-                <button class="btn btn-growth nav-link">Contact Us</button>
+                <button class="btn btn-growth nav-link" style="font-size: 14px;">Contact Us</button>
             </a>
         </li>
     </ul>
 </div>
 @yield('content')
+<div class="footer gc-full-width gc-align-center gc-helvetica gc-color-white" style="font-size: 14px;">
+    <span>&copy; Copyright 2019, Growth Center, Inc. All rights reserved.</span>
+</div>
 </body>
 <script src="{{asset('lib/jquery/jquery-3.4.1.min.js')}}"></script>
 <script src="{{asset('lib/popper/popper.min.js')}}"></script>
 <script src="{{asset('lib/bootstrap/js/bootstrap.js')}}"></script>
 <script>
     $(function() {
+        if ($(window).scrollTop() > 50) {
+            $('.header').css('background-color', 'white');
+        } else {
+            $('.header').css('background-color', 'transparent');
+        }
         $(window).bind('scroll', function () {
             if ($(window).scrollTop() > 50) {
                 $('.header').css('background-color', 'white');
@@ -46,7 +54,7 @@
                 $('.header').css('background-color', 'transparent');
             }
         });
-    })();
+    });
 </script>
 @yield('script')
 </html>
