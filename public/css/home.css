@@ -111,8 +111,8 @@
 
 .hexagon {
     display: inline-block;
-    width: 700px;
-    height: 700px;
+    width: 50%;
+    height: 90%;
     position: absolute;
     top: 60px;
     left: 50px;
@@ -214,31 +214,31 @@
 
 .flying-text-1 {
     top: 22%;
-    left: 23%;
+    left: 20%;
     transform: rotate(-31deg);
 }
 
 .flying-text-2 {
-    top: 18%;
-    right: 31%;
+    top: 19%;
+    right: 28%;
     transform: rotate(31deg);
 }
 
 .flying-text-3 {
     top: 42%;
-    right: 10%;
+    right: 8%;
     transform: rotate(90deg);
 }
 
 .flying-text-4 {
     bottom: 19%;
-    right: 22%;
+    right: 21%;
     transform: rotate(-31deg);
 }
 
 .flying-text-5 {
-    top: 58%;
-    left: 26%;
+    top: 59%;
+    left: 23%;
     transform: rotate(-30deg);
 }
 

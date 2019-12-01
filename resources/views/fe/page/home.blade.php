@@ -112,55 +112,67 @@
         <div>
             <span class="gc-content-2 home-4-title gc-georgia gc-text-bold">How We Do</span>
         </div>
-        <div class="row">
-            <div class="col-6 gc-align-right gc-container-center">
-                <div id="diagramCarousel" class="carousel slide" data-ride="carousel">
-                    <div class="carousel-inner">
-                        <div class="carousel-item active">
-                            <div class="gc-georgia" style="padding-left: 100px;">
-                                <span class="gc-title-2 gc-text-bold">Understand<br/>the Problem</span>
-                                <br>
-                                <span class="gc-content">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam animi commodi culpa, dolor ea earum, eveniet id inventore ipsam iure natus nostrum placeat quasi reiciendis repellendus sequi sint tenetur ullam.</span>
+        <div class="row gc-full-height" style="padding-bottom: 30px">
+            <div class="col-6 gc-align-right gc-container-center gc-full-height">
+                <div id="diagramCarousel" class="carousel slide gc-full-height" data-ride="carousel" data-interval="false">
+                    <div class="carousel-inner gc-full-height">
+                        <div class="carousel-item gc-full-height active">
+                            <div class="gc-full-height gc-container-center">
+                                <div class="gc-georgia" style="padding-left: 100px;">
+                                    <span class="gc-title-2 gc-text-bold">Understand<br/>the Problem</span>
+                                    <br>
+                                    <span class="gc-content">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam animi commodi culpa, dolor ea earum, eveniet id inventore ipsam iure natus nostrum placeat quasi reiciendis repellendus sequi sint tenetur ullam.</span>
+                                </div>
                             </div>
                         </div>
-                        <div class="carousel-item">
-                            <div class="gc-georgia" style="padding-left: 100px;">
-                                <span class="gc-title-2 gc-text-bold">Define<br/>the Problem</span>
-                                <br>
-                                <span class="gc-content">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam animi commodi culpa, dolor ea earum, eveniet id inventore ipsam iure natus nostrum placeat quasi reiciendis repellendus sequi sint tenetur ullam.</span>
+                        <div class="carousel-item gc-full-height">
+                            <div class="gc-full-height gc-container-center">
+                                <div class="gc-georgia" style="padding-left: 100px;">
+                                    <span class="gc-title-2 gc-text-bold">Define<br/>the Problem</span>
+                                    <br>
+                                    <span class="gc-content">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam animi commodi culpa, dolor ea earum, eveniet id inventore ipsam iure natus nostrum placeat quasi reiciendis repellendus sequi sint tenetur ullam.</span>
+                                </div>
                             </div>
                         </div>
-                        <div class="carousel-item">
-                            <div class="gc-georgia" style="padding-left: 100px;">
-                                <span class="gc-title-2 gc-text-bold">Propose Tailor<br/>Made Solution</span>
-                                <br>
-                                <span class="gc-content">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam animi commodi culpa, dolor ea earum, eveniet id inventore ipsam iure natus nostrum placeat quasi reiciendis repellendus sequi sint tenetur ullam.</span>
+                        <div class="carousel-item gc-full-height">
+                            <div class="gc-full-height gc-container-center">
+                                <div class="gc-georgia" style="padding-left: 100px;">
+                                    <span class="gc-title-2 gc-text-bold">Propose Tailor<br/>Made Solution</span>
+                                    <br>
+                                    <span class="gc-content">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam animi commodi culpa, dolor ea earum, eveniet id inventore ipsam iure natus nostrum placeat quasi reiciendis repellendus sequi sint tenetur ullam. Lorem ipsum dolor sit amet, consectetur adipisicing elit. Architecto culpa iste libero neque officia perspiciatis recusandae rerum voluptatibus. Aspernatur atque eaque labore magnam necessitatibus obcaecati porro similique sunt veniam veritatis!</span>
+                                </div>
                             </div>
                         </div>
-                        <div class="carousel-item">
-                            <div class="gc-georgia" style="padding-left: 100px;">
-                                <span class="gc-title-2 gc-text-bold">Implementation &<br/>Agile Iteration</span>
-                                <br>
-                                <span class="gc-content">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam animi commodi culpa, dolor ea earum, eveniet id inventore ipsam iure natus nostrum placeat quasi reiciendis repellendus sequi sint tenetur ullam.</span>
+                        <div class="carousel-item gc-full-height">
+                            <div class="gc-full-height gc-container-center">
+                                <div class="gc-georgia" style="padding-left: 100px;">
+                                    <span class="gc-title-2 gc-text-bold">Implementation &<br/>Agile Iteration</span>
+                                    <br>
+                                    <span class="gc-content">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam animi commodi culpa, dolor ea earum, eveniet id inventore ipsam iure natus nostrum placeat quasi reiciendis repellendus sequi sint tenetur ullam.</span>
+                                </div>
                             </div>
                         </div>
-                        <div class="carousel-item">
-                            <div class="gc-georgia" style="padding-left: 100px;">
-                                <span class="gc-title-2 gc-text-bold">Feedback & Review</span>
-                                <br>
-                                <span class="gc-content">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam animi commodi culpa, dolor ea earum, eveniet id inventore ipsam iure natus nostrum placeat quasi reiciendis repellendus sequi sint tenetur ullam.</span>
+                        <div class="carousel-item gc-full-height">
+                            <div class="gc-full-height gc-container-center">
+                                <div class="gc-georgia" style="padding-left: 100px;">
+                                    <span class="gc-title-2 gc-text-bold">Feedback & Review</span>
+                                    <br>
+                                    <span class="gc-content">Lorem ipsum dolor sit amet, consectetur adipisicing elit. Aliquam animi commodi culpa, dolor ea earum, eveniet id inventore ipsam iure natus nostrum placeat quasi reiciendis repellendus sequi sint tenetur ullam.</span>
+                                </div>
                             </div>
                         </div>
                     </div>
                 </div>
             </div>
             <div class="col-6">
-                <img class="diagram" src="{{asset('static/images/diagram/01.png')}}" alt="">
-                <span class="flying-text flying-text-1" data-idx="0">Understanding<br/>the Problem</span>
-                <span class="flying-text flying-text-2" data-idx="1">Define<br/>the Problem</span>
-                <span class="flying-text flying-text-3" data-idx="2">Propose Tailor<br/>Made Solution</span>
-                <span class="flying-text flying-text-4" data-idx="3">Implementation &<br/>Agile Iteration</span>
-                <span class="flying-text flying-text-5" data-idx="4">Feedback & Review</span>
+                <div class="gc-position-relative">
+                    <img class="diagram" src="{{asset('static/images/diagram/01.png')}}" alt="">
+                    <span class="flying-text flying-text-1" data-idx="0">Understanding<br/>the Problem</span>
+                    <span class="flying-text flying-text-2" data-idx="1">Define<br/>the Problem</span>
+                    <span class="flying-text flying-text-3" data-idx="2">Propose Tailor<br/>Made Solution</span>
+                    <span class="flying-text flying-text-4" data-idx="3">Implementation &<br/>Agile Iteration</span>
+                    <span class="flying-text flying-text-5" data-idx="4">Feedback & Review</span>
+                </div>
             </div>
         </div>
     </div>

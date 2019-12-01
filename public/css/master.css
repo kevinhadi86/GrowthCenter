@@ -85,6 +85,10 @@ body {
     font-weight: bold;
 }
 
+.gc-text-light-bold {
+    font-weight: 600;
+}
+
 .gc-text-lighter {
     font-weight: lighter;
 }
@@ -135,4 +139,19 @@ body {
     width: 100%;
     height: 100%;
     background-size: cover;
+}
+
+.gc-position-relative {
+    position: relative;
+}
+
+.gc-jumbotron {
+    padding: 0;
+    margin: 0;
+    width: 100vw;
+    height: 100vh;
+}
+
+.gc-text-font-normal {
+    font-size: 13px;
 }
