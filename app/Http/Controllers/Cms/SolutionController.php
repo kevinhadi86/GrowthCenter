@@ -15,7 +15,7 @@ class SolutionController extends Controller
      */
     public function index()
     {
-        //
+        return view('admin.page.solution.home');
     }
 
     /**

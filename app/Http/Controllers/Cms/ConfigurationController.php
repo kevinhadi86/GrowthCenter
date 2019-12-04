@@ -8,79 +8,58 @@ use Illuminate\Http\Request;
 
 class ConfigurationController extends Controller
 {
-    /**
-     * Display a listing of the resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
+    // DASHBOARD
     public function index()
     {
-        return view('cms.home');
+        return view('admin.page.dashboard');
     }
 
-    /**
-     * Show the form for creating a new resource.
-     *
-     * @return \Illuminate\Http\Response
-     */
-    public function create()
+    // HOME PAGE
+    public function featuredArticle()
     {
-        //
+        return view('admin.page.app.home.featuredArticle');
     }
 
-    /**
-     * Store a newly created resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @return \Illuminate\Http\Response
-     */
-    public function store(Request $request)
+    public function homeFeaturedQuestion()
     {
-        //
+        return view('admin.page.app.home.featuredQuestion');
     }
 
-    /**
-     * Display the specified resource.
-     *
-     * @param  \App\Configuration  $configuration
-     * @return \Illuminate\Http\Response
-     */
-    public function show(Configuration $configuration)
+    public function manageDiagram()
     {
-        //
+        return view('admin.page.app.home.manageDiagram');
     }
 
-    /**
-     * Show the form for editing the specified resource.
-     *
-     * @param  \App\Configuration  $configuration
-     * @return \Illuminate\Http\Response
-     */
-    public function edit(Configuration $configuration)
+    public function pickedTestimony()
     {
-        //
+        return view('admin.page.app.home.pickedTestimony');
     }
 
-    /**
-     * Update the specified resource in storage.
-     *
-     * @param  \Illuminate\Http\Request  $request
-     * @param  \App\Configuration  $configuration
-     * @return \Illuminate\Http\Response
-     */
-    public function update(Request $request, Configuration $configuration)
+    //OUR SOLUTION PAGE
+    public function ourSolutionFeaturedQuestion()
     {
-        //
+        return view('admin.page.app.ourSolution.featuredQuestion');
     }
 
-    /**
-     * Remove the specified resource from storage.
-     *
-     * @param  \App\Configuration  $configuration
-     * @return \Illuminate\Http\Response
-     */
-    public function destroy(Configuration $configuration)
+    // ABOUT US PAGE
+    public function mainSection()
     {
-        //
+        return view('admin.page.app.aboutUs.mainSection');
+    }
+
+    public function ourBelief()
+    {
+        return view('admin.page.app.aboutUs.ourBelief');
+    }
+
+    public function weBelieve()
+    {
+        return view('admin.page.app.aboutUs.weBelieve');
+    }
+
+    //COMPANY CONTACT
+    public function companyContact()
+    {
+        return view('admin.page.app.companyContact');
     }
 }

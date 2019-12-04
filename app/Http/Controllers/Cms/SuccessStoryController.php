@@ -15,7 +15,7 @@ class SuccessStoryController extends Controller
      */
     public function index()
     {
-        //
+        return view('admin.page.successStory.home');
     }
 
     /**

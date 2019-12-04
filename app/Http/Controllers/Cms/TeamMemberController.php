@@ -15,7 +15,7 @@ class TeamMemberController extends Controller
      */
     public function index()
     {
-        //
+        return view('admin.page.teamMember.home');
     }
 
     /**

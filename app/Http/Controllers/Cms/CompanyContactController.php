@@ -15,7 +15,7 @@ class CompanyContactController extends Controller
      */
     public function index()
     {
-        //
+        return view('admin.page.companyContact.home');
     }
 
     /**
