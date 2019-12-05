@@ -7,6 +7,7 @@
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Growth Center</title>
     <link rel="stylesheet" href="{{asset('lib/bootstrap/css/bootstrap.css')}}">
+    <link rel="stylesheet" href="{{asset('lib/animate/animate.css')}}">
     <link rel="stylesheet" href="{{asset('css/master.css')}}">
     @yield('css')
 </head>

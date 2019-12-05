@@ -14,5 +14,6 @@
 Route::group(['namespace' => "Client"], function() {
     Route::get('/', 'HomeController@home')->name('home');
     Route::get('/contact-us', 'ContactUsController@page')->name('contact-us');
+    Route::get('/about-us', "AboutUsController@page")->name("about-us");
 });
 

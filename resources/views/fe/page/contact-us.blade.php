@@ -6,7 +6,7 @@
             <div class="col-6">
                 <img class="contact-us-image" src="{{asset("static/images/contact-us-phone.png")}}" alt="">
             </div>
-            <div class="col-6 gc-full-height gc-container-justify-center" style="flex-direction: column">
+            <div class="col-6 gc-full-height gc-container-justify-center" id="fade1" style="flex-direction: column">
                 <div class="gc-full-width" style="margin-bottom: 20px">
                     <span class="gc-title gc-georgia gc-text-bold contact-us-text">Contact Us</span>
                 </div>
@@ -36,49 +36,31 @@
             </div>
         </div>
     </div>
-    <div class="subscribe">
-        <div class="row gc-full-height">
-            <div class="col-5 gc-container-justify-center gc-container-center gc-full-height">
-                <div class="gc-helvetica address-container">
-                    <div class="gc-text-light-bold gc-content-2">
-                        <span>Kompas Gramedia</span>
-                    </div>
-                    <div class="gc-content">
-                        <span>Kompas Gramedia, Unit III Lantai 5,</span>
-                        <br>
-                        <span>Jl. Palmerah Selatan 22-28, Jakarta Pusat,</span>
-                        <br>
-                        <span>DKI Jakarta 10270</span>
-                    </div>
-                    <div class="gc-text-light-bold">
-                        <span><a href="http://www.growthcenter.id">www.growthcenter.id</a></span>
-                        <br>
-                        <span><a href="mailto:inquiry@growthcenter.id">inquiry@growthcenter.id</a></span>
-                    </div>
-                </div>
-            </div>
-            <div class="col-7 gc-container-justify-center gc-container-center gc-full-height">
-                <div class="subscribe-container">
-                    <div style="margin-bottom: 20px">
-                        <span class="gc-text-light-bold gc-content">Subscribe to our latest insight</span>
-                    </div>
-                    <div>
-                        <form action="" id="subscribe-form">
-                            <div class="input-group">
-                                <input type="text" class="form-control" placeholder="Insert your e-mail address">
-                                <div class="input-group-append">
-                                    <button class="btn btn-outline-secondary" type="button"><span>&#10230;</span></button>
-                                </div>
-                            </div>
-                        </form>
-
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
+    @include("fe.component.address-footer")
 @endsection
 
 @section('css')
     <link rel="stylesheet" href="{{asset('css/contact-us.css')}}">
+    <link rel="stylesheet" href="{{asset('css/component/address-footer.css')}}">
+@endsection
+
+@section('script')
+    <script>
+        function animate() {
+            if ($("#fade1").is(':visible')){
+                $("#fade1").addClass("animated fadeInLeft");
+            }
+            if ($("#fade2").is(':visible')){
+                $("#fade2").addClass("animated fadeInLeft");
+            }
+            if ($("#fade3").is(':visible')){
+                $("#fade3").addClass("animated fadeInLeft");
+            }
+        }
+
+        $(function() {
+            animate()
+        });
+        $(window).on('scroll', animate);
+    </script>
 @endsection
