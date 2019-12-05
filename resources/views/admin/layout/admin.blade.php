@@ -40,31 +40,31 @@
                     @include('admin.layout.component.sidebar-item', [
                         'name' => 'Team Member',
                         'route' => 'adminTeamMember',
-                        'icon' => 'fa fa-male'
+                        'icon' => 'fa fa-users'
                     ])
                     @include('admin.layout.component.sidebar-item', [
                         'name' => 'Testimony',
                         'route' => 'adminTestimony',
-                        'icon' => 'fa fa-male'
+                        'icon' => 'fa fa-star'
                     ])
                     @include('admin.layout.component.sidebar-item', [
                         'name' => 'Category',
                         'route' => 'adminCategory',
-                        'icon' => 'fa fa-male'
+                        'icon' => 'fa fa-th'
                     ])
                     @include('admin.layout.component.sidebar-item', [
                         'name' => 'Question',
                         'route' => 'adminQuestion',
-                        'icon' => 'fa fa-male'
+                        'icon' => 'fa fa-question-circle'
                     ])
                     @include('admin.layout.component.sidebar-item', [
                         'name' => 'Solution',
                         'route' => 'adminSolution',
-                        'icon' => 'fa fa-male'
+                        'icon' => 'fa fa-check-circle'
                     ])
                     <li class="treeview">
                         <a href="#">
-                            <i class="fa fa-file-code"></i>
+                            <i class="fa fa-folder-open"></i>
                             <span>Blog</span>
                             <span class="pull-right-container">
                                 <i class="fa fa-angle-left pull-right"></i>
@@ -91,11 +91,11 @@
                     @include('admin.layout.component.sidebar-item', [
                         'name' => 'Subscribed User',
                         'route' => 'adminSubscribedUser',
-                        'icon' => 'fa fa-address-book'
+                        'icon' => 'fa fa-inbox'
                     ])
                     <li class="treeview">
                         <a href="#">
-                            <i class="fa fa-file-code"></i>
+                            <i class="fa fa-cogs"></i>
                             <span>Manage App</span>
                             <span class="pull-right-container">
                                 <i class="fa fa-angle-left pull-right"></i>
@@ -178,7 +178,7 @@
                             @include('admin.layout.component.sidebar-item', [
                                 'name' => 'Company Contact',
                                 'route' => 'adminCompanyContact',
-                                'icon' => 'fa fa-address-book'
+                                'icon' => 'fa fa-building'
                             ])
                         </ul>
                     </li>
