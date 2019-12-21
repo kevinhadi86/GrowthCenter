@@ -40,7 +40,7 @@
             </div>
         </div>
     </div>
-    <div class="jumbotron jumbotron-fluid home-3">
+    <div class="jumbotron jumbotron-fluid home-3" style="background-color: transparent">
         <div class="gc-full-bg-image home-3-background parallax"></div>
         <div id="home-3-carousel" class="carousel slide gc-full-height gc-full-width" data-ride="carousel">
             <div class="carousel-inner gc-full-height gc-full-width">

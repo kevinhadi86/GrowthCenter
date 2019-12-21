@@ -1,0 +1,21 @@
+.picture-header {
+    background-size: cover;
+}
+
+.blog-header {
+    background-color: white;
+    width: 80%;
+    padding: 40px 60px;
+}
+
+.blog-information .col-6 {
+    padding: 0;
+}
+
+.author {
+    color: #005288;
+}
+
+.blog-container {
+    padding: 50px 60px;
+}
