@@ -5,7 +5,7 @@
     <meta name="viewport"
           content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
-    <title>Averin Admin</title>
+    <title>Growth Center Admin</title>
     @include('admin.include.css')
     @yield('script-top')
     <link rel="stylesheet" href="{{asset('/lib/admin/adminlte/css/skins/_all-skins.css')}}">
@@ -34,32 +34,32 @@
                 <ul class="sidebar-menu" data-widget="tree">
                     @include('admin.layout.component.sidebar-item', [
                         'name' => 'Home',
-                        'route' => 'adminHome',
+                        'route' => 'admin-home',
                         'icon' => 'fa fa-home'
                     ])
                     @include('admin.layout.component.sidebar-item', [
                         'name' => 'Team Member',
-                        'route' => 'adminTeamMember',
+                        'route' => 'admin-team-member',
                         'icon' => 'fa fa-users'
                     ])
                     @include('admin.layout.component.sidebar-item', [
                         'name' => 'Testimony',
-                        'route' => 'adminTestimony',
+                        'route' => 'admin-testimony',
                         'icon' => 'fa fa-star'
                     ])
                     @include('admin.layout.component.sidebar-item', [
                         'name' => 'Category',
-                        'route' => 'adminCategory',
+                        'route' => 'admin-category',
                         'icon' => 'fa fa-th'
                     ])
                     @include('admin.layout.component.sidebar-item', [
                         'name' => 'Question',
-                        'route' => 'adminQuestion',
+                        'route' => 'admin-question',
                         'icon' => 'fa fa-question-circle'
                     ])
                     @include('admin.layout.component.sidebar-item', [
                         'name' => 'Solution',
-                        'route' => 'adminSolution',
+                        'route' => 'admin-solution',
                         'icon' => 'fa fa-check-circle'
                     ])
                     <li class="treeview">
@@ -73,24 +73,24 @@
                         <ul class="treeview-menu">
                             @include('admin.layout.component.sidebar-item', [
                                 'name' => 'Success Story',
-                                'route' => 'adminSuccessStory',
+                                'route' => 'admin-success-story',
                                 'icon' => 'fa fa-list'
                             ])
                             @include('admin.layout.component.sidebar-item', [
                                 'name' => 'Article',
-                                'route' => 'adminArticle',
+                                'route' => 'admin-article',
                                 'icon' => 'fa fa-list'
                             ])
                         </ul>
                     </li>
                     @include('admin.layout.component.sidebar-item', [
                         'name' => 'Contact Us Result',
-                        'route' => 'adminContactUsResult',
+                        'route' => 'admin-contact-us-result',
                         'icon' => 'fa fa-address-book'
                     ])
                     @include('admin.layout.component.sidebar-item', [
                         'name' => 'Subscribed User',
-                        'route' => 'adminSubscribedUser',
+                        'route' => 'admin-subscribed-user',
                         'icon' => 'fa fa-inbox'
                     ])
                     <li class="treeview">
@@ -102,37 +102,11 @@
                             </span>
                         </a>
                         <ul class="treeview-menu">
-                            <li class="treeview">
-                                <a href="#">
-                                    <i class="fa fa-file-code"></i>
-                                    <span>Home Page</span>
-                                    <span class="pull-right-container">
-                                        <i class="fa fa-angle-left pull-right"></i>
-                                    </span>
-                                </a>
-                                <ul class="treeview-menu">
-                                    @include('admin.layout.component.sidebar-item', [
-                                        'name' => '3 Featured Question',
-                                        'route' => 'adminHomeFeaturedQuestion',
-                                        'icon' => 'fa fa-list'
-                                    ])
-                                    @include('admin.layout.component.sidebar-item', [
-                                        'name' => '5 Picked Testimony',
-                                        'route' => 'adminHomePickedTestimony',
-                                        'icon' => 'fa fa-list'
-                                    ])
-                                    @include('admin.layout.component.sidebar-item', [
-                                        'name' => 'Featured Article',
-                                        'route' => 'adminHomeFeaturedArticle',
-                                        'icon' => 'fa fa-list'
-                                    ])
-                                    @include('admin.layout.component.sidebar-item', [
-                                        'name' => 'Manage Diagram',
-                                        'route' => 'adminHomeManageDiagram',
-                                        'icon' => 'fa fa-list'
-                                    ])
-                                </ul>
-                            </li>
+                            @include('admin.layout.component.sidebar-item', [
+                                'name' => 'Manage Home',
+                                'route' => 'admin-manage-home',
+                                'icon' => 'fa fa-file-code'
+                            ])
                             <li class="treeview">
                                 <a href="#">
                                     <i class="fa fa-file-code"></i>
@@ -144,7 +118,7 @@
                                 <ul class="treeview-menu">
                                     @include('admin.layout.component.sidebar-item', [
                                         'name' => '5 Featured Question',
-                                        'route' => 'adminSolutionFeaturedQuestion',
+                                        'route' => 'admin-solution-featured-question',
                                         'icon' => 'fa fa-list'
                                     ])
                                 </ul>
@@ -160,24 +134,24 @@
                                 <ul class="treeview-menu">
                                     @include('admin.layout.component.sidebar-item', [
                                         'name' => 'Manage Main Section',
-                                        'route' => 'adminAboutManageMainSection',
+                                        'route' => 'admin-about-manage-main-section',
                                         'icon' => 'fa fa-list'
                                     ])
                                     @include('admin.layout.component.sidebar-item', [
                                         'name' => 'Manage Our Belief',
-                                        'route' => 'adminAboutManageOurBelief',
+                                        'route' => 'admin-about-manage-our-belief',
                                         'icon' => 'fa fa-list'
                                     ])
                                     @include('admin.layout.component.sidebar-item', [
                                         'name' => 'Manage We Believe',
-                                        'route' => 'adminAboutManageWeBelieve',
+                                        'route' => 'admin-about-manage-we-believe',
                                         'icon' => 'fa fa-list'
                                     ])
                                 </ul>
                             </li>
                             @include('admin.layout.component.sidebar-item', [
                                 'name' => 'Company Contact',
-                                'route' => 'adminCompanyContact',
+                                'route' => 'admin-company-contact',
                                 'icon' => 'fa fa-building'
                             ])
                         </ul>

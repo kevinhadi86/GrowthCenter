@@ -17,7 +17,7 @@ class CreateSuccessStoriesTable extends Migration
             $table->bigIncrements('id');
             $table->unsignedBigInteger('question_id');
             $table->string('title');
-            $table->string('content');
+            $table->text('content');
             $table->string('image');
             $table->string('author');
             $table->timestamps();

@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Cms;
 use App\Category;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
 
 class CategoryController extends Controller
 {
@@ -15,7 +16,8 @@ class CategoryController extends Controller
      */
     public function index()
     {
-        return view('admin.page.category.home');
+        $categories = Category::all(); 
+        return view('admin.page.category.home', compact('categories'));
     }
 
     /**
@@ -36,7 +38,17 @@ class CategoryController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validate = Validator::make($request->all(),
+            [
+                'name'=>'required|min:1'
+            ]);
+        if ($validate->fails()) {
+            return back()->withErrors($validate);
+        }
+        $category = new Category;
+        $category->name = $request->name;
+        $category->save();
+        return redirect()->route('admin-category');
     }
 
     /**
@@ -68,9 +80,19 @@ class CategoryController extends Controller
      * @param  \App\Category  $category
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Category $category)
+    public function update(Request $request, Category $category, $id)
     {
-        //
+        $validate = Validator::make($request->all(),
+            [
+                'name'=>'required|min:3|max:20'
+            ]);
+        if ($validate->fails()) {
+            return back()->withErrors($validate);
+        }
+        $category = Category::find($id);
+        $category->name = $request->name;
+        $category->save();
+        return redirect()->route('admin-category');
     }
 
     /**
@@ -79,8 +101,9 @@ class CategoryController extends Controller
      * @param  \App\Category  $category
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Category $category)
+    public function destroy(Category $category, $id)
     {
-        //
+        $category = Category::find($id)->delete();
+        return redirect()->route('admin-category');
     }
 }

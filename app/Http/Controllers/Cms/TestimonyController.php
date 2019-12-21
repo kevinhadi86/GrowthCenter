@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Cms;
 use App\testimony;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
 
 class TestimonyController extends Controller
 {
@@ -37,7 +38,26 @@ class TestimonyController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validate = Validator::make($request->all(),
+            [
+                'company'=>'required|min:1',
+                'name'=>'required|min:1',
+                'image'=>'required',
+                'position'=>'required|min:1',
+                'quote'=>'required|min:1'
+            ]);
+        if ($validate->fails()) {
+            return back()->withErrors($validate);
+        }
+        $testimony = new Testimony;
+        $testimony->company = $request->company;
+        $testimony->name = $request->name;
+        $testimony->position = $request->position;
+        $testimony->quote = $request->quote;
+        $testimony->image =$request->file('image')->getClientOriginalName();
+        $request->file('image')->move(public_path().'/img',$testimony['image']);
+        $testimony->save();
+        return redirect()->route('admin-testimony');
     }
 
     /**
@@ -69,9 +89,29 @@ class TestimonyController extends Controller
      * @param  \App\testimony  $testimony
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, testimony $testimony)
+    public function update(Request $request, testimony $testimony, $id)
     {
-        //
+        $validate = Validator::make($request->all(),
+            [
+                'company'=>'required|min:1',
+                'name'=>'required|min:1',
+                'position'=>'required|min:1',
+                'quote'=>'required|min:1'
+            ]);
+        if ($validate->fails()) {
+            return back()->withErrors($validate);
+        }
+        $testimony = Testimony::find($id);
+        $testimony->company = $request->company;
+        $testimony->name = $request->name;
+        $testimony->position = $request->position;
+        $testimony->quote = $request->quote;
+        if($request->file('image') != null){
+            $testimony->image =$request->file('image')->getClientOriginalName();
+            $request->file('image')->move(public_path().'/img',$testimony['image']);
+        }
+        $testimony->save();
+        return redirect()->route('admin-testimony');
     }
 
     /**
@@ -80,8 +120,9 @@ class TestimonyController extends Controller
      * @param  \App\testimony  $testimony
      * @return \Illuminate\Http\Response
      */
-    public function destroy(testimony $testimony)
+    public function destroy(testimony $testimony,$id)
     {
-        //
+        $testimony = Testimony::find($id)->delete();
+        return redirect()->route('admin-testimony');
     }
 }

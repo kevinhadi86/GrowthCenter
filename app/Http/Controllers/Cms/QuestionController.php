@@ -3,8 +3,10 @@
 namespace App\Http\Controllers\Cms;
 
 use App\Question;
+use App\Category;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
 
 class QuestionController extends Controller
 {
@@ -15,7 +17,9 @@ class QuestionController extends Controller
      */
     public function index()
     {
-        return view('admin.page.question.home');
+        $questions = Question::all();
+        $categories = Category::all();
+        return view('admin.page.question.home', compact('questions','categories'));
     }
 
     /**
@@ -36,7 +40,21 @@ class QuestionController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validate = Validator::make($request->all(),
+            [
+                'question'=>'required|min:1',
+                'category'=>'required',
+                'description'=>'required|min:1'
+            ]);
+        if ($validate->fails()) {
+            return back()->withErrors($validate);
+        }
+        $question = new Question;
+        $question->question = $request->question;
+        $question->category_id = $request->category;
+        $question->description = $request->description;
+        $question->save();
+        return redirect()->route('admin-question');
     }
 
     /**
@@ -68,9 +86,23 @@ class QuestionController extends Controller
      * @param  \App\Question  $question
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Question $question)
+    public function update(Request $request, Question $question, $id)
     {
-        //
+        $validate = Validator::make($request->all(),
+            [
+                'question'=>'required|min:1',
+                'category'=>'required',
+                'description'=>'required|min:1'
+            ]);
+        if ($validate->fails()) {
+            return back()->withErrors($validate);
+        }
+        $question = Question::find($id);
+        $question->question = $request->question;
+        $question->category_id = $request->category;
+        $question->description = $request->description;
+        $question->save();
+        return redirect()->route('admin-question');
     }
 
     /**
@@ -79,8 +111,9 @@ class QuestionController extends Controller
      * @param  \App\Question  $question
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Question $question)
+    public function destroy(Question $question, $id)
     {
-        //
+        $question = Question::find($id)->delete();
+        return redirect()->route('admin-question');
     }
 }

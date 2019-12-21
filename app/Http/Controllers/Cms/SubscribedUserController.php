@@ -15,7 +15,13 @@ class SubscribedUserController extends Controller
      */
     public function index()
     {
-        return view('admin.page.subscribedUser.home');
+        $users = SubscribedUser::all();
+        return view('admin.page.subscribedUser.home',compact('users'));
+    }
+
+    public function export()
+    {
+        return redirect()->route('admin-subscribed-user');
     }
 
     /**

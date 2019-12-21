@@ -3,6 +3,10 @@
 namespace App\Http\Controllers\Cms;
 
 use App\Configuration;
+use App\Question;
+use App\Testimony;
+use App\Category;
+use App\Article;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
@@ -15,30 +19,75 @@ class ConfigurationController extends Controller
     }
 
     // HOME PAGE
-    public function featuredArticle()
+    public function manageHome()
     {
-        return view('admin.page.app.home.featuredArticle');
+        $configs = Configuration::where('key','like','home%')->get();
+        $homeConfigs=array('homeQuestion'=>array(),'homeTestimony'=>array(),'homeArticle'=>array(),'homeDiagram'=>array(),);
+        foreach($configs as $config){
+            $homeConfigs[$config->key]=unserialize($config->value);
+        }
+        $questions = Question::all();
+        $testimonies = Testimony::all();
+        $categories = Category::all();
+        $articles = Article::all();
+        // dd($homeConfigs);
+        return view('admin.page.app.home.manage', compact('questions','testimonies','categories','articles','homeConfigs'));
     }
 
-    public function homeFeaturedQuestion()
+    public function insertHomeFeaturedQuestion(Request $request)
     {
-        return view('admin.page.app.home.featuredQuestion');
+        $homeQuestionConfig = Configuration::where('key','homeQuestion')->first();
+        if($homeTestimonyConfig==null){
+            $homeTestimonyConfig = new Configuration;
+            $homeTestimonyConfig->key = 'homeTestimony';
+        }
+        $homeQuestionConfig->value = serialize($request->questionList);
+        $homeQuestionConfig->save();
+        return redirect()->route('admin-manage-home');
     }
 
-    public function manageDiagram()
+    public function insertHomeFeaturedTestimony(Request $request)
     {
-        return view('admin.page.app.home.manageDiagram');
+        $homeTestimonyConfig = Configuration::where('key','homeTestimony')->first();
+        if($homeTestimonyConfig==null){
+            $homeTestimonyConfig = new Configuration;
+            $homeTestimonyConfig->key = 'homeTestimony';
+        }
+        $homeTestimonyConfig->value = serialize($request->testimonyList);
+        $homeTestimonyConfig->save();
+        return redirect()->route('admin-manage-home');
     }
 
-    public function pickedTestimony()
+    public function insertHomeFeaturedArticleEachCategory(Request $request)
     {
-        return view('admin.page.app.home.pickedTestimony');
+        $homeArticleConfig = Configuration::where('key','homeArticle')->first();
+        $homeArticleConfig->value[$request->article->category->name] = serialize($request->article->id);
+        $homeArticleConfig->save();
+        return redirect()->route('admin-manage-home');
     }
 
     //OUR SOLUTION PAGE
-    public function ourSolutionFeaturedQuestion()
+    public function manageSolution()
     {
-        return view('admin.page.app.ourSolution.featuredQuestion');
+        $configs = Configuration::where('key','like','solution%')->get();
+        $solutionConfig[]=array();
+        if($configs == null){
+            $solutionConfig = new Configuration;
+            $solutionConfig['solutionQuestion']='';
+            $solutionConfig->save();
+        }else{
+            $solutionConfig['solutionQuestion']=unserialize($config->value);
+        }
+        $questions = Question::all();
+        return view('admin.page.app.ourSolution.featuredQuestion',compact('questions','solutionConfig'));
+    }
+
+    public function insertSolutionFeaturedQuestion(Request $request)
+    {
+        $solutionQuestionConfig = Configuration::where('key','solutionQuestion')->first();
+        $solutionQuestionConfig->value = serialize($request->questionList);
+        $solutionQuestionConfig->save();
+        return redirect()->route('admin-manage-solution');
     }
 
     // ABOUT US PAGE

@@ -15,7 +15,8 @@ class ContactUsController extends Controller
      */
     public function index()
     {
-        return view('admin.page.contactUs.home');
+        $messages = ContactUs::all();
+        return view('admin.page.contactUs.home',compact('messages'));
     }
 
     /**

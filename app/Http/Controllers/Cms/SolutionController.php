@@ -3,8 +3,10 @@
 namespace App\Http\Controllers\Cms;
 
 use App\Solution;
+use App\Question;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
 
 class SolutionController extends Controller
 {
@@ -15,7 +17,9 @@ class SolutionController extends Controller
      */
     public function index()
     {
-        return view('admin.page.solution.home');
+        $solutions = Solution::all();
+        $questions = Question::all();
+        return view('admin.page.solution.home', compact('solutions','questions'));
     }
 
     /**
@@ -36,7 +40,22 @@ class SolutionController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validate = Validator::make($request->all(),
+            [
+                'solution'=>'required|min:1',
+                'question'=>'required',
+                'image'=>'required'
+            ]);
+        if ($validate->fails()) {
+            return back()->withErrors($validate);
+        }
+        $solution = new Solution;
+        $solution->solution = $request->solution;
+        $solution->question_id = $request->question;
+        $solution->image =$request->file('image')->getClientOriginalName();
+        $request->file('image')->move(public_path().'/img',$solution['image']);
+        $solution->save();
+        return redirect()->route('admin-solution');
     }
 
     /**
@@ -68,9 +87,24 @@ class SolutionController extends Controller
      * @param  \App\Solution  $solution
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Solution $solution)
+    public function update(Request $request, Solution $solution,$id)
     {
-        //
+        $validate = Validator::make($request->all(),
+            [
+                'solution'=>'required|min:1',
+                'question'=>'required',
+                'image'=>'required'
+            ]);
+        if ($validate->fails()) {
+            return back()->withErrors($validate);
+        }
+        $solution = Solution::find($id);
+        $solution->solution = $request->solution;
+        $solution->question_id = $request->question;
+        $solution->image =$request->file('image')->getClientOriginalName();
+        $request->file('image')->move(public_path().'/img',$solution['image']);
+        $solution->save();
+        return redirect()->route('admin-solution');
     }
 
     /**
@@ -79,8 +113,9 @@ class SolutionController extends Controller
      * @param  \App\Solution  $solution
      * @return \Illuminate\Http\Response
      */
-    public function destroy(Solution $solution)
+    public function destroy(Solution $solution,$id)
     {
-        //
+        $solution = Solution::find($id)->delete();
+        return redirect()->route('admin-solution');
     }
 }
