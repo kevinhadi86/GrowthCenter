@@ -7,6 +7,7 @@ use App\Question;
 use App\Testimony;
 use App\Category;
 use App\Article;
+use App\Diagram;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 
@@ -30,8 +31,38 @@ class ConfigurationController extends Controller
         $testimonies = Testimony::all();
         $categories = Category::all();
         $articles = Article::all();
-        // dd($homeConfigs);
-        return view('admin.page.app.home.manage', compact('questions','testimonies','categories','articles','homeConfigs'));
+        $diagrams = Diagram::all();
+        return view('admin.page.app.home.manage', compact('questions','testimonies','categories','articles','diagrams','homeConfigs'));
+    }
+
+    public function selectArticlePage($id){
+
+        $category = Category::find($id);
+        if ($category == null) {
+            return back()->withErrors("Category not found");
+        }
+
+        $articles = Article::where('category_id',$id)->get();
+        if ($articles == null) {
+            return back()->withErrors("No article available for this category");
+        }
+        
+        $categoryConfig = Configuration::where('key','like','article'.$id)->first();
+        if ($categoryConfig == null) {
+            $categoryConfig = new Configuration;
+            $categoryConfig->key = 'article'.$id;
+            $categoryConfig->value = '';
+        }
+        return view('admin.page.app.home.article',compact('categoryConfig','articles','category'));
+    }
+
+    public function selectCategory(Request $request){
+        
+        $articles = Article::where('category_id',$request->selectedCategory)->first();
+        if ($articles == null) {
+            return back()->withErrors("No article available for this category");
+        }
+        return redirect()->route('admin-manage-home-select-article', ['id' => $request->selectedCategory]);
     }
 
     public function insertHomeFeaturedQuestion(Request $request)
@@ -60,8 +91,15 @@ class ConfigurationController extends Controller
 
     public function insertHomeFeaturedArticleEachCategory(Request $request)
     {
-        $homeArticleConfig = Configuration::where('key','homeArticle')->first();
-        $homeArticleConfig->value[$request->article->category->name] = serialize($request->article->id);
+        $article = Article::find($request->selectedArticle);
+
+        $homeArticleConfig = Configuration::where('key','article'.$article->category->id)->first();
+        if($homeArticleConfig==null){
+            
+            $homeArticleConfig = new Configuration;
+            $homeArticleConfig->key = 'article'.$article->category->id;
+        }
+        $homeArticleConfig->value = $article->id;
         $homeArticleConfig->save();
         return redirect()->route('admin-manage-home');
     }
@@ -70,45 +108,68 @@ class ConfigurationController extends Controller
     public function manageSolution()
     {
         $configs = Configuration::where('key','like','solution%')->get();
-        $solutionConfig[]=array();
-        if($configs == null){
-            $solutionConfig = new Configuration;
-            $solutionConfig['solutionQuestion']='';
-            $solutionConfig->save();
-        }else{
-            $solutionConfig['solutionQuestion']=unserialize($config->value);
+        $solutionConfigs=array('solutionQuestion'=>array());
+        foreach($configs as $config){
+            $solutionConfigs[$config->key]=unserialize($config->value);
         }
         $questions = Question::all();
-        return view('admin.page.app.ourSolution.featuredQuestion',compact('questions','solutionConfig'));
+        return view('admin.page.app.ourSolution.manage',compact('questions','solutionConfigs'));
     }
 
     public function insertSolutionFeaturedQuestion(Request $request)
     {
         $solutionQuestionConfig = Configuration::where('key','solutionQuestion')->first();
+        if($solutionQuestionConfig==null){
+            $solutionQuestionConfig = new Configuration;
+            $solutionQuestionConfig->key = 'solutionQuestion';
+        }
         $solutionQuestionConfig->value = serialize($request->questionList);
         $solutionQuestionConfig->save();
         return redirect()->route('admin-manage-solution');
     }
 
     // ABOUT US PAGE
-    public function mainSection()
+    public function manageAbout()
     {
-        return view('admin.page.app.aboutUs.mainSection');
+        $configs = Configuration::where('key','like','about%')->get();
+        $aboutConfigs=array('aboutMain'=>'','aboutOur'=>'','aboutWe'=>'');
+        foreach($configs as $config){
+            $aboutConfigs[$config->key]=$config->value;
+        }
+        return view('admin.page.app.aboutUs.manage',compact('aboutConfigs'));
     }
 
-    public function ourBelief()
+    public function insertAboutMainSection(Request $request)
     {
-        return view('admin.page.app.aboutUs.ourBelief');
+        $aboutMainConfig = Configuration::where('key','aboutMain')->first();
+        if($aboutMainConfig==null){
+            $aboutMainConfig = new Configuration;
+            $aboutMainConfig->key = 'aboutMain';
+        }
+        $aboutMainConfig->value = $request->mainSectionText;
+        $aboutMainConfig->save();
+        return redirect()->route('admin-manage-about');
     }
-
-    public function weBelieve()
+    public function insertAboutOurBelief(Request $request)
     {
-        return view('admin.page.app.aboutUs.weBelieve');
+        $aboutMainConfig = Configuration::where('key','aboutOur')->first();
+        if($aboutMainConfig==null){
+            $aboutMainConfig = new Configuration;
+            $aboutMainConfig->key = 'aboutOur';
+        }
+        $aboutMainConfig->value = $request->ourBeliefText;
+        $aboutMainConfig->save();
+        return redirect()->route('admin-manage-about');
     }
-
-    //COMPANY CONTACT
-    public function companyContact()
+    public function insertAboutWeBelieve(Request $request)
     {
-        return view('admin.page.app.companyContact');
+        $aboutMainConfig = Configuration::where('key','aboutWe')->first();
+        if($aboutMainConfig==null){
+            $aboutMainConfig = new Configuration;
+            $aboutMainConfig->key = 'aboutWe';
+        }
+        $aboutMainConfig->value = $request->weBelieveText;
+        $aboutMainConfig->save();
+        return redirect()->route('admin-manage-about');
     }
 }

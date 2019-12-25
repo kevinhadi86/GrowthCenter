@@ -7,7 +7,7 @@
 @section('content')
     <div class="box box-primary">
         <div class="box-header with-border">
-            <h3 class="box-title">Featured Question Section</h3>
+            <h3 class="box-title">3 Featured Question Section</h3>
         </div>
         <div class="box-body">
             <form role="form" method="post" enctype="multipart/form-data" action="{{route('admin-insert-home-featured-question')}}">
@@ -47,7 +47,7 @@
 
     <div class="box box-primary">
         <div class="box-header with-border">
-            <h3 class="box-title">Featured Testimony Section</h3>
+            <h3 class="box-title">5 Featured Testimony Section</h3>
         </div>
         <div class="box-body">
             <form role="form" method="post" enctype="multipart/form-data" action="{{route('admin-insert-home-featured-testimony')}}">
@@ -89,85 +89,39 @@
         </div>
     </div>
 
-    <!-- <div class="box box-primary">
+    <div class="box box-primary">
         <div class="box-header with-border">
-            <h3 class="box-title">Featured Article for Each Category Section</h3>
+            <h3 class="box-title">Featured Article for each Category Section</h3>
         </div>
-        <select id="category-select">
-            @foreach($categories as $category)
-                @if($loop->first)
-                    @php
-                        $firstCategory = $category->name
-                    @endphp    
-                @endif
-            <option value="{{$category->name}}">{{$category->name}}</option>
-            @endforeach
-        </select>
-        <div class="box-body" id="category-box">
-            <form role="form" method="post" enctype="multipart/form-data" action="{{route('admin-insert-home-featured-article')}}">
+        <div class="box-body">
+            <form role="form" method="post" enctype="multipart/form-data" action="{{route('admin-select-category-home')}}">
                 {{csrf_field()}}
                 <div class="box-body">
                     <div class="form-group">
-                        <table class="table table-bordered table-striped" id="article-table">
-                            <thead>
-                            <tr>
-                                <th></th>
-                                <th>Title</th>
-                                <th>Category</th>
-                                <th>Author</th>
-                                <th>Content</th>
-                                <th>Image</th>
-                            </tr>
-                            </thead>
-                            <tbody>
-                            @foreach($articles as $article)
-                                @if($article->category->name == $firstCategory)
-                                    <tr id="article-id-{{$article[0]->id}}">
-                                        <td><input type="radio" name="articleList[]" value="{{$article[0]->id}}" checked/></td>
-                                        <td>{{$article[0]->title}}</td>
-                                        <td>{{$article[0]->category->name}}</td>
-                                        <td>{{$article[0]->author}}</td>
-                                        <td class="article-content" data-id="{{$article[0]->content}}"><a data-id="{{$article[0]->id}}" class="btn btn-success preview-content" data-toggle="modal" data-target="#preview-content-modal" >Preview</a></td>
-                                        <td><img src="{{asset('/img/'.$article[0]->image)}}" style="width: 100px;"></td>
-                                    </tr>
-                                    @if(in_array($article->id,$homeConfigs['homeArticle'])==0)
-                                    <tr id="article-id-{{$article->id}}">
-                                        <td><input type="radio" name="articleList[]" value="{{$article->id}}" /></td>
-                                        <td>{{$article->title}}</td>
-                                        <td>{{$article->category->name}}</td>
-                                        <td>{{$article->author}}</td>
-                                        <td class="article-content" data-id="{{$article->content}}"><a data-id="{{$article->id}}" class="btn btn-success preview-content" data-toggle="modal" data-target="#preview-content-modal" >Preview</a></td>
-                                        <td><img src="{{asset('/img/'.$article->image)}}" style="width: 100px;"></td>
-                                    </tr>
-                                    @endif
-                                @endif
+                        <select class="form-control" name="selectedCategory" id="selectedCategory">
+                            @foreach($categories as $category)
+                                <option value="{{$category->id}}" name="selectedCategory">{{$category->name}}</option>
                             @endforeach
-                            </tbody>
-                        </table>
+                        </select>
                     </div>
                     <button class="btn btn-primary">Submit</button>
                 </div>
             </form>
         </div>
-    </div> -->
+    </div>
 
-
-    <!-- <div class="modal fade" id="preview-content-modal">
-        <div class="modal-dialog">
-            
-                <div class="modal-content">
-                    <div class="modal-header">
-                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
-                            <span aria-hidden="true">&times;</span>
-                        </button>
-                        <h4 class="modal-title">Preview Content for Article</h4>
-                    </div>
-                    <div class="modal-body">
-                        
-                    </div>
-                </div>
+    <div class="box box-primary">
+        <div class="box-header with-border">
+            <h3 class="box-title">Diagram Section</h3>
         </div>
-    </div> -->
+        <div class="box-body">
+            <a href="{{route('admin-update-diagram',['id' => 'UnderstandProblem'])}}"><button class="btn btn-success">Understanding The Problem</button></a>
+            <a href="{{route('admin-update-diagram',['id' => 'DefineProblem'])}}"><button class="btn btn-success">Define The Problem</button></a>
+            <a href="{{route('admin-update-diagram',['id' => 'Solution'])}}"><button class="btn btn-success">Propose Tailor Made Solution</button></a>
+            <a href="{{route('admin-update-diagram',['id' => 'Implementation'])}}"><button class="btn btn-success">Implementation & Agile Iteration</button></a>
+            <a href="{{route('admin-update-diagram',['id' => 'Feedback'])}}"><button class="btn btn-success">Feedback & Review</button></a>
+        </div>
+    </div>
 @endsection
 
 @section('add-style')
@@ -189,19 +143,7 @@
                 'searching'   : true,
                 "order": [[ 0, "desc" ]]
             });
-            // $('#article-table').DataTable({
-            //     'paging'      : true,
-            //     'searching'   : true,
-            //     "order": [[ 0, "desc" ]]
-            // });
-            // $('.preview-content').click(function() {
-            //     $modal = $('#preview-content-modal');
-            //     var id = $(this).data('id');
-            //     $row = $('#article-id-' + id);
-            //     $modal.find("div[class=modal-body]").html($row.find(".article-content").data('id'));
-            //     console.log(id)
-            //     $modal.find('form').attr('action', link);
-            // });
+            
         })
         
     </script>

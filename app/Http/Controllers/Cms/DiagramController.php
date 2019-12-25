@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Cms;
 use App\Diagram;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
 
 class DiagramController extends Controller
 {
@@ -15,7 +16,7 @@ class DiagramController extends Controller
      */
     public function index()
     {
-        return view('admin.page.diagram.home');
+        //
     }
 
     /**
@@ -56,9 +57,19 @@ class DiagramController extends Controller
      * @param  \App\Diagram  $diagram
      * @return \Illuminate\Http\Response
      */
-    public function edit(Diagram $diagram)
+    public function edit(Diagram $diagram,$id)
     {
-        //
+        $diagram = Diagram::where('text_image',$id)->first();
+
+        if($diagram==null){
+            $diagram = new Diagram;
+            $diagram->text_image = $id;
+            $diagram->title='';
+            $diagram->description='';
+            $diagram->save();
+        }
+
+        return view('admin.page.app.home.diagram',compact('diagram'));
     }
 
     /**
@@ -68,9 +79,27 @@ class DiagramController extends Controller
      * @param  \App\Diagram  $diagram
      * @return \Illuminate\Http\Response
      */
-    public function update(Request $request, Diagram $diagram)
+    public function update(Request $request, Diagram $diagram,$id)
     {
-        //
+        $validate = Validator::make($request->all(),
+            [
+                'title'=>'required|min:1',
+                'description'=>'required|min:1'
+            ]);
+        if ($validate->fails()) {
+            return back()->withErrors($validate);
+        }
+        $diagram = Diagram::where('text_image',$id)->first();
+        if($diagram==null){
+            $diagram = new Diagram;
+            $diagram->text_image = $id;
+        }
+        $diagram->title=$request->title;
+        $diagram->description=$request->description;
+        $diagram->save();
+        // dd($diagram->title);
+
+        return redirect()->route('admin-manage-home');
     }
 
     /**
