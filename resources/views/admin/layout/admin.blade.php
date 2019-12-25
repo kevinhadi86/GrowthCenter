@@ -107,48 +107,16 @@
                                 'route' => 'admin-manage-home',
                                 'icon' => 'fa fa-file-code'
                             ])
-                            <li class="treeview">
-                                <a href="#">
-                                    <i class="fa fa-file-code"></i>
-                                    <span>Our Solution Page</span>
-                                    <span class="pull-right-container">
-                                        <i class="fa fa-angle-left pull-right"></i>
-                                    </span>
-                                </a>
-                                <ul class="treeview-menu">
-                                    @include('admin.layout.component.sidebar-item', [
-                                        'name' => '5 Featured Question',
-                                        'route' => 'admin-solution-featured-question',
-                                        'icon' => 'fa fa-list'
-                                    ])
-                                </ul>
-                            </li>
-                            <li class="treeview">
-                                <a href="#">
-                                    <i class="fa fa-file-code"></i>
-                                    <span>About Us Page</span>
-                                    <span class="pull-right-container">
-                                        <i class="fa fa-angle-left pull-right"></i>
-                                    </span>
-                                </a>
-                                <ul class="treeview-menu">
-                                    @include('admin.layout.component.sidebar-item', [
-                                        'name' => 'Manage Main Section',
-                                        'route' => 'admin-about-manage-main-section',
-                                        'icon' => 'fa fa-list'
-                                    ])
-                                    @include('admin.layout.component.sidebar-item', [
-                                        'name' => 'Manage Our Belief',
-                                        'route' => 'admin-about-manage-our-belief',
-                                        'icon' => 'fa fa-list'
-                                    ])
-                                    @include('admin.layout.component.sidebar-item', [
-                                        'name' => 'Manage We Believe',
-                                        'route' => 'admin-about-manage-we-believe',
-                                        'icon' => 'fa fa-list'
-                                    ])
-                                </ul>
-                            </li>
+                            @include('admin.layout.component.sidebar-item', [
+                                'name' => 'Manage Our Solution',
+                                'route' => 'admin-manage-solution',
+                                'icon' => 'fa fa-file-code'
+                            ])
+                            @include('admin.layout.component.sidebar-item', [
+                                'name' => 'Manage About Us',
+                                'route' => 'admin-manage-about',
+                                'icon' => 'fa fa-file-code'
+                            ])
                             @include('admin.layout.component.sidebar-item', [
                                 'name' => 'Company Contact',
                                 'route' => 'admin-company-contact',

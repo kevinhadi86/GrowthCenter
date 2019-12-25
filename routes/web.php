@@ -80,23 +80,27 @@ Route::group(['prefix'=>'admin/growth'], function(){
 
     #manageHomePage
     Route::get('/manageHome', 'Cms\ConfigurationController@manageHome')->name('admin-manage-home');
+    Route::post('/manageHome', 'Cms\ConfigurationController@selectCategory')->name('admin-select-category-home');
+    Route::get('/selectArticle/{id}', 'Cms\ConfigurationController@selectArticlePage')->name('admin-manage-home-select-article');
     Route::post('/homeFeaturedQuestion', 'Cms\ConfigurationController@insertHomeFeaturedQuestion')->name('admin-insert-home-featured-question');
     Route::post('/homeFeaturedTestimony', 'Cms\ConfigurationController@insertHomeFeaturedTestimony')->name('admin-insert-home-featured-testimony');
     Route::post('/homeFeaturedArticle', 'Cms\ConfigurationController@insertHomeFeaturedArticleEachCategory')->name('admin-insert-home-featured-article');
+    Route::get('/updateDiagram/{id}', 'Cms\DiagramController@edit')->name('admin-update-diagram');
+    Route::post('/updateDiagram/{id}', 'Cms\DiagramController@update')->name('admin-update-diagram');
 
     #manageOurSolutionPage
     Route::get('/manageSolution', 'Cms\ConfigurationController@manageSolution')->name('admin-manage-solution');
+    Route::post('/solutionFeaturedQuestion', 'Cms\ConfigurationController@insertSolutionFeaturedQuestion')->name('admin-insert-solution-featured-question');
 
-    #AboutManageMainSection
-    Route::get('/aboutManageMainSection', 'Cms\ConfigurationController@mainSection')->name('admin-about-manage-main-section');
-
-    #AboutManageOurBelief
-    Route::get('/aboutManageOurBelief', 'Cms\ConfigurationController@ourBelief')->name('admin-about-manage-our-belief');
-
-    #AboutManageWeBelieve
-    Route::get('/aboutManageWeBelieve', 'Cms\ConfigurationController@weBelieve')->name('admin-about-manage-we-believe');
+    #manageAboutPage
+    Route::get('/manageAbout', 'Cms\ConfigurationController@manageAbout')->name('admin-manage-about');
+    Route::post('/aboutMainSection', 'Cms\ConfigurationController@insertAboutMainSection')->name('admin-insert-about-main-section');
+    Route::post('/aboutOurBelief', 'Cms\ConfigurationController@insertAboutOurBelief')->name('admin-insert-about-our-belief');
+    Route::post('/aboutWeBelieve', 'Cms\ConfigurationController@insertAboutWeBelieve')->name('admin-insert-about-we-believe');
 
     #CompanyContact
-    Route::get('/companyContact', 'Cms\ConfigurationController@companyContact')->name('admin-company-contact');
+    Route::get('/companyContact', 'Cms\CompanyContactController@index')->name('admin-company-contact');
+    Route::post('/companyContact', 'Cms\CompanyContactController@store')->name('admin-insert-company-contact');
+
 
 });

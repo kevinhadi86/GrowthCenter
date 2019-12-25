@@ -5,6 +5,7 @@ namespace App\Http\Controllers\Cms;
 use App\CompanyContact;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Illuminate\Support\Facades\Validator;
 
 class CompanyContactController extends Controller
 {
@@ -15,7 +16,11 @@ class CompanyContactController extends Controller
      */
     public function index()
     {
-        return view('admin.page.companyContact.home');
+        $contact = CompanyContact::find(1);
+        if($contact==null){
+            $contact = new CompanyContact;
+        }
+        return view('admin.page.app.companyContact',compact('contact'));
     }
 
     /**
@@ -36,7 +41,26 @@ class CompanyContactController extends Controller
      */
     public function store(Request $request)
     {
-        //
+        $validate = Validator::make($request->all(),
+            [
+                'name'=>'required|min:1',
+                'address'=>'required|min:1',
+                'email'=>'required|min:1',
+                'website'=>'required|min:1'
+            ]);
+        if ($validate->fails()) {
+            return back()->withErrors($validate);
+        }
+        $contact = CompanyContact::find(1);
+        if($contact == null){
+            $contact=new CompanyContact;
+        }
+        $contact->name = $request->name;
+        $contact->address = $request->address;
+        $contact->email = $request->email;
+        $contact->website = $request->website;
+        $contact->save();
+        return redirect()->route('admin-company-contact');
     }
 
     /**
