@@ -15,19 +15,19 @@
 <div class="header">
     <ul class="nav justify-content-end" style="width: 100%">
         <li class="nav-item">
-            <a href="" class="nav-link active">Home</a>
+            <a href="{{route('home')}}" class="nav-link active">Home</a>
         </li>
         <li class="nav-item">
-            <a href="" class="nav-link">Our Solutions</a>
+            <a href="{{route('our-solutions')}}" class="nav-link">Our Solutions</a>
         </li>
         <li class="nav-item">
-            <a href="" class="nav-link">About Us</a>
+            <a href="{{route('about-us')}}" class="nav-link">About Us</a>
         </li>
         <li class="nav-item">
-            <a href="" class="nav-link">Insight</a>
+            <a href="{{route('blog')}}" class="nav-link">Insight</a>
         </li>
         <li class="nav-item">
-            <a href="">
+            <a href="{{route('contact-us')}}">
                 <button class="btn btn-growth nav-link" style="font-size: 14px;">Contact Us</button>
             </a>
         </li>

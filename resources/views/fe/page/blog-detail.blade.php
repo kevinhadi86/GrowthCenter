@@ -46,7 +46,7 @@
                                     <span class="gc-helvetica">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.</span>
                                 </div>
                                 <div class="mt-3 gc-helvetica">
-                                    <a href="">Read more</a>
+                                    <a href="{{route('blog-detail')}}">Read more</a>
                                 </div>
                             </div>
                         </div>

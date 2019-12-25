@@ -6,6 +6,9 @@
             <div class="col-7 gc-full-height gc-container-center pl-5">
                 <span class="gc-georgia gc-title gc-text-light-bold">What Question do You Have in Mind?</span>
             </div>
+            <div class="col-5">
+
+            </div>
         </div>
     </div>
     @include("fe.component.address-footer")

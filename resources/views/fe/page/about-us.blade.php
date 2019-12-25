@@ -53,7 +53,9 @@
                             &rdquo;
                         </div>
                         <div>
-                            <button class="btn btn-growth gc-text-light-bold p-3">See All Team</button>
+                            <a href="{{route('our-team')}}">
+                                <button class="btn btn-growth gc-text-light-bold p-3">See All Team</button>
+                            </a>
                         </div>
                     </div>
                 </div>

@@ -17,7 +17,7 @@ Route::group(['namespace' => "Client"], function() {
     Route::get('/about-us', "AboutUsController@page")->name("about-us");
     Route::get('/our-team', "OurTeamController@page")->name("our-team");
     Route::get('/our-solutions', "OurSolutionsController@page")->name('our-solutions');
-    Route::get('/our-solutions-detail', "OurSolutionsControllerDetail@page")->name('our-solutions-detail');
+    Route::get('/our-solutions-detail', "OurSolutionsDetailController@page")->name('our-solutions-detail');
     Route::get('/blog', "BlogController@page")->name('blog');
     Route::get('/blog-detail', "BlogDetailController@page")->name('blog-detail');
 });

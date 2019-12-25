@@ -17,7 +17,9 @@
                     <span class="gc-helvetica">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua. At vero eos et accusam et justo duo dolores et ea rebum. Stet clita kasd gubergren, no sea takimata sanctus est Lorem ipsum dolor sit</span>
                 </div>
                 <div class="gc-helvetica">
-                    <button class="btn btn-growth read-more-button">Read More</button>
+                    <a href="{{route('blog-detail')}}">
+                        <button class="btn btn-growth read-more-button">Read More</button>
+                    </a>
                 </div>
             </div>
         </div>
@@ -42,7 +44,7 @@
                         <span class="gc-helvetica">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.</span>
                     </div>
                     <div class="mt-3 gc-helvetica">
-                        <a href="">Read more</a>
+                        <a href="{{route('blog-detail')}}">Read more</a>
                     </div>
                 </div>
             </div>
@@ -68,7 +70,7 @@
                             <span class="gc-helvetica">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.</span>
                         </div>
                         <div class="mt-3 gc-helvetica">
-                            <a href="">Read more</a>
+                            <a href="{{route('blog-detail')}}">Read more</a>
                         </div>
                     </div>
                 </div>
@@ -100,7 +102,7 @@
                             <span class="gc-helvetica">Lorem ipsum dolor sit amet, consetetur sadipscing elitr, sed diam nonumy eirmod tempor invidunt ut labore et dolore magna aliquyam erat, sed diam voluptua.</span>
                         </div>
                         <div class="mt-3 gc-helvetica">
-                            <a href="">Read more</a>
+                            <a href="{{route('blog-detail')}}">Read more</a>
                         </div>
                     </div>
                 </div>
