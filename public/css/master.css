@@ -1,0 +1,233 @@
+body {
+    margin: 0;
+    padding: 0;
+    border: 0;
+}
+
+.header {
+    width: 100vw;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    position: fixed;
+    background-color: transparent;
+    transition: background-color 0.5s;
+    padding: 0 150px;
+    font-size: 14px;
+    z-index: 100;
+}
+
+.header .nav-link {
+    color: black;
+}
+
+.header .active {
+    font-weight: bold;
+}
+
+.btn-growth {
+    background-color: #FEC222;
+}
+
+.header a {
+    text-decoration: none;
+}
+
+.footer {
+    background-color: #005288;
+    padding: 10px 0;
+}
+
+.highlight-clickable {
+
+}
+
+.parallax {
+    background-attachment: fixed;
+    background-position: center;
+    background-repeat: no-repeat;
+    background-size: cover;
+    z-index: -1;
+}
+
+.row {
+    margin: 0;
+}
+
+.gc-title {
+    font-size: 3.7em;
+}
+
+.gc-title-2 {
+    font-size: 2.7em;
+}
+
+.gc-content {
+    font-size: 1.2em;
+}
+
+.gc-content-2 {
+    font-size: 1.3em;
+}
+
+.gc-align-left {
+    text-align: left;
+}
+
+.gc-align-center {
+    text-align: center;
+}
+
+.gc-align-right {
+    text-align: right;
+}
+
+.gc-align-justify {
+    text-align: justify;
+}
+
+.gc-text-bold {
+    font-weight: bold;
+}
+
+.gc-text-light-bold {
+    font-weight: 600;
+}
+
+.gc-text-lighter {
+    font-weight: lighter;
+}
+
+.gc-georgia {
+    font-family: Georgia;
+}
+
+.gc-helvetica {
+    font-family: Helvetica;
+}
+
+.gc-baskerville {
+    font-family: Baskerville;
+}
+
+.gc-full-height {
+    height: 100%;
+}
+
+.gc-full-width {
+    width: 100%;
+}
+
+.gc-container-center {
+    display: flex;
+    align-items: center;
+}
+
+.gc-container-bottom {
+    display: flex;
+    align-items: flex-end;
+}
+
+.gc-container-justify-center {
+    display: flex;
+    justify-content: center;
+}
+
+.gc-flex-direction-column {
+    flex-direction: column;
+}
+
+.gc-color-white {
+    color: white;
+}
+
+.gc-full-bg-image {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-size: cover;
+}
+
+.gc-position-relative {
+    position: relative;
+}
+
+.gc-jumbotron {
+    padding: 0;
+    margin: 0;
+    width: 100vw;
+    height: 100vh;
+}
+
+.gc-text-font-normal {
+    font-size: 13px;
+}
+
+.gc-text-font-normal-2 {
+    font-size: 18px;
+}
+
+.gc-text-font-normal-3 {
+    font-size: 20px;
+}
+
+.gc-text-font-gigantic {
+    font-size: 195px;
+    max-height: 150px;
+}
+
+.gc-container-padding {
+    padding-left: 50px;
+    padding-right: 50px;
+}
+
+.gc-highlight {
+    box-shadow: inset 0 -20px 0 0 rgba(254, 194, 34, 0.5);
+    position: relative;
+}
+
+.article {
+    padding-right: 50px;
+    margin-bottom: 25px;
+}
+
+.article-title {
+    padding-right: 25px;
+}
+
+.article-image-container {
+    width: 100%;
+    height: 300px;
+    padding-left: -25px;
+}
+
+.article-image {
+    width: 110%;
+    height: 100%;
+    display: inline-block;
+    position: relative;
+    left: -8%;
+    background-position: center;
+    background-size: cover;
+    background-repeat: no-repeat;
+    -webkit-clip-path: polygon(47.5% 5.66987%, 48.2899% 5.30154%, 49.13176% 5.07596%, 50% 5%, 50.86824% 5.07596%, 51.7101% 5.30154%, 52.5% 5.66987%, 87.14102% 25.66987%, 87.85495% 26.16978%, 88.47124% 26.78606%, 88.97114% 27.5%, 89.33948% 28.2899%, 89.56505% 29.13176%, 89.64102% 30%, 89.64102% 70%, 89.56505% 70.86824%, 89.33948% 71.7101%, 88.97114% 72.5%, 88.47124% 73.21394%, 87.85495% 73.83022%, 87.14102% 74.33013%, 52.5% 94.33013%, 51.7101% 94.69846%, 50.86824% 94.92404%, 50% 95%, 49.13176% 94.92404%, 48.2899% 94.69846%, 47.5% 94.33013%, 12.85898% 74.33013%, 12.14505% 73.83022%, 11.52876% 73.21394%, 11.02886% 72.5%, 10.66052% 71.7101%, 10.43495% 70.86824%, 10.35898% 70%, 10.35898% 30%, 10.43495% 29.13176%, 10.66052% 28.2899%, 11.02886% 27.5%, 11.52876% 26.78606%, 12.14505% 26.16978%, 12.85898% 25.66987%);
+    clip-path: polygon(47.5% 5.66987%, 48.2899% 5.30154%, 49.13176% 5.07596%, 50% 5%, 50.86824% 5.07596%, 51.7101% 5.30154%, 52.5% 5.66987%, 87.14102% 25.66987%, 87.85495% 26.16978%, 88.47124% 26.78606%, 88.97114% 27.5%, 89.33948% 28.2899%, 89.56505% 29.13176%, 89.64102% 30%, 89.64102% 70%, 89.56505% 70.86824%, 89.33948% 71.7101%, 88.97114% 72.5%, 88.47124% 73.21394%, 87.85495% 73.83022%, 87.14102% 74.33013%, 52.5% 94.33013%, 51.7101% 94.69846%, 50.86824% 94.92404%, 50% 95%, 49.13176% 94.92404%, 48.2899% 94.69846%, 47.5% 94.33013%, 12.85898% 74.33013%, 12.14505% 73.83022%, 11.52876% 73.21394%, 11.02886% 72.5%, 10.66052% 71.7101%, 10.43495% 70.86824%, 10.35898% 70%, 10.35898% 30%, 10.43495% 29.13176%, 10.66052% 28.2899%, 11.02886% 27.5%, 11.52876% 26.78606%, 12.14505% 26.16978%, 12.85898% 25.66987%);
+}
+
+.gc-normal-highlight {
+    position: relative;
+    z-index: 0;
+}
+
+.gc-normal-highlight:after {
+    box-shadow: inset 0 -12px 0 0 rgba(254, 194, 34, 0.5);
+    position: absolute;
+    content: '';
+    width: 100%;
+    height: 100%;
+    top: 3px;
+    left: 0;
+    z-index: -1;
+}

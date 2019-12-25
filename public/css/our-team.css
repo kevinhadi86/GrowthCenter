@@ -1,0 +1,63 @@
+.our-team-title {
+    right: 75px;
+    bottom: 50px;
+    position: absolute;
+}
+
+.our-team-title:after {
+    box-shadow: inset 0 -25px 0 0 rgba(254, 194, 34, 0.5);
+    position: absolute;
+    content: '';
+    width: 80%;
+    height: 90%;
+    top: 0;
+    left: -2px;
+    z-index: -1;
+}
+
+.team {
+    padding: 10px 25px;
+    margin-bottom: 40px;
+}
+
+.team-content {
+    border-radius: 16px;
+    box-shadow: 0 0 8px #00528880;
+    padding: 10px 20px 20px 20px;
+}
+
+.team-picture {
+    width: 175px;
+    height: 175px;
+    margin: 15px 0;
+
+}
+
+.team-picture img {
+    width: 100%;
+    height: 100%;
+}
+
+.container-fluid {
+    padding: 0 12.5%;
+}
+
+#team-container {
+    padding-top: 60px;
+    padding-bottom: 100px;
+}
+
+.job-title {
+    position: relative;
+}
+
+.job-title:after {
+    box-shadow: inset 0 -10px 0 0 rgba(254, 194, 34, 0.5);
+    position: absolute;
+    content: '';
+    width: 40px;
+    height: 100%;
+    top: 3px;
+    left: -2px;
+    z-index: -1;
+}

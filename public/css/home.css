@@ -1,0 +1,287 @@
+.jumbotron-fluid {
+    height: 100vh;
+}
+
+.home {
+    padding: 80px 120px 0 120px;
+    position: relative;
+    margin-bottom: 0;
+    background-color: transparent;
+}
+
+.home-1 {
+    font-family: Georgia;
+    padding: 0 120px;
+    position: relative;
+    background-color: white;
+    margin-bottom: 0;
+}
+
+.home-1 img {
+    position: absolute;
+    height: 80%;
+    bottom: 0;
+    right: 20px;
+}
+
+.problem-question {
+    width: 45%;
+    position: relative;
+}
+
+.problem-question-container {
+    height: 100%;
+    align-items: center;
+    display: flex;
+    position: relative;
+}
+
+.problem-question-sub-text {
+    font-weight: bold;
+    font-size: 20px;
+}
+
+.problem-question-main-text {
+    font-weight: bold;
+    font-size: 55px;
+    padding-bottom: -5px;
+    box-shadow: inset 0 -20px 0 0 rgba(254, 194, 34, 0.5);
+    position: relative;
+}
+
+.home-2 {
+    font-family: Georgia;
+    padding: 80px 0 0 120px;
+    position: relative;
+    margin-bottom: 0;
+    background-color: white;
+}
+
+.home-2 .title {
+    font-weight: bold;
+    font-size: 23px;
+    position:relative;
+    z-index: 5;
+    margin-bottom: 0;
+}
+
+.home-2 .title:after {
+    box-shadow: inset 0 -15px 0 0 rgba(254, 194, 34, 0.5);
+    margin-top: 7px;
+    position: absolute;
+    content: '';
+    width: 87%;
+    height: 90%;
+    top: 0;
+    left: -2px;
+    z-index: -1;
+}
+
+.home-2-content {
+    height: 100%;
+    position: absolute;
+    width: 35%;
+    top: 0;
+    right: 200px;
+    display: flex;
+    vertical-align: center;
+    align-items: center;
+}
+
+.home-2-header {
+    font-family: Georgia;
+    font-size: 3.7em;
+    font-weight: bold;
+}
+
+.home-2-text {
+    font-size: 1.2em;
+    font-family: Helvetica;
+}
+
+.home-2-button {
+    margin-top: 22px;
+}
+
+.home-2-button button {
+    font-family: Helvetica;
+    font-weight: bold;
+    padding: 15px 37px;
+}
+
+.hexagon {
+    display: inline-block;
+    width: 50%;
+    height: 90%;
+    position: absolute;
+    top: 60px;
+    left: 50px;
+    background-position: center;
+    background-size: 1000px 650px;
+    background-position-x: -200px;
+    background-repeat: no-repeat;
+    filter: grayscale(50%) contrast(110%) brightness(80%);
+}
+
+.hexagon {
+    -webkit-clip-path: polygon(47.5% 5.66987%, 48.2899% 5.30154%, 49.13176% 5.07596%, 50% 5%, 50.86824% 5.07596%, 51.7101% 5.30154%, 52.5% 5.66987%, 87.14102% 25.66987%, 87.85495% 26.16978%, 88.47124% 26.78606%, 88.97114% 27.5%, 89.33948% 28.2899%, 89.56505% 29.13176%, 89.64102% 30%, 89.64102% 70%, 89.56505% 70.86824%, 89.33948% 71.7101%, 88.97114% 72.5%, 88.47124% 73.21394%, 87.85495% 73.83022%, 87.14102% 74.33013%, 52.5% 94.33013%, 51.7101% 94.69846%, 50.86824% 94.92404%, 50% 95%, 49.13176% 94.92404%, 48.2899% 94.69846%, 47.5% 94.33013%, 12.85898% 74.33013%, 12.14505% 73.83022%, 11.52876% 73.21394%, 11.02886% 72.5%, 10.66052% 71.7101%, 10.43495% 70.86824%, 10.35898% 70%, 10.35898% 30%, 10.43495% 29.13176%, 10.66052% 28.2899%, 11.02886% 27.5%, 11.52876% 26.78606%, 12.14505% 26.16978%, 12.85898% 25.66987%);
+    clip-path: polygon(47.5% 5.66987%, 48.2899% 5.30154%, 49.13176% 5.07596%, 50% 5%, 50.86824% 5.07596%, 51.7101% 5.30154%, 52.5% 5.66987%, 87.14102% 25.66987%, 87.85495% 26.16978%, 88.47124% 26.78606%, 88.97114% 27.5%, 89.33948% 28.2899%, 89.56505% 29.13176%, 89.64102% 30%, 89.64102% 70%, 89.56505% 70.86824%, 89.33948% 71.7101%, 88.97114% 72.5%, 88.47124% 73.21394%, 87.85495% 73.83022%, 87.14102% 74.33013%, 52.5% 94.33013%, 51.7101% 94.69846%, 50.86824% 94.92404%, 50% 95%, 49.13176% 94.92404%, 48.2899% 94.69846%, 47.5% 94.33013%, 12.85898% 74.33013%, 12.14505% 73.83022%, 11.52876% 73.21394%, 11.02886% 72.5%, 10.66052% 71.7101%, 10.43495% 70.86824%, 10.35898% 70%, 10.35898% 30%, 10.43495% 29.13176%, 10.66052% 28.2899%, 11.02886% 27.5%, 11.52876% 26.78606%, 12.14505% 26.16978%, 12.85898% 25.66987%);
+}
+
+.home-3 {
+    position: relative;
+    padding-top: 0;
+}
+
+.home-3-background {
+    background-image: url('/static/images/Image 2.png');
+    filter: grayscale(1);
+}
+
+.home-3-content {
+    position: absolute;
+    width: 35%;
+    top: 0;
+    right: 200px;
+    filter: grayscale(0);
+}
+
+.home-3-title-highlight {
+     position:relative;
+     z-index: 5;
+}
+
+.home-3-title-highlight:after {
+    box-shadow: inset 0 -0.5em 0 0 rgba(66, 196, 221, 0.5);
+    margin-top: 12.5px;
+    position: absolute;
+    content: '';
+    width: 87%;
+    height: 90%;
+    top: 0;
+    right: -2px;
+    z-index: -1;
+}
+
+.home-3-content > div > div {
+    margin-bottom: 10px;
+}
+
+.typed-cursor {
+    font-size: 3em;
+}
+
+.typing a {
+    text-decoration: none;
+    color: black;
+}
+
+.home-4 {
+
+}
+
+.home-4-title {
+    position:relative;
+    z-index: 5;
+}
+
+.home-4-title:after {
+    box-shadow: inset 0 -0.75em 0 0 rgba(254, 194, 34, 0.5);
+    margin-top: 7px;
+    position: absolute;
+    content: '';
+    width: 55%;
+    height: 100%;
+    top: 0;
+    left: -2px;
+    z-index: -1;
+}
+
+.diagram {
+    width: 100%;
+    height: auto;
+    position: relative;
+}
+
+.flying-text {
+    position: absolute;
+    font-family: Baskerville;
+    font-size: 1.2vw;
+    line-height: 1;
+    font-weight: 600;
+    cursor: pointer;
+}
+
+.flying-text-1 {
+    top: 22%;
+    left: 20%;
+    transform: rotate(-31deg);
+}
+
+.flying-text-2 {
+    top: 19%;
+    right: 28%;
+    transform: rotate(31deg);
+}
+
+.flying-text-3 {
+    top: 42%;
+    right: 8%;
+    transform: rotate(90deg);
+}
+
+.flying-text-4 {
+    bottom: 19%;
+    right: 21%;
+    transform: rotate(-31deg);
+}
+
+.flying-text-5 {
+    top: 59%;
+    left: 23%;
+    transform: rotate(-30deg);
+}
+
+.home-5-background {
+    background-image: url('/static/images/Image 2.png');
+    filter: grayscale(1);
+    z-index: -2;
+}
+
+.home-5-highlight-1 {
+    position: relative;
+    z-index: 2;
+}
+
+.home-5-highlight-1:after {
+    box-shadow: inset 0 -0.5em 0 0 rgba(66, 196, 221, 0.5);
+    margin-top: 12.5px;
+    position: absolute;
+    content: '';
+    width: 95%;
+    height: 90%;
+    top: 0;
+    left: -2px;
+    z-index: -1;
+}
+
+.home-5-highlight-2 {
+    position: relative;
+    z-index: 2;
+}
+
+.home-5-highlight-2:after {
+    box-shadow: inset 0 -0.5em 0 0 rgba(66, 196, 221, 0.5);
+    margin-top: 12.5px;
+    position: absolute;
+    content: '';
+    width: 95%;
+    height: 90%;
+    top: 15px;
+    left: -2px;
+    z-index: -1;
+}
+
+.home-5-button {
+    padding: 10px 20px;
+}
