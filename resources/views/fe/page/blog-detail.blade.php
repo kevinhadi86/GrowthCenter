@@ -2,7 +2,7 @@
 
 @section("content")
     <div class="gc-jumbotron picture-header" style="background-image: url('/static/images/Group 258.png')">
-        <div class="row gc-container-center gc-full-height align-content-end justify-content-center">
+        <div class="row gc-full-height align-content-end justify-content-center">
             <div class="col-10 blog-header">
                 <div class="position-relative">
                     <span class="gc-text-light-bold gc-baskerville gc-content gc-normal-highlight">People</span>
@@ -60,4 +60,5 @@
 @section("css")
     <link rel="stylesheet" href="{{asset('css/blog-detail.css')}}">
     <link rel="stylesheet" href="{{asset('css/component/address-footer.css')}}">
+    <link rel="stylesheet" href="{{asset('css/component/white-header.css')}}">
 @endsection

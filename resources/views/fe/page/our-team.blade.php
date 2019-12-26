@@ -37,4 +37,5 @@
 @section("css")
     <link rel="stylesheet" href="{{asset('css/our-team.css')}}">
     <link rel="stylesheet" href="{{asset('css/component/address-footer.css')}}">
+    <link rel="stylesheet" href="{{asset('css/component/white-header.css')}}">
 @endsection

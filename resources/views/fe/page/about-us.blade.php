@@ -39,7 +39,7 @@
         <div class="row gc-full-height">
             <div class="col-6 gc-full-height">
                 <div class="row gc-full-height align-content-end justify-content-center flex-column">
-                    <div class="col-9 row justify-content-center flex-column">
+                    <div class="col-9 row justify-content-center flex-column align-self-center">
                         <div class="gc-text-font-gigantic gc-georgia position-relative">
                             <span class="open-quote">&ldquo;</span>
                         </div>

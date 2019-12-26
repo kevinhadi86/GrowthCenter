@@ -2,8 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport"
-          content="width=device-width, user-scalable=no, initial-scale=1.0, maximum-scale=1.0, minimum-scale=1.0">
+    <meta name="viewport" content="initial-scale=1, maximum-scale=1">
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Growth Center</title>
     <link rel="stylesheet" href="{{asset('lib/bootstrap/css/bootstrap.css')}}">
@@ -15,16 +14,16 @@
 <div class="header">
     <ul class="nav justify-content-end" style="width: 100%">
         <li class="nav-item">
-            <a href="{{route('home')}}" class="nav-link active">Home</a>
+            <a href="{{route('home')}}" class="nav-link active white-able">Home</a>
         </li>
         <li class="nav-item">
-            <a href="{{route('our-solutions')}}" class="nav-link">Our Solutions</a>
+            <a href="{{route('our-solutions')}}" class="nav-link white-able">Our Solutions</a>
         </li>
         <li class="nav-item">
-            <a href="{{route('about-us')}}" class="nav-link">About Us</a>
+            <a href="{{route('about-us')}}" class="nav-link white-able">About Us</a>
         </li>
         <li class="nav-item">
-            <a href="{{route('blog')}}" class="nav-link">Insight</a>
+            <a href="{{route('blog')}}" class="nav-link white-able">Insight</a>
         </li>
         <li class="nav-item">
             <a href="{{route('contact-us')}}">
@@ -45,14 +44,18 @@
     $(function() {
         if ($(window).scrollTop() > 50) {
             $('.header').css('background-color', 'white');
+            $('.nav-item:not(:last-child) .nav-link').removeClass('white-able');
         } else {
             $('.header').css('background-color', 'transparent');
+            $('.nav-item:not(:last-child) .nav-link').addClass('white-able');
         }
         $(window).bind('scroll', function () {
             if ($(window).scrollTop() > 50) {
                 $('.header').css('background-color', 'white');
+                $('.nav-item:not(:last-child) .nav-link').removeClass('white-able');
             } else {
                 $('.header').css('background-color', 'transparent');
+                $('.nav-item:not(:last-child) .nav-link').addClass('white-able');
             }
         });
     });

@@ -11,8 +11,8 @@
                 <span class="highlight-clickable problem-question-main-text typing"></span>
                 </div>
                 <div id="typed-strings">
-                    <p><a href="">Hard to Find the Right People</a></p>
-                    <p><a href="">Hard to Find the Right People2</a></p>
+                    <p><a href="{{route('blog-detail')}}">Hard to Find the Right People</a></p>
+                    <p><a href="{{route('blog-detail')}}">Hard to Find the Right People2</a></p>
                 </div>
             </div>
         </div>

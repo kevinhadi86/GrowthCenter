@@ -94,10 +94,25 @@
             </div>
             <div class="gc-georgia gc-text-light-bold question-list gc-text-font-normal pr-5">
                 @for($i = 0; $i < 5; $i++)
-                <div class="mb-3">
-                    <span @if ($i == 0) class="active-other-question-title" @endif>How can I help my employees unlock their potential?</span>
-                </div>
                 @endfor
+                    <ul class="list-group list-group-flush">
+                        @for($i = 0; $i < 5; $i++)
+                            <li class="list-group-item px-0">
+                                <a class="btn collapsed gc-text-light-bold" data-toggle="collapse" href="#collapseCategory{{$i}}" aria-controls="collapseCategory{{$i}}">
+                                    Category {{$i + 1}}<span class="mr-3"></span>
+                                </a>
+                                <div class="collapse" id="collapseCategory{{$i}}">
+                                    <div class="card card-body mt-2">
+                                        @for($j = 0; $j < 5; $j++)
+                                        <div class="mb-3">
+                                            <span @if ($i == 0 && $j == 0) class="active-other-question-title" @endif>How can I help my employees unlock their potential?</span>
+                                        </div>
+                                        @endfor
+                                    </div>
+                                </div>
+                            </li>
+                        @endfor
+                    </ul>
             </div>
         </div>
         <div class="col-8">
