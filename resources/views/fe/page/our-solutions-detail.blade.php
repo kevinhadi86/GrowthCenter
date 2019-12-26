@@ -102,7 +102,7 @@
                                     Category {{$i + 1}}<span class="mr-3"></span>
                                 </a>
                                 <div class="collapse" id="collapseCategory{{$i}}">
-                                    <div class="card card-body mt-2">
+                                    <div class="card card-body mt-2" style="border: none">
                                         @for($j = 0; $j < 5; $j++)
                                         <div class="mb-3">
                                             <span @if ($i == 0 && $j == 0) class="active-other-question-title" @endif>How can I help my employees unlock their potential?</span>
