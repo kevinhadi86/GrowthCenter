@@ -77,8 +77,7 @@ Route::group(['prefix'=>'admin/growth'], function(){
     Route::post('/homeFeaturedQuestion', 'Cms\ConfigurationController@insertHomeFeaturedQuestion')->name('admin-insert-home-featured-question');
     Route::post('/homeFeaturedTestimony', 'Cms\ConfigurationController@insertHomeFeaturedTestimony')->name('admin-insert-home-featured-testimony');
     Route::post('/homeFeaturedArticle', 'Cms\ConfigurationController@insertHomeFeaturedArticleEachCategory')->name('admin-insert-home-featured-article');
-    Route::get('/updateDiagram/{id}', 'Cms\DiagramController@edit')->name('admin-update-diagram');
-    Route::post('/updateDiagram/{id}', 'Cms\DiagramController@update')->name('admin-update-diagram');
+    Route::post('/updateDiagram/{id}', 'Cms\DiagramController@update')->name('admin-diagram-update');
 
     #manageOurSolutionPage
     Route::get('/manageSolution', 'Cms\ConfigurationController@manageSolution')->name('admin-manage-solution');
