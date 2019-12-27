@@ -232,3 +232,13 @@ body {
     left: 0;
     z-index: -1;
 }
+
+.gc-no-decoration-link {
+    text-decoration: none;
+    color: black;
+}
+
+.gc-no-decoration-link:hover {
+    text-decoration: none;
+    color: black;
+}
