@@ -115,11 +115,62 @@
             <h3 class="box-title">Diagram Section</h3>
         </div>
         <div class="box-body">
-            <a href="{{route('admin-update-diagram',['id' => 'UnderstandProblem'])}}"><button class="btn btn-success">Understanding The Problem</button></a>
-            <a href="{{route('admin-update-diagram',['id' => 'DefineProblem'])}}"><button class="btn btn-success">Define The Problem</button></a>
-            <a href="{{route('admin-update-diagram',['id' => 'Solution'])}}"><button class="btn btn-success">Propose Tailor Made Solution</button></a>
-            <a href="{{route('admin-update-diagram',['id' => 'Implementation'])}}"><button class="btn btn-success">Implementation & Agile Iteration</button></a>
-            <a href="{{route('admin-update-diagram',['id' => 'Feedback'])}}"><button class="btn btn-success">Feedback & Review</button></a>
+            <table class="table table-bordered table-striped" id="diagram-table">
+                <thead>
+                <tr>
+                    <th>Id</th>
+                    <th>Title</th>
+                    <th>Description</th>
+                    <th>Action</th>
+                </tr>
+                </thead>
+                <tbody>
+                    @foreach($diagrams as $diagram)
+                        <tr id="diagram-id-{{$diagram->id}}">
+                            <td class="diagram diagram-text">{{$diagram->text_image}}</td>
+                            <td class="diagram diagram-title">{{$diagram->title}}</td>
+                            <td class="diagram diagram-description">{{$diagram->description}}</td>
+                            <td>
+                                <button class="btn btn-info update-diagram-button" data-id="{{$diagram->id}}" data-toggle="modal" data-target="#update-diagram-modal" data-link="{{route('admin-diagram-update', ['id' => $diagram->id])}}">Edit Diagram</button>
+                            </td>
+                        </tr>
+                    @endforeach
+                </tbody>
+            </table>
+        </div>
+    </div>
+
+    <div class="modal fade" id="update-diagram-modal">
+        <div class="modal-dialog">
+            <form role="form" method="post">
+                {{csrf_field()}}
+                <div class="modal-content">
+                    <div class="modal-header">
+                        <button type="button" class="close" data-dismiss="modal" aria-label="Close">
+                            <span aria-hidden="true">&times;</span>
+                        </button>
+                        <h4 class="modal-title">Update Diagram </h4>
+                    </div>
+                    <div class="modal-body">
+                        <input type="hidden" name="text_image" class="form-control">
+                    </div>
+                    <div class="modal-body">
+                        <div class="form-group">
+                            <label>Title</label>
+                            <input type="text" name="title" placeholder="Title" class="form-control">
+                        </div>
+                    </div>
+                    <div class="modal-body">
+                        <div class="form-group">
+                            <label>Description</label>
+                            <input type="text" name="description" placeholder="Description" class="form-control">
+                        </div>
+                    </div>
+                    <div class="modal-footer">
+                        <button class="btn btn-primary">Update Diagram</button>
+                    </div>
+                </div>
+            </form>
         </div>
     </div>
 @endsection
@@ -142,6 +193,23 @@
                 'paging'      : true,
                 'searching'   : true,
                 "order": [[ 0, "desc" ]]
+            });
+            $('#diagram-table').DataTable({
+                'paging'      : true,
+                'searching'   : true,
+                "order": [[ 0, "desc" ]]
+            });
+            $('.update-diagram-button').click(function() {
+                var name = $(this).parent().parent().find('.name').html();
+                var link = $(this).data('link');
+                var id = $(this).data('id');
+                $row = $('#diagram-id-' + id);
+                $modal = $('#update-diagram-modal');
+                $modal.find("input[name=text_image]").val($row.find(".diagram-text").html())
+                $modal.find("input[name=title]").val($row.find(".diagram-title").html())
+                $modal.find("input[name=description]").val($row.find(".diagram-description").html())
+                $modal.find('.name').html(name);
+                $modal.find('form').attr('action', link);
             });
             
         })
