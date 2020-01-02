@@ -89,6 +89,12 @@ Route::group(['prefix'=>'admin/growth'], function(){
     Route::post('/aboutOurBelief', 'Cms\ConfigurationController@insertAboutOurBelief')->name('admin-insert-about-our-belief');
     Route::post('/aboutWeBelieve', 'Cms\ConfigurationController@insertAboutWeBelieve')->name('admin-insert-about-we-believe');
 
+    #manageBlogPage
+    Route::get('/manageBlog', 'Cms\ConfigurationController@manageBlog')->name('admin-manage-blog');
+    Route::post('/manageHome', 'Cms\ConfigurationController@selectBlogCategory')->name('admin-select-category-blog');
+    Route::get('/selectArticle/{id}', 'Cms\ConfigurationController@selectBlogArticlePage')->name('admin-manage-blog-select-article');
+    Route::post('/blogFeaturedArticle', 'Cms\ConfigurationController@insertBlogFeaturedArticleEachCategory')->name('admin-insert-blog-featured-article');
+
     #CompanyContact
     Route::get('/companyContact', 'Cms\CompanyContactController@index')->name('admin-company-contact');
     Route::post('/companyContact', 'Cms\CompanyContactController@store')->name('admin-insert-company-contact');

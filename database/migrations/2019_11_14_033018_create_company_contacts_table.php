@@ -16,7 +16,7 @@ class CreateCompanyContactsTable extends Migration
         Schema::create('company_contacts', function (Blueprint $table) {
             $table->bigIncrements('id');
             $table->string('name');
-            $table->string('address');
+            $table->text('address');
             $table->string('website');
             $table->string('email');
             $table->timestamps();
