@@ -91,8 +91,8 @@ Route::group(['prefix'=>'admin/growth'], function(){
 
     #manageBlogPage
     Route::get('/manageBlog', 'Cms\ConfigurationController@manageBlog')->name('admin-manage-blog');
-    Route::post('/manageHome', 'Cms\ConfigurationController@selectBlogCategory')->name('admin-select-category-blog');
-    Route::get('/selectArticle/{id}', 'Cms\ConfigurationController@selectBlogArticlePage')->name('admin-manage-blog-select-article');
+    Route::post('/manageBlog', 'Cms\ConfigurationController@selectBlogCategory')->name('admin-select-category-blog');
+    Route::get('/selectBlogArticle/{id}', 'Cms\ConfigurationController@selectBlogArticlePage')->name('admin-manage-blog-select-article');
     Route::post('/blogFeaturedArticle', 'Cms\ConfigurationController@insertBlogFeaturedArticleEachCategory')->name('admin-insert-blog-featured-article');
 
     #CompanyContact

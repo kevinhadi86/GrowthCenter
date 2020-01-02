@@ -54,8 +54,11 @@ class TestimonyController extends Controller
         $testimony->name = $request->name;
         $testimony->position = $request->position;
         $testimony->quote = $request->quote;
-        $testimony->image =$request->file('image')->getClientOriginalName();
-        $request->file('image')->move(public_path().'/img',$testimony['image']);
+        $file = $request->file('image');
+        $uid = (string) Str::uuid();
+        $filename = $uid . "." . $file->extension();
+        $testimony->image =$filename;
+        $file->move(public_path().'/img',$testimony['image']);
         $testimony->save();
         return redirect()->route('admin-testimony');
     }
@@ -107,8 +110,11 @@ class TestimonyController extends Controller
         $testimony->position = $request->position;
         $testimony->quote = $request->quote;
         if($request->file('image') != null){
-            $testimony->image =$request->file('image')->getClientOriginalName();
-            $request->file('image')->move(public_path().'/img',$testimony['image']);
+            $file = $request->file('image');
+            $uid = (string) Str::uuid();
+            $filename = $uid . "." . $file->extension();
+            $testimony->image =$filename;
+            $file->move(public_path().'/img',$testimony['image']);
         }
         $testimony->save();
         return redirect()->route('admin-testimony');

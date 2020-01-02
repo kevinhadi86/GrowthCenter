@@ -52,8 +52,11 @@ class SolutionController extends Controller
         $solution = new Solution;
         $solution->solution = $request->solution;
         $solution->question_id = $request->question;
-        $solution->image =$request->file('image')->getClientOriginalName();
-        $request->file('image')->move(public_path().'/img',$solution['image']);
+        $file = $request->file('image');
+        $uid = (string) Str::uuid();
+        $filename = $uid . "." . $file->extension();
+        $solution->image =$filename;
+        $file->move(public_path().'/img',$solution['image']);
         $solution->save();
         return redirect()->route('admin-solution');
     }
@@ -101,8 +104,13 @@ class SolutionController extends Controller
         $solution = Solution::find($id);
         $solution->solution = $request->solution;
         $solution->question_id = $request->question;
-        $solution->image =$request->file('image')->getClientOriginalName();
-        $request->file('image')->move(public_path().'/img',$solution['image']);
+        if($request->file('image')!=null){
+            $file = $request->file('image');
+            $uid = (string) Str::uuid();
+            $filename = $uid . "." . $file->extension();
+            $solution->image =$filename;
+            $file->move(public_path().'/img',$solution['image']);
+        }
         $solution->save();
         return redirect()->route('admin-solution');
     }
