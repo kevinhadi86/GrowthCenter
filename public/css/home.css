@@ -133,6 +133,12 @@
     padding-top: 0;
 }
 
+.testimony-logo {
+    height: 100px;
+    width: auto;
+    color: white !important;
+}
+
 .home-3-background {
     background-image: url('/static/images/Image 2.png');
     filter: grayscale(1);
@@ -284,4 +290,112 @@
 
 .home-5-button {
     padding: 10px 20px;
+}
+
+@media only screen and (min-width: 720px) {
+    .diagram-carousel {
+        display: none;
+    }
+}
+
+@media only screen and (max-width: 720px) {
+    .hexagon {
+        display: none;
+    }
+
+    .home-1 {
+        padding: 0 20px;
+    }
+
+    .home-1 img {
+        display: none;
+    }
+
+    .home-2 {
+        padding: 50px 0;
+        height: 75vh;
+        border-top: 1px solid grey;
+    }
+
+    .home-2-content {
+        width: 100%;
+        position: relative;
+        height: auto;
+        left: 0;
+        padding-right: 50px;
+        padding-left: 75px;
+    }
+
+    .home-3 {
+        padding: 0 20px;
+    }
+
+    .home-3-content {
+        width: 75%;
+        right: 75px;
+        bottom: 20px;
+        top: auto;
+    }
+
+    .home-4 {
+        padding: 0;
+    }
+
+    .diagram-container {
+        display: none;
+    }
+
+    .home-5 {
+        padding: 10px 20px;
+    }
+
+    .home-5 .gc-content,
+    .home-5 input
+    {
+        font-size: 12px;
+    }
+
+    .tell-story {
+        width: 100%;
+        margin-bottom: 20px;
+    }
+
+    .tell-story .gc-title {
+        font-size: 3em;
+    }
+
+    .diagram-carousel {
+        color: black;
+    }
+
+    .diagram-carousel .carousel-control-next-icon {
+        filter: invert(100%);
+    }
+
+    .diagram-carousel .carousel-control-prev-icon {
+        filter: invert(100%);
+    }
+
+    .home-2-content .carousel-control-next-icon
+    {
+        filter: invert(100%);
+    }
+
+    .home-2-content .carousel-control-prev-icon {
+        filter: invert(100%);
+    }
+
+    #diagramCarousel {
+        padding-right: 50px;
+        padding-left: 50px;
+    }
+
+    .title {
+        margin-left: 75px;
+    }
+
+    .home-4-title-container {
+        text-align: right;
+        margin-right: 75px;
+    }
 }

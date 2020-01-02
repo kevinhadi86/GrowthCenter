@@ -82,3 +82,14 @@ hr {
 .category span {
 
 }
+
+@media only screen and (max-width: 720px) {
+    .hexagon-container {
+        display: none;
+    }
+
+    .blog-container {
+        padding-right: 10px;
+        padding-left: 10px;
+    }
+}

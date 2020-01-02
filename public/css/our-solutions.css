@@ -29,3 +29,14 @@
 .empty {
     height: 50%;
 }
+
+@media only screen and (max-width: 720px) {
+    .gc-jumbotron {
+        height: 200vh;
+    }
+
+    .gc-jumbotron .col-md-7,
+    .gc-jumbotron .col-md-5 {
+        height: 100vh;
+    }
+}

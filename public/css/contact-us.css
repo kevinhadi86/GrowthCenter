@@ -30,3 +30,9 @@
     top: -110px;
     left: -180px;
 }
+
+@media only screen and (max-width: 720px) {
+    .phone-image {
+        display: none;
+    }
+}

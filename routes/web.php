@@ -14,12 +14,17 @@
 Route::group(['namespace' => "Client"], function() {
     Route::get('/', 'HomeController@home')->name('home');
     Route::get('/contact-us', 'ContactUsController@page')->name('contact-us');
+    Route::post('/contact-us', 'ContactUsController@submit');
     Route::get('/about-us', "AboutUsController@page")->name("about-us");
     Route::get('/our-team', "OurTeamController@page")->name("our-team");
     Route::get('/our-solutions', "OurSolutionsController@page")->name('our-solutions');
-    Route::get('/our-solutions-detail', "OurSolutionsDetailController@page")->name('our-solutions-detail');
+    Route::get('/our-solutions-detail/{id}', "OurSolutionsDetailController@page")->name('our-solutions-detail');
+    Route::get('/our-solutions/question/{id}', "OurSolutionsController@getByQuestionId");
     Route::get('/blog', "BlogController@page")->name('blog');
-    Route::get('/blog-detail', "BlogDetailController@page")->name('blog-detail');
+    Route::get('/blog/category/{categoryId}', "BlogController@getByCategory");
+    Route::get('/blog-detail/{id}', "BlogDetailController@page")->name('blog-detail');
+    Route::get('/success-story/{id}', "BlogDetailController@successStoryPage")->name('success-story');
+    Route::post('/subscribe', "SubscribeController@post")->name('subscribe');
 });
 Route::group(['prefix'=>'admin/growth'], function(){
     #Home

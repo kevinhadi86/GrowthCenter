@@ -3,24 +3,24 @@
 @section("content")
     <div class="gc-jumbotron">
         <div class="row gc-full-height">
-            <div class="col-7 gc-full-height gc-container-center pl-5">
+            <div class="col-md-7 col-sm-12 gc-full-height gc-container-center pl-5">
                 <span class="gc-georgia gc-title gc-text-light-bold">What Question do You Have in Mind?</span>
             </div>
-            <div class="col-5 gc-full-height">
+            <div class="col-md-5 col-sm-12 gc-full-height">
                 <div class="pt-5 pb-5 gc-full-height position-relative">
                     <div class="gradient-fade"></div>
                     <div id="scroll-container" class="gc-full-height">
                         <div class="empty"></div>
-                        @for($i = 0; $i < 20; $i++)
+                        @foreach($questions as $i=>$question)
                             <div class="solution mt-5 mb-5 solution-{{$i}}" data-id="{{$i}}">
                                 <div class="hr-slot"></div>
-                                <a class="gc-georgia gc-text-light-bold collapsed gc-no-decoration-link mt-3 mb-3 solution-title solution-title-{{$i}}" data-toggle="collapse" href="#collapseSolution{{$i}}" aria-controls="collapseSolution{{$i}}" data-href="{{route('our-solutions-detail')}}">How can I help my employees unlock their potential? ({{$i+1}})</a>
+                                <a class="gc-georgia gc-text-light-bold collapsed gc-no-decoration-link mt-3 mb-3 solution-title solution-title-{{$i}}" data-toggle="collapse" href="#collapseSolution{{$i}}" aria-controls="collapseSolution{{$i}}" data-href="{{route('our-solutions-detail', ['id' => $question->id])}}">{{$question->question}}</a>
                                 <div class="collapse mt-3 mb-5 solution-collapsible" id="collapseSolution{{$i}}">
-                                    But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born and I will give you a complete.
+                                    {{$question->description}}
                                 </div>
                                 <div class="hr-slot"></div>
                             </div>
-                        @endfor
+                        @endforeach
                         <div class="empty"></div>
                     </div>
                 </div>
@@ -68,7 +68,6 @@
                     })
                     .addTo(controller);
             });
-            $('#scroll-container').scroll("")
             // new ScrollMagic.Scene({triggerElement: "#sec1"})
             //     .setClassToggle("#high1", "active") // add class toggle
             //     .addIndicators() // add indicators (requires plugin)
@@ -109,7 +108,7 @@
             //         }
             //     // }, 10);
             // });
-            $('a').click(function(e) {
+            $('.solution-title.collapsed').click(function(e) {
                 e.preventDefault();
                 window.location.href = $(this).data('href');
             });

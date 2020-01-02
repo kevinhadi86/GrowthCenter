@@ -11,27 +11,33 @@
     @yield('css')
 </head>
 <body>
-<div class="header">
-    <ul class="nav justify-content-end" style="width: 100%">
-        <li class="nav-item">
-            <a href="{{route('home')}}" class="nav-link active white-able">Home</a>
-        </li>
-        <li class="nav-item">
-            <a href="{{route('our-solutions')}}" class="nav-link white-able">Our Solutions</a>
-        </li>
-        <li class="nav-item">
-            <a href="{{route('about-us')}}" class="nav-link white-able">About Us</a>
-        </li>
-        <li class="nav-item">
-            <a href="{{route('blog')}}" class="nav-link white-able">Insight</a>
-        </li>
-        <li class="nav-item">
-            <a href="{{route('contact-us')}}">
-                <button class="btn btn-growth nav-link" style="font-size: 14px;">Contact Us</button>
-            </a>
-        </li>
-    </ul>
-</div>
+<nav class="navbar-light header navbar navbar-expand-lg">
+    <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+        <span class="navbar-toggler-icon"></span>
+    </button>
+
+    <div class="collapse navbar-collapse" id="navbarSupportedContent">
+        <ul class="navbar-nav justify-content-end" style="width: 100%">
+            <li class="nav-item">
+                <a href="{{route('home')}}" class="nav-link active white-able">Home</a>
+            </li>
+            <li class="nav-item">
+                <a href="{{route('our-solutions')}}" class="nav-link white-able">Our Solutions</a>
+            </li>
+            <li class="nav-item">
+                <a href="{{route('about-us')}}" class="nav-link white-able">About Us</a>
+            </li>
+            <li class="nav-item">
+                <a href="{{route('blog')}}" class="nav-link white-able">Insight</a>
+            </li>
+            <li class="nav-item">
+                <a href="{{route('contact-us')}}">
+                    <button class="btn btn-growth nav-link" style="font-size: 14px;">Contact Us</button>
+                </a>
+            </li>
+        </ul>
+    </div>
+</nav>
 @yield('content')
 <div class="footer gc-full-width gc-align-center gc-helvetica gc-color-white" style="font-size: 14px;">
     <span>&copy; Copyright 2019, Growth Center, Inc. All rights reserved.</span>

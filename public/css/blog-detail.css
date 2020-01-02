@@ -2,6 +2,10 @@
     background-size: cover;
 }
 
+.gc-title {
+    line-height: 60px;
+}
+
 .blog-header {
     background-color: white;
     width: 80%;
@@ -19,4 +23,26 @@
 
 .blog-container {
     padding: 50px 60px;
+}
+
+@media only screen and (max-width: 720px) {
+    .gc-title {
+        font-size: 2em;
+    }
+
+    .col-md-7 {
+        margin-bottom: 50px;
+    }
+
+    .blog-header {
+        padding: 40px 15px;
+    }
+
+    .blog-container {
+        padding: 50px 15px;
+    }
+
+    .article-image-container {
+        height: 60vw;
+    }
 }

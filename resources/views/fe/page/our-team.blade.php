@@ -9,26 +9,26 @@
     </div>
     <div class="container-fluid">
         <div class="row" id="team-container">
-            @for($i = 0; $i < 6; $i++)
-            <div class="col-4 team">
+            @foreach($teams as $team)
+            <div class="col-md-4 col-sm-12 team">
                 <div class="team-content">
                     <div class="row justify-content-center">
                         <div class="team-picture">
-                            <img src="{{asset('static/images/Circle-icons-profile.svg')}}" alt="">
+                            <img src="{{asset('img/' . $team->image)}}" alt="">
                         </div>
                     </div>
                     <div>
-                        <span class="gc-baskerville gc-text-light-bold">Cika Theresia</span>
+                        <span class="gc-baskerville gc-text-light-bold">{{$team->name}}</span>
                     </div>
                     <div>
-                        <span class="gc-baskerville job-title">UI/UX Designer</span>
+                        <span class="gc-baskerville job-title">{{$team->position}}</span>
                     </div>
                     <div class="mt-3">
-                        <span class="gc-helvetica">But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born and I will give you a complete.</span>
+                        <span class="gc-helvetica">{{$team->description}}</span>
                     </div>
                 </div>
             </div>
-            @endfor
+            @endforeach
         </div>
     </div>
     @include("fe.component.address-footer")

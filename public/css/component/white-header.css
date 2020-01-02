@@ -1,3 +1,6 @@
-.white-able {
-    color: white !important;
+
+@media only screen and (min-width: 720px) {
+    .white-able {
+        color: white !important;
+    }
 }
