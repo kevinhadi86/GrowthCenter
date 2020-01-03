@@ -88,8 +88,21 @@ hr {
         display: none;
     }
 
+    .header-text-container {
+        padding-right: 15px;
+    }
+
+    .header-text-container .mb-3 {
+        font-size: 12px;
+    }
+
     .blog-container {
         padding-right: 10px;
         padding-left: 10px;
+    }
+
+    .gc-title {
+        font-size: 2em;
+        line-height: 30px;
     }
 }

@@ -59,7 +59,7 @@
         height: 200vh;
     }
 
-    .gc-jumbotron .col-md-6 {
+    .gc-jumbotron .row > .col-md-6 {
         height: 100vh
     }
 
@@ -69,5 +69,40 @@
 
     .article-image-container {
         height: 60vw;
+    }
+
+    .solution-header {
+        padding: 0 10px;
+    }
+
+    .gc-title {
+        font-size: 2em;
+    }
+
+    .testimony img {
+        width: 100%;
+        height: auto;
+        max-height: 100%;
+    }
+
+    .article-title {
+        font-size: 12px;
+    }
+
+    .article-content {
+        font-size: 11px;
+    }
+
+    .other-questions {
+        font-size: 20px;
+    }
+
+    .gc-georgia.pr-5 {
+        padding: 0 !important;
+        font-size: 12px !important;
+    }
+
+    li.list-group-item.px-0 {
+        font-size: 14px;
     }
 }

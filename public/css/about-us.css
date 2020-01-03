@@ -80,4 +80,20 @@
     .team-image-container {
         display: none;
     }
+
+    .gc-title {
+        font-size: 2em;
+    }
+
+    .gc-content {
+        font-size: 1em;
+    }
+
+    .gc-text-font-gigantic {
+        font-size: 100px;
+    }
+
+    .open-quote {
+        left: 0;
+    }
 }

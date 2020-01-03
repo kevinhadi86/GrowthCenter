@@ -35,4 +35,30 @@
     .phone-image {
         display: none;
     }
+
+    .gc-title {
+        font-size: 1.5em;
+    }
+
+    #contact-us-form label,
+    #contact-us-form label {
+        font-size: 14px;
+    }
+
+    #contact-us-form {
+        position: relative;
+        bottom: 0;
+    }
+
+    .contact-us-text:after {
+        box-shadow: inset 0 -0.75em 0 0 rgba(254, 194, 34, 1);
+        margin-top: 20px;
+        position: absolute;
+        content: '';
+        width: 90%;
+        height: 50%;
+        top: 0;
+        left: -1px;
+        z-index: -1;
+    }
 }

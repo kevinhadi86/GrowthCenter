@@ -5,10 +5,12 @@
         <div class="row gc-full-height solution-header">
             <div class="col-md-6 col-sm-12 gc-full-height gc-container-center justify-content-center flex-column">
                 <div>
-                    <span class="gc-georgia gc-text-light-bold gc-title solutions-title">{{$question->question}}</span>
-                </div>
-                <div>
-                    <span class="gc-helvetica">{{$question->description}}</span>
+                    <div class="col-md-6 col-sm-12">
+                        <span class="gc-georgia gc-text-light-bold gc-title solutions-title">{{$question->question}}</span>
+                    </div>
+                    <div class="col-md-6 col-sm-12">
+                        <span class="gc-helvetica">{{$question->description}}</span>
+                    </div>
                 </div>
             </div>
             <div class="col-md-6 col-sm-12 gc-full-height gc-align-right">

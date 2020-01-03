@@ -28,19 +28,23 @@
             <div id="home-2-carousel" class="carousel slide gc-full-height gc-full-width" data-ride="carousel">
                 <div class="carousel-inner gc-full-height">
                     @foreach($featured as $index=>$f)
-                    <div class="carousel-item @if($index == 0) active @endif ">
-                        <div>
-                            <span class="home-2-header">{{$f->category->name}}</span>
+                    <div class="carousel-item gc-full-height @if($index == 0) active @endif ">
+                        <div class="d-flex gc-container-center gc-full-height">
+                            <div>
+                                <div>
+                                    <span class="home-2-header">{{$f->category->name}}</span>
+                                </div>
+                                <div>
+                                    <span class="home-2-text">{{$f->title}}</span>
+                                </div>
+                                <div class="home-2-button">
+                                    <a href="{{route('blog-detail', ['id' => $f->id])}}">
+                                        <button class="btn btn-growth ">Read More</button>
+                                    </a>
+                                </div>
+                                <div class="home-2-link"></div>
+                            </div>
                         </div>
-                        <div>
-                            <span class="home-2-text">{{$f->title}}</span>
-                        </div>
-                        <div class="home-2-button">
-                            <a href="{{route('blog-detail', ['id' => $f->id])}}">
-                                <button class="btn btn-growth ">Read More</button>
-                            </a>
-                        </div>
-                        <div class="home-2-link"></div>
                     </div>
                     @endforeach
                 </div>
@@ -100,7 +104,7 @@
                     <div class="carousel-inner gc-full-height">
                         <div class="carousel-item gc-full-height active">
                             <div class="gc-full-height gc-container-center">
-                                <div class="gc-georgia" style="padding-left: 100px;">
+                                <div class="gc-georgia diagram-content">
                                     <span class="gc-title-2 gc-text-bold">Understand<br/>the Problem</span>
                                     <br>
                                     <span class="gc-content">{{$diagrams[0]->description}}</span>
@@ -109,7 +113,7 @@
                         </div>
                         <div class="carousel-item gc-full-height">
                             <div class="gc-full-height gc-container-center">
-                                <div class="gc-georgia" style="padding-left: 100px;">
+                                <div class="gc-georgia diagram-content">
                                     <span class="gc-title-2 gc-text-bold">Define<br/>the Problem</span>
                                     <br>
                                     <span class="gc-content">{{$diagrams[1]->description}}</span>
@@ -118,7 +122,7 @@
                         </div>
                         <div class="carousel-item gc-full-height">
                             <div class="gc-full-height gc-container-center">
-                                <div class="gc-georgia" style="padding-left: 100px;">
+                                <div class="gc-georgia diagram-content">
                                     <span class="gc-title-2 gc-text-bold">Propose Tailor<br/>Made Solution</span>
                                     <br>
                                     <span class="gc-content">{{$diagrams[2]->description}}</span>
@@ -127,7 +131,7 @@
                         </div>
                         <div class="carousel-item gc-full-height">
                             <div class="gc-full-height gc-container-center">
-                                <div class="gc-georgia" style="padding-left: 100px;">
+                                <div class="gc-georgia diagram-content">
                                     <span class="gc-title-2 gc-text-bold">Implementation &<br/>Agile Iteration</span>
                                     <br>
                                     <span class="gc-content">{{$diagrams[3]->description}}</span>
@@ -136,7 +140,7 @@
                         </div>
                         <div class="carousel-item gc-full-height">
                             <div class="gc-full-height gc-container-center">
-                                <div class="gc-georgia" style="padding-left: 100px;">
+                                <div class="gc-georgia diagram-content">
                                     <span class="gc-title-2 gc-text-bold">Feedback & Review</span>
                                     <br>
                                     <span class="gc-content">{{$diagrams[4]->description}}</span>

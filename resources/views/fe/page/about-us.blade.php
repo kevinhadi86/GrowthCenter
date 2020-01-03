@@ -8,7 +8,7 @@
             </div>
             <div class="col-md-7 col-sm-12 gc-full-height gc-container-center">
                 <div class="row" style="padding-left: 20px;">
-                    <div class="col-8">
+                    <div class="col-md-8 col-sm-12">
                         <div style="padding-bottom: 10px;">
                             <span class="gc-title gc-georgia gc-text-light-bold" style="line-height: normal;">Growth Center Invites You<br>to <span class="text-blue">Grow with Us</span></span>
                         </div>
@@ -39,7 +39,7 @@
         <div class="row gc-full-height">
             <div class="col-md-6 col-sm-12 gc-full-height">
                 <div class="row gc-full-height align-content-end justify-content-center flex-column">
-                    <div class="col-md-9 col-sm-10 row justify-content-center flex-column align-self-center">
+                    <div class="col-md-9 col-sm-9 row justify-content-center flex-column align-self-center">
                         <div class="gc-text-font-gigantic gc-georgia position-relative">
                             <span class="open-quote">&ldquo;</span>
                         </div>

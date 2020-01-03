@@ -27,7 +27,8 @@
 
 @media only screen and (max-width: 720px) {
     .gc-title {
-        font-size: 2em;
+        font-size: 1.5em;
+        line-height: 40px;
     }
 
     .col-md-7 {
