@@ -15,7 +15,7 @@ Route::get('/', 'HomeController@home')->name('home');
 Route::get('admin/growth/login', 'Cms\LoginController@index')->name('login')->middleware(\App\Http\Middleware\LoginMiddleware::class);
 Route::post('admin/growth/login', 'Cms\LoginController@login')->name('login')->middleware(\App\Http\Middleware\LoginMiddleware::class);
 Route::get('admin/growth/logout', 'Cms\LoginController@logout')->name('logout')->middleware(\App\Http\Middleware\LoggedinMiddleware::class);
-Route::group(['prefix'=>'admin/growth'], function(){
+Route::group(['middleware'=>\App\Http\Middleware\LoggedinMiddleware::class,'prefix'=>'admin/growth'], function(){
 
     #Home
     Route::get('/', 'Cms\ConfigurationController@index')->name('admin-home');
