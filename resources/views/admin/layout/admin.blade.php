@@ -23,7 +23,7 @@
                 <div class="navbar-custom-menu">
                     <ul class="nav navbar-nav">
                         <li>
-                            <a href="">Logout</a>
+                            <a href="{{route('logout')}}">Logout</a>
                         </li>
                     </ul>
                 </div>

@@ -12,6 +12,9 @@
 */
 
 Route::get('/', 'HomeController@home')->name('home');
+Route::get('admin/growth/login', 'Cms\LoginController@index')->name('login')->middleware(\App\Http\Middleware\LoginMiddleware::class);
+Route::post('admin/growth/login', 'Cms\LoginController@login')->name('login')->middleware(\App\Http\Middleware\LoginMiddleware::class);
+Route::get('admin/growth/logout', 'Cms\LoginController@logout')->name('logout')->middleware(\App\Http\Middleware\LoggedinMiddleware::class);
 Route::group(['prefix'=>'admin/growth'], function(){
 
     #Home
@@ -98,6 +101,5 @@ Route::group(['prefix'=>'admin/growth'], function(){
     #CompanyContact
     Route::get('/companyContact', 'Cms\CompanyContactController@index')->name('admin-company-contact');
     Route::post('/companyContact', 'Cms\CompanyContactController@store')->name('admin-insert-company-contact');
-
 
 });
