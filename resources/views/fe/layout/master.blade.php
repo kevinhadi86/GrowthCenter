@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="initial-scale=1, maximum-scale=1">
+    <meta content="width=device-width, initial-scale=1" name="viewport" />
     <meta http-equiv="X-UA-Compatible" content="ie=edge">
     <title>Growth Center</title>
     <link rel="stylesheet" href="{{asset('lib/bootstrap/css/bootstrap.css')}}">
