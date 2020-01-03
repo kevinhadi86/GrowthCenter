@@ -173,51 +173,45 @@ class ConfigurationController extends Controller
         return redirect()->route('admin-manage-about');
     }
 
-    public function manageBlog(){
-        $categories = Category::all();
-        return view('admin.page.app.blog.manage', compact('categories'));
-    }
-
-    public function selectBlogArticlePage($id){
-
-        $category = Category::find($id);
-        if ($category == null) {
-            return back()->withErrors("Category not found");
-        }
-
-        $articles = Article::where('category_id',$id)->get();
-        if ($articles == null) {
-            return back()->withErrors("No article available for this category");
-        }
-        
-        $config = Configuration::where('key','like','blogArticle'.$id)->first();
-        if ($config == null) {
-            $categoryConfig = array('');
-        }else{
-            $categoryConfig = unserialize($config->value);
-        }
-        return view('admin.page.app.blog.article',compact('categoryConfig','articles','category'));
-    }
-
-    public function selectBlogCategory(Request $request){
-        
-        $articles = Article::where('category_id',$request->selectedCategory)->first();
-        if ($articles == null) {
-            return back()->withErrors("No article available for this category");
-        }
-        return redirect()->route('admin-manage-blog-select-article', ['id' => $request->selectedCategory]);
-    }
-
-    public function insertBlogFeaturedArticleEachCategory(Request $request)
+    public function manageBlog()
     {
-        $homeArticleConfig = Configuration::where('key','blogArticle'.$request->category)->first();
-        if($homeArticleConfig==null){
-            
-            $homeArticleConfig = new Configuration;
-            $homeArticleConfig->key = 'blogArticle'.$request->category;
+        $configs = Configuration::where('key','like','blog%')->get();
+        $blogConfigs=array('blogTop'=>array(),'blogFeatured'=>array());
+        if($configs!=null){
+            foreach($configs as $config){
+                if($config->key == 'blogTop'){
+                    $blogConfigs[$config->key]=$config->value;
+                }else{
+                    $blogConfigs[$config->key]=unserialize($config->value);
+                }
+                
+            }
         }
-        $homeArticleConfig->value = serialize($request->selectedArticle);
-        $homeArticleConfig->save();
+        $articles = Article::all();
+        return view('admin.page.app.blog.manage', compact('articles','blogConfigs'));
+    }
+
+    public function insertBlogTopArticle(Request $request)
+    {
+        $blogConfig = Configuration::where('key','blogTop')->first();
+        if($blogConfig==null){
+            $blogConfig = new Configuration;
+            $blogConfig->key = 'blogTop';
+        }
+        $blogConfig->value = $request->topArticle;
+        $blogConfig->save();
+        return redirect()->route('admin-manage-blog');
+    }
+
+    public function insertBlogFeaturedArticle(Request $request)
+    {
+        $blogConfig = Configuration::where('key','blogFeatured')->first();
+        if($blogConfig==null){
+            $blogConfig = new Configuration;
+            $blogConfig->key = 'blogFeatured';
+        }
+        $blogConfig->value = serialize($request->articleList);
+        $blogConfig->save();
         return redirect()->route('admin-manage-blog');
     }
 }

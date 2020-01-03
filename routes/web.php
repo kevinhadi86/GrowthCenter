@@ -94,10 +94,9 @@ Route::group(['middleware'=>\App\Http\Middleware\LoggedinMiddleware::class,'pref
 
     #manageBlogPage
     Route::get('/manageBlog', 'Cms\ConfigurationController@manageBlog')->name('admin-manage-blog');
-    Route::post('/manageBlog', 'Cms\ConfigurationController@selectBlogCategory')->name('admin-select-category-blog');
-    Route::get('/selectBlogArticle/{id}', 'Cms\ConfigurationController@selectBlogArticlePage')->name('admin-manage-blog-select-article');
-    Route::post('/blogFeaturedArticle', 'Cms\ConfigurationController@insertBlogFeaturedArticleEachCategory')->name('admin-insert-blog-featured-article');
-
+    Route::post('/blogTopArticle', 'Cms\ConfigurationController@insertBlogTopArticle')->name('admin-insert-blog-top-article');
+    Route::post('/blogFeaturedArticle', 'Cms\ConfigurationController@insertBlogFeaturedArticle')->name('admin-insert-blog-featured-article');
+    
     #CompanyContact
     Route::get('/companyContact', 'Cms\CompanyContactController@index')->name('admin-company-contact');
     Route::post('/companyContact', 'Cms\CompanyContactController@store')->name('admin-insert-company-contact');
