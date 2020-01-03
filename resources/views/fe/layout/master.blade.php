@@ -19,20 +19,20 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav justify-content-end" style="width: 100%">
             <li class="nav-item">
-                <a href="{{route('home')}}" class="nav-link active white-able">Home</a>
+                <a href="{{route('home')}}" class="nav-link @if(request()->is('home*')) active @endif white-able">Home</a>
             </li>
             <li class="nav-item">
-                <a href="{{route('our-solutions')}}" class="nav-link white-able">Our Solutions</a>
+                <a href="{{route('our-solutions')}}" class="nav-link @if(request()->is('our-solutions*')) active @endif white-able">Our Solutions</a>
             </li>
             <li class="nav-item">
-                <a href="{{route('about-us')}}" class="nav-link white-able">About Us</a>
+                <a href="{{route('about-us')}}" class="nav-link @if(request()->is('about-us*')) active @endif white-able">About Us</a>
             </li>
             <li class="nav-item">
-                <a href="{{route('blog')}}" class="nav-link white-able">Insight</a>
+                <a href="{{route('blog')}}" class="nav-link @if(request()->is('blog*')) active @endif white-able">Insight</a>
             </li>
             <li class="nav-item">
                 <a href="{{route('contact-us')}}">
-                    <button class="btn btn-growth nav-link" style="font-size: 14px;">Contact Us</button>
+                    <button class="btn btn-growth @if(request()->is('contact-us*')) active @endif nav-link" style="font-size: 14px;">Contact Us</button>
                 </a>
             </li>
         </ul>

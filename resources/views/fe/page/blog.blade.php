@@ -49,30 +49,6 @@
             @endforeach
         </div>
         <hr>
-        <div class="row">
-            <div class="col-12">
-                <span class="article-title-highlight gc-baskerville gc-text-light-bold gc-content-2">Popular Article</span>
-            </div>
-        </div>
-        <div class="row">
-            @foreach($populars as $popular)
-                <div class="col-md-4 col-sm-12 article">
-                    <div class="col-12">
-                        <div class="article-image-container">
-                            <div class="article-image" style="background-image: url('/img/{{$popular->image}}')"></div>
-                        </div>
-                        <div class="article-title mt-3">
-                            <span class="gc-text-light-bold gc-georgia">{{$popular->title}}</span>
-                        </div>
-                        <div class="mt-3 article-content gc-helvetica">{!! $popular->content !!}</div>
-                        <div class="mt-3 gc-helvetica">
-                            <a href="{{route('blog-detail', ['id' => $popular->id])}}">Read more</a>
-                        </div>
-                    </div>
-                </div>
-            @endforeach
-        </div>
-        <hr>
         <div class="row mb-3">
             <div class="col-6">
                 <span class="article-title-highlight gc-baskerville gc-text-light-bold gc-content-2">All Articles</span>
