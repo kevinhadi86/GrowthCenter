@@ -16,7 +16,7 @@ class CompanyContactController extends Controller
      */
     public function index()
     {
-        $contact = CompanyContact::find(1);
+        $contact = CompanyContact::all()->first();
         if($contact==null){
             $contact = new CompanyContact;
         }
@@ -51,7 +51,7 @@ class CompanyContactController extends Controller
         if ($validate->fails()) {
             return back()->withErrors($validate);
         }
-        $contact = CompanyContact::find(1);
+        $contact = CompanyContact::all()->first();
         if($contact == null){
             $contact=new CompanyContact;
         }

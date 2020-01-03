@@ -5,6 +5,8 @@ namespace App\Http\Controllers\Cms;
 use App\SubscribedUser;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
+use Maatwebsite\Excel\Facades\Excel;
+use App\Exports\UsersExport;
 
 class SubscribedUserController extends Controller
 {
@@ -21,7 +23,7 @@ class SubscribedUserController extends Controller
 
     public function export()
     {
-        return redirect()->route('admin-subscribed-user');
+        return Excel::download(new UsersExport, 'users.xlsx');
     }
 
     /**

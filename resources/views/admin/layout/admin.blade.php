@@ -118,6 +118,11 @@
                                 'icon' => 'fa fa-file-code'
                             ])
                             @include('admin.layout.component.sidebar-item', [
+                                'name' => 'Manage Blog',
+                                'route' => 'admin-manage-blog',
+                                'icon' => 'fa fa-file-code'
+                            ])
+                            @include('admin.layout.component.sidebar-item', [
                                 'name' => 'Company Contact',
                                 'route' => 'admin-company-contact',
                                 'icon' => 'fa fa-building'

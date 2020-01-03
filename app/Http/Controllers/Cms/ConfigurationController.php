@@ -68,9 +68,9 @@ class ConfigurationController extends Controller
     public function insertHomeFeaturedQuestion(Request $request)
     {
         $homeQuestionConfig = Configuration::where('key','homeQuestion')->first();
-        if($homeTestimonyConfig==null){
-            $homeTestimonyConfig = new Configuration;
-            $homeTestimonyConfig->key = 'homeTestimony';
+        if($homeQuestionConfig==null){
+            $homeQuestionConfig = new Configuration;
+            $homeQuestionConfig->key = 'homeQuestion';
         }
         $homeQuestionConfig->value = serialize($request->questionList);
         $homeQuestionConfig->save();
@@ -171,5 +171,53 @@ class ConfigurationController extends Controller
         $aboutMainConfig->value = $request->weBelieveText;
         $aboutMainConfig->save();
         return redirect()->route('admin-manage-about');
+    }
+
+    public function manageBlog(){
+        $categories = Category::all();
+        return view('admin.page.app.blog.manage', compact('categories'));
+    }
+
+    public function selectBlogArticlePage($id){
+
+        $category = Category::find($id);
+        if ($category == null) {
+            return back()->withErrors("Category not found");
+        }
+
+        $articles = Article::where('category_id',$id)->get();
+        if ($articles == null) {
+            return back()->withErrors("No article available for this category");
+        }
+        
+        $config = Configuration::where('key','like','blogArticle'.$id)->first();
+        if ($config == null) {
+            $categoryConfig = array('');
+        }else{
+            $categoryConfig = unserialize($config->value);
+        }
+        return view('admin.page.app.blog.article',compact('categoryConfig','articles','category'));
+    }
+
+    public function selectBlogCategory(Request $request){
+        
+        $articles = Article::where('category_id',$request->selectedCategory)->first();
+        if ($articles == null) {
+            return back()->withErrors("No article available for this category");
+        }
+        return redirect()->route('admin-manage-blog-select-article', ['id' => $request->selectedCategory]);
+    }
+
+    public function insertBlogFeaturedArticleEachCategory(Request $request)
+    {
+        $homeArticleConfig = Configuration::where('key','blogArticle'.$request->category)->first();
+        if($homeArticleConfig==null){
+            
+            $homeArticleConfig = new Configuration;
+            $homeArticleConfig->key = 'blogArticle'.$request->category;
+        }
+        $homeArticleConfig->value = serialize($request->selectedArticle);
+        $homeArticleConfig->save();
+        return redirect()->route('admin-manage-blog');
     }
 }

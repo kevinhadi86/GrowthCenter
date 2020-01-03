@@ -7,6 +7,7 @@ use App\Category;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Str;
 
 class ArticleController extends Controller
 {
@@ -56,8 +57,11 @@ class ArticleController extends Controller
         $article->author = $request->author;
         $article->content = $request->content;
         $article->category_id = $request->category;
-        $article->image =$request->file('image')->getClientOriginalName();
-        $request->file('image')->move(public_path().'/img',$article['image']);
+        $file = $request->file('image');
+        $uid = (string) Str::uuid();
+        $filename = $uid . "." . $file->extension();
+        $article->image =$filename;
+        $file->move(public_path().'/img',$article['image']);
         $article->save();
         return redirect()->route('admin-article');
     }

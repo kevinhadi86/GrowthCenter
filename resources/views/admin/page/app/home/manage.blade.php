@@ -91,7 +91,7 @@
 
     <div class="box box-primary">
         <div class="box-header with-border">
-            <h3 class="box-title">Featured Article for each Category Section</h3>
+            <h3 class="box-title">1 Top Featured Article for each Category Section</h3>
         </div>
         <div class="box-body">
             <form role="form" method="post" enctype="multipart/form-data" action="{{route('admin-select-category-home')}}">
