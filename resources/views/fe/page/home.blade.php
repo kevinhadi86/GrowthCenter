@@ -20,44 +20,50 @@
         <img src="{{asset('static/images/aa.png')}}">
     </div>
     <div class="jumbotron jumbotron-fluid home-2">
-        <div>
+        <div class="position-absolute insight-container">
             <span class="highlight-clickable title">Insights</span>
         </div>
-        <div class="hexagon" style="background-image: linear-gradient(rgba(0, 82, 136, 1), rgba(0, 82, 136, 1)), url('/static/images/Image 1.png'); background-blend-mode: color;"></div>
-        <div class="home-2-content">
-            <div id="home-2-carousel" class="carousel slide gc-full-height gc-full-width" data-ride="carousel">
-                <div class="carousel-inner gc-full-height">
-                    @foreach($featured as $index=>$f)
-                    <div class="carousel-item gc-full-height @if($index == 0) active @endif ">
-                        <div class="d-flex gc-container-center gc-full-height">
-                            <div>
+        <div id="home-2-carousel" class="carousel slide gc-full-height gc-full-width" data-ride="carousel">
+            <div class="carousel-inner gc-full-height">
+                @foreach($featured as $index=>$f)
+                <div class="carousel-item gc-full-height @if($index == 0) active @endif ">
+                    <div class="row gc-full-height">
+                        <div class="col-md-6">
+                            <div class="gc-full-width gc-full-height">
+                                <div class="hexagon" style="background-image: url('/img/{{$f->image}}');"></div>
+                            </div>
+                        </div>
+                        <div class="col-md-6">
+                            <div class="d-flex gc-container-center gc-full-height">
                                 <div>
-                                    <span class="home-2-header">{{$f->category->name}}</span>
+                                    <div>
+                                        <span class="home-2-header">{{$f->category->name}}</span>
+                                    </div>
+                                    <div>
+                                        <span class="home-2-text">{{$f->title}}</span>
+                                    </div>
+                                    <div class="home-2-button">
+                                        <a href="{{route('blog-detail', ['id' => $f->id])}}">
+                                            <button class="btn btn-growth ">Read More</button>
+                                        </a>
+                                    </div>
+                                    <div class="home-2-link"></div>
                                 </div>
-                                <div>
-                                    <span class="home-2-text">{{$f->title}}</span>
-                                </div>
-                                <div class="home-2-button">
-                                    <a href="{{route('blog-detail', ['id' => $f->id])}}">
-                                        <button class="btn btn-growth ">Read More</button>
-                                    </a>
-                                </div>
-                                <div class="home-2-link"></div>
                             </div>
                         </div>
                     </div>
-                    @endforeach
                 </div>
+                @endforeach
             </div>
-            <a class="carousel-control-prev" href="#home-2-carousel" role="button" data-slide="prev">
-                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                <span class="sr-only">Previous</span>
-            </a>
-            <a class="carousel-control-next" href="#home-2-carousel" role="button" data-slide="next">
-                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                <span class="sr-only">Next</span>
-            </a>
         </div>
+        <a class="carousel-control-prev" href="#home-2-carousel" role="button" data-slide="prev">
+            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+            <span class="sr-only">Previous</span>
+        </a>
+        <a class="carousel-control-next" href="#home-2-carousel" role="button" data-slide="next">
+            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+            <span class="sr-only">Next</span>
+        </a>
     </div>
     <div class="jumbotron jumbotron-fluid home-3" style="background-color: transparent">
         <div class="gc-full-bg-image home-3-background parallax"></div>
@@ -76,12 +82,17 @@
                             <div class="gc-align-right">
                                 <span class="gc-content-2 gc-helvetica gc-color-white">{{$testimony->name}}, {{$testimony->position}}</span>
                             </div>
-                            <div class="gc-align-right">
-                                <img class="testimony-logo" src="{{asset('img/' . $testimony->image)}}" alt="">
+                            <div class="gc-align-right testimony-logo-container">
+
                             </div>
                         </div>
                     </div>
                 </div>
+                @endforeach
+            </div>
+            <div class="gc-align-right true-testimony-logo-container">
+                @foreach($homeTestimony as $index=>$testimony)
+                    <img class="testimony-logo" src="{{asset('img/' . $testimony->image)}}" alt="" data-idx="{{$index}}">
                 @endforeach
             </div>
             <a class="carousel-control-prev" href="#home-3-carousel" role="button" data-slide="prev">
@@ -102,6 +113,13 @@
             <div class="col-md-6 col-sm-12 gc-align-right gc-container-center gc-full-height">
                 <div id="diagramCarousel" class="carousel slide gc-full-height" data-ride="carousel" data-interval="false">
                     <div class="carousel-inner gc-full-height">
+                        <ol class="carousel-indicators">
+                            <li data-target="#diagramCarousel" data-slide-to="0" class="active"></li>
+                            <li data-target="#diagramCarousel" data-slide-to="1"></li>
+                            <li data-target="#diagramCarousel" data-slide-to="2"></li>
+                            <li data-target="#diagramCarousel" data-slide-to="3"></li>
+                            <li data-target="#diagramCarousel" data-slide-to="4"></li>
+                        </ol>
                         <div class="carousel-item gc-full-height active">
                             <div class="gc-full-height gc-container-center">
                                 <div class="gc-georgia diagram-content">
@@ -232,6 +250,17 @@
                 $index = $(this).data('idx');
                 $carousel.carousel($index);
                 $('.diagram').attr("src", "{{asset('static/images/diagram/')}}" + "/0" + ($index+1) + ".png");
+            });
+
+            $('.carousel-indicators li').click(function() {
+                $index = $(this).data('slide-to');
+                $carousel.carousel($index);
+                $('.diagram').attr("src", "{{asset('static/images/diagram/')}}" + "/0" + ($index+1) + ".png");
+            });
+
+            $('.testimony-logo').click(function() {
+                $index = $(this).data('idx');
+                $('#home-3-carousel').carousel($index);
             })
         });
     </script>

@@ -38,4 +38,33 @@
     <link rel="stylesheet" href="{{asset('css/our-team.css')}}">
     <link rel="stylesheet" href="{{asset('css/component/address-footer.css')}}">
     <link rel="stylesheet" href="{{asset('css/component/white-header.css')}}">
+    <style>
+        nav.navbar-light {
+            background-color: grey;
+        }
+    </style>
+@endsection
+
+@section("script")
+    <script>
+        $(function() {
+            if ($(window).scrollTop() > 50) {
+                $('.header').css('background-color', 'white');
+                $('.nav-item:not(:last-child) .nav-link').removeClass('white-able');
+            } else {
+                $('.header').css('background-color', 'rgba(100, 100, 100, 0.25)');
+                $('.nav-item:not(:last-child) .nav-link').addClass('white-able');
+            }
+
+            $(window).bind('scroll', function () {
+                if ($(window).scrollTop() > 50) {
+                    $('.header').css('background-color', 'white');
+                    $('.nav-item:not(:last-child) .nav-link').removeClass('white-able');
+                } else {
+                    $('.header').css('background-color', 'rgba(0, 0, 0, 0.25)');
+                    $('.nav-item:not(:last-child) .nav-link').addClass('white-able');
+                }
+            });
+        });
+    </script>
 @endsection

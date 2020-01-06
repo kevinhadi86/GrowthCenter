@@ -38,14 +38,15 @@
                             </div>
                         </div>
                         @endforeach
-                    <a class="carousel-control-prev" href="#testimony-carousel" role="button" data-slide="prev">
-                        <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                        <span class="sr-only">Previous</span>
-                    </a>
-                    <a class="carousel-control-next" href="#testimony-carousel" role="button" data-slide="next">
-                        <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                        <span class="sr-only">Next</span>
-                    </a>
+                        <a class="carousel-control-prev" href="#testimony-carousel" role="button" data-slide="prev">
+                            <span class="carousel-control-prev-icon" aria-hidden="true"></span>
+                            <span class="sr-only">Previous</span>
+                        </a>
+                        <a class="carousel-control-next" href="#testimony-carousel" role="button" data-slide="next">
+                            <span class="carousel-control-next-icon" aria-hidden="true"></span>
+                            <span class="sr-only">Next</span>
+                        </a>
+                    </div>
                 </div>
             </div>
         </div>
@@ -56,18 +57,18 @@
                 <span class="other-questions gc-baskerville gc-text-light-bold">Other Questions</span>
             </div>
             <div class="gc-georgia gc-text-light-bold question-list gc-text-font-normal pr-5">
-                <ul class="list-group list-group-flush">
+                <ul class="list-group list-group-flush accordion" id="category-accordion">
                     @foreach($categories as $i=>$category)
                         <li class="list-group-item px-0">
-                            <a class="btn collapsed gc-text-light-bold" data-toggle="collapse" href="#collapseCategory{{$i}}" aria-controls="collapseCategory{{$i}}">
+                            <a class="btn @if($category->id != $question->category_id) collapsed @endif gc-text-light-bold category-toggle" data-toggle="collapse" href="#collapseCategory{{$i}}" aria-controls="collapseCategory{{$i}}">
                                 {{$category->name}}<span class="mr-3"></span>
                             </a>
-                            <div class="collapse" id="collapseCategory{{$i}}">
+                            <div class="collapse @if($category->id == $question->category_id) show @endif " id="collapseCategory{{$i}}" data-parent="#category-accordion">
                                 <div class="card card-body mt-2" style="border: none">
-                                    @foreach($category->questions as $question)
+                                    @foreach($category->questions as $q)
                                         <div class="mb-3">
-                                            <a href="{{route('our-solutions-detail', ['id' => $question->id])}}" class="gc-no-decoration-link">
-                                                <span class="the-question @if ($question->id == $id) active-other-question-title @endif " >{{$question->question}}</span>
+                                            <a href="{{route('our-solutions-detail', ['id' => $q->id])}}" class="gc-no-decoration-link">
+                                                <span class="the-question @if ($q->id == $id) active-other-question-title @endif " >{{$q->question}}</span>
                                             </a>
                                         </div>
                                     @endforeach
@@ -82,17 +83,15 @@
             <div class="row question-container">
                 @foreach($successStories as $successStory)
                 <div class="col-md-6 col-sm-12 article">
-                    <div class="col-12">
+                    <div href="" class="btn col-12 shadow-container" onclick="window.location='{{route('success-story', ['id' => $successStory->id])}}';">
                         <div class="article-image-container">
                             <div class="article-image" style="background-image: url('/img/{{$successStory->image}}')"></div>
                         </div>
-                        <div class="article-title mt-3">
-                            <span class="gc-text-light-bold gc-georgia">{{$successStory->title}}</span>
+                        <div class="article-title mt-3 gc-text-light-bold gc-georgia gc-align-left">{{$successStory->title}}</div>
+                        <div class="mt-3 article-content gc-align-left">
+                            {{strip_tags($successStory->content)}}
                         </div>
-                        <div class="mt-3 article-content">
-                            {!! $successStory->content !!}
-                        </div>
-                        <div class="mt-3 gc-helvetica">
+                        <div class="mt-3 gc-helvetica gc-align-left">
                             <a href="{{route('success-story', ['id' => $successStory->id])}}">Read more</a>
                         </div>
                     </div>
@@ -100,17 +99,15 @@
                 @endforeach
                 @foreach($articles as $article)
                     <div class="col-md-6 col-sm-12 article">
-                        <div class="col-12">
+                        <div href="" class="btn col-12 shadow-container" onclick="window.location='{{route('blog-detail', ['id' => $article->id])}}';">
                             <div class="article-image-container">
                                 <div class="article-image" style="background-image: url('/img/{{$article->image}}')"></div>
                             </div>
-                            <div class="article-title mt-3">
-                                <span class="gc-text-light-bold gc-georgia">{{$article->title}}</span>
+                            <div class="article-title mt-3 gc-text-light-bold gc-georgia gc-align-left">{{$article->title}}</div>
+                            <div class="mt-3 article-content gc-align-left">
+                                {{strip_tags($article->content)}}
                             </div>
-                            <div class="mt-3 article-content">
-                                {!! $article->content !!}
-                            </div>
-                            <div class="mt-3 gc-helvetica">
+                            <div class="mt-3 gc-helvetica gc-align-left">
                                 <a href="{{route('blog-detail', ['id' => $article->id])}}">Read more</a>
                             </div>
                         </div>
@@ -128,4 +125,9 @@
 @endsection
 
 @section('script')
+    <script>
+        $(function() {
+
+        });
+    </script>
 @endsection

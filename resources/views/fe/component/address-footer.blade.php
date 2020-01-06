@@ -26,7 +26,10 @@
                 <div>
                     <form action="{{route('subscribe')}}" id="subscribe-form" method="post">
                         {{csrf_field()}}
-                        <div class="input-group">
+                        <div class="input-group name-input-container mb-3">
+                            <input type="text" name="name" class="form-control" placeholder="Insert your name">
+                        </div>
+                        <div class="input-group email-input-container">
                             <input type="email" name="email" class="form-control" placeholder="Insert your e-mail address">
                             <div class="input-group-append">
                                 <button class="btn btn-outline-secondary" type="button"><span>&#10230;</span></button>

@@ -9,13 +9,13 @@
             <div class="col-md-5 col-sm-12 gc-full-height">
                 <div class="pt-5 pb-5 gc-full-height position-relative">
                     <div class="gradient-fade"></div>
-                    <div id="scroll-container" class="gc-full-height">
+                    <div id="scroll-container" class="gc-full-height accordion">
                         <div class="empty"></div>
                         @foreach($questions as $i=>$question)
                             <div class="solution mt-5 mb-5 solution-{{$i}}" data-id="{{$i}}">
                                 <div class="hr-slot"></div>
                                 <a class="gc-georgia gc-text-light-bold collapsed gc-no-decoration-link mt-3 mb-3 solution-title solution-title-{{$i}}" data-toggle="collapse" href="#collapseSolution{{$i}}" aria-controls="collapseSolution{{$i}}" data-href="{{route('our-solutions-detail', ['id' => $question->id])}}">{{$question->question}}</a>
-                                <div class="collapse mt-3 mb-5 solution-collapsible" id="collapseSolution{{$i}}">
+                                <div class="collapse mt-3 mb-5 solution-collapsible" id="collapseSolution{{$i}}" data-parent="#scroll-container">
                                     {{$question->description}}
                                 </div>
                                 <div class="hr-slot"></div>

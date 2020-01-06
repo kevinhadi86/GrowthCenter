@@ -54,6 +54,29 @@
     padding-bottom: -20px;
 }
 
+.carousel-control-next,
+.carousel-control-prev {
+    filter: invert(100%);
+}
+
+.carousel-control-next {
+    right: -20px;
+}
+
+.carousel-control-prev {
+    left: 10%;
+}
+
+.category-toggle:not(.collapsed) {
+    outline: 0;
+    box-shadow: 0 0 0 0.2rem rgba(0, 0, 0, 0.25);
+}
+
+.category-toggle.collapsed {
+    outline: 0;
+    box-shadow: 0 0 0 0 white;
+}
+
 @media only screen and (max-width: 720px) {
     .gc-jumbotron {
         height: 200vh;

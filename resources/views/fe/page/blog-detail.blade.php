@@ -36,15 +36,15 @@
                     <div class="row">
                         @foreach($related as $r)
                         <div class="col-12 article">
-                            <div class="col-12">
+                            <div class="btn col-12 shadow-container" onclick="window.location='{{route('blog-detail', ['id' => $r->id])}}';">
                                 <div class="article-image-container">
                                     <div class="article-image" style="background-image: url('/img/{{$r->image}}')"></div>
                                 </div>
-                                <div class="article-title mt-3">
-                                    <span class="gc-text-light-bold gc-georgia">{{$r->title}}</span>
+                                <div class="article-title mt-3 gc-text-light-bold gc-georgia gc-align-left">{{$r->title}}</div>
+                                <div class="mt-3 article-content gc-align-left">
+                                    {{strip_tags($r->content)}}
                                 </div>
-                                <div class="mt-3 article-content">{!! $r->content !!}</div>
-                                <div class="mt-3 gc-helvetica">
+                                <div class="mt-3 gc-helvetica gc-align-left">
                                     <a href="{{route('blog-detail', ['id' => $r->id])}}">Read more</a>
                                 </div>
                             </div>

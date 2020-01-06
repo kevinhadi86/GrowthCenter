@@ -1,4 +1,9 @@
-#subscribe-form .input-group {
+.name-input-container {
+    width: 30%;
+    height: 50px;
+}
+
+.email-input-container {
     width: 60%;
     height: 50px;
 }
@@ -17,13 +22,12 @@
 }
 
 .subscribe {
-    width: 100vw;
     height: 50vh;
     background-color: #EAEBEC;
 }
 
 .address-container {
-
+    padding-left: 50px;
 }
 
 .address-container > div{

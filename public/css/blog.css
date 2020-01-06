@@ -50,6 +50,21 @@ hr {
 
 .main-title {
     line-height: 65px;
+    max-height: 200px;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.main-content {
+    max-height: 150px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 6;
+    -webkit-box-orient: vertical;
 }
 
 .read-more-button {
@@ -81,6 +96,19 @@ hr {
 
 .category span {
 
+}
+
+.carousel-control-next,
+.carousel-control-prev{
+    filter: invert(100%);
+}
+
+#topInsightCarousel .carousel-control-prev{
+    left: -50px;
+}
+
+.article {
+    margin-top: 20px;
 }
 
 @media only screen and (max-width: 720px) {

@@ -19,7 +19,7 @@
     <div class="collapse navbar-collapse" id="navbarSupportedContent">
         <ul class="navbar-nav justify-content-end" style="width: 100%">
             <li class="nav-item">
-                <a href="{{route('home')}}" class="nav-link @if(request()->is('home*')) active @endif white-able">Home</a>
+                <a href="{{route('home')}}" class="nav-link @if(request()->is('/')) active @endif white-able">Home</a>
             </li>
             <li class="nav-item">
                 <a href="{{route('our-solutions')}}" class="nav-link @if(request()->is('our-solutions*')) active @endif white-able">Our Solutions</a>
