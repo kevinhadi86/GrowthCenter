@@ -18,6 +18,7 @@
                     <th>Question</th>
                     <th>Category</th>
                     <th>Description</th>
+                    <th>Image</th>
                     <th>Action</th>
                 </tr>
                 </thead>
@@ -27,6 +28,7 @@
                             <td class="question question-question">{{$question->question}}</td>
                             <td class="question question-category" data-id="{{$question->category->id}}">{{$question->category->name}}</td>
                             <td class="question question-description">{{$question->description}}</td>
+                            <td><img src="{{asset('/img/'.$question->image)}}" style="width: 100px;"></td>
                             <td>
                                 <button class="btn btn-info update-question-button" data-toggle="modal" data-target="#update-question-modal" data-link="{{route('admin-question-update', ['id' => $question->id])}}" data-id="{{$question->id}}">Edit Question</button>
                                 <button class="btn btn-danger delete-question-button" data-toggle="modal" data-target="#delete-question-modal" data-link="{{route('admin-question-destroy', ['id' => $question->id])}}">Delete</button>
@@ -39,7 +41,7 @@
     </div>
     <div class="modal fade" id="insert-question-modal">
         <div class="modal-dialog">
-            <form role="form" method="post">
+            <form role="form" method="post" enctype="multipart/form-data">
                 {{csrf_field()}}
                 <div class="modal-content">
                     <div class="modal-header">
@@ -69,6 +71,12 @@
                         <div class="form-group">
                             <label>Description</label>
                             <input type="text" name="description" placeholder="Description" class="form-control">
+                        </div>
+                    </div>
+                    <div class="modal-body">
+                        <div class="form-group">
+                            <label>Image</label>
+                            <input type="file" name="image" placeholder="Image" class="form-control">
                         </div>
                     </div>
                     <div class="modal-footer">
@@ -110,6 +118,12 @@
                         <div class="form-group">
                             <label>Description</label>
                             <input type="text" name="description" placeholder="Description" class="form-control">
+                        </div>
+                    </div>
+                    <div class="modal-body">
+                        <div class="form-group">
+                            <label>Image</label>
+                            <input type="file" name="image" placeholder="Image" class="form-control">
                         </div>
                     </div>
                     <div class="modal-footer">

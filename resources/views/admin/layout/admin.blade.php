@@ -23,7 +23,7 @@
                 <div class="navbar-custom-menu">
                     <ul class="nav navbar-nav">
                         <li>
-                            <a href="">Logout</a>
+                            <a href="{{route('logout')}}">Logout</a>
                         </li>
                     </ul>
                 </div>
@@ -32,11 +32,6 @@
         <aside class="main-sidebar">
             <section class="sidebar">
                 <ul class="sidebar-menu" data-widget="tree">
-                    @include('admin.layout.component.sidebar-item', [
-                        'name' => 'Home',
-                        'route' => 'admin-home',
-                        'icon' => 'fa fa-home'
-                    ])
                     @include('admin.layout.component.sidebar-item', [
                         'name' => 'Team Member',
                         'route' => 'admin-team-member',

@@ -7,6 +7,7 @@ use App\Category;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Str;
 
 class QuestionController extends Controller
 {
@@ -44,7 +45,7 @@ class QuestionController extends Controller
             [
                 'question'=>'required|min:1',
                 'category'=>'required',
-                'description'=>'required|min:1'
+                'description'=>'required|min:1',
             ]);
         if ($validate->fails()) {
             return back()->withErrors($validate);
@@ -53,6 +54,11 @@ class QuestionController extends Controller
         $question->question = $request->question;
         $question->category_id = $request->category;
         $question->description = $request->description;
+        $file = $request->file('image');
+        $uid = (string) Str::uuid();
+        $filename = $uid . "." . $file->extension();
+        $question->image =$filename;
+        $file->move(public_path().'/img',$question['image']);
         $question->save();
         return redirect()->route('admin-question');
     }
@@ -92,7 +98,8 @@ class QuestionController extends Controller
             [
                 'question'=>'required|min:1',
                 'category'=>'required',
-                'description'=>'required|min:1'
+                'description'=>'required|min:1',
+                'image'=>'required'
             ]);
         if ($validate->fails()) {
             return back()->withErrors($validate);
@@ -101,6 +108,13 @@ class QuestionController extends Controller
         $question->question = $request->question;
         $question->category_id = $request->category;
         $question->description = $request->description;
+        if($request->file('image')!=null){
+            $file = $request->file('image');
+            $uid = (string) Str::uuid();
+            $filename = $uid . "." . $file->extension();
+            $question->image =$filename;
+            $file->move(public_path().'/img',$question['image']);
+        }
         $question->save();
         return redirect()->route('admin-question');
     }

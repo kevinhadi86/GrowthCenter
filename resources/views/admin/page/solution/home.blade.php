@@ -16,6 +16,8 @@
                 <thead>
                 <tr>
                     <th>Solution</th>
+                    <th>Name</th>
+                    <th>Position</th>
                     <th>Question</th>
                     <th>Image</th>
                     <th>Action</th>
@@ -25,6 +27,8 @@
                     @foreach($solutions as $solution)
                         <tr id="solution-id-{{$solution->id}}">
                             <td class="solution solution-solution">{{$solution->solution}}</td>
+                            <td class="solution solution-name">{{$solution->name}}</td>
+                            <td class="solution solution-position">{{$solution->position}}</td>
                             <td class="solution solution-question" data-id="{{$solution->question->id}}">{{$solution->question->question}}</td>
                             <td class="solution solution-image"><img src="{{asset('/img/'.$solution->image)}}" style="width: 100px;"></td>
                             <td>
@@ -52,6 +56,18 @@
                         <div class="form-group">
                             <label>Solution</label>
                             <input type="text" name="solution" placeholder="Solution" class="form-control">
+                        </div>
+                    </div>
+                    <div class="modal-body">
+                        <div class="form-group">
+                            <label>Name</label>
+                            <input type="text" name="name" placeholder="Name" class="form-control">
+                        </div>
+                    </div>
+                    <div class="modal-body">
+                        <div class="form-group">
+                            <label>Position</label>
+                            <input type="text" name="position" placeholder="Position" class="form-control">
                         </div>
                     </div>
                     <div class="modal-body">
@@ -93,6 +109,18 @@
                         <div class="form-group">
                             <label>Solution</label>
                             <input type="text" name="solution" placeholder="Solution" class="form-control">
+                        </div>
+                    </div>
+                    <div class="modal-body">
+                        <div class="form-group">
+                            <label>Name</label>
+                            <input type="text" name="name" placeholder="Name" class="form-control">
+                        </div>
+                    </div>
+                    <div class="modal-body">
+                        <div class="form-group">
+                            <label>Position</label>
+                            <input type="text" name="position" placeholder="Position" class="form-control">
                         </div>
                     </div>
                     <div class="modal-body">
@@ -170,6 +198,8 @@
                 $row = $('#solution-id-' + id);
                 $modal = $('#update-solution-modal');
                 $modal.find("input[name=solution]").val($row.find(".solution-solution").html())
+                $modal.find("input[name=name]").val($row.find(".solution-name").html())
+                $modal.find("input[name=position]").val($row.find(".solution-position").html())
                 $modal.find("select[name=question]").val($row.find(".solution-question").data('id'))
                 $modal.find('.name').val($row.find(".solution-name").html())
                 $modal.find('form').attr('action', link);
