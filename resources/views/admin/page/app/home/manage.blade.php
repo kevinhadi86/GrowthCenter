@@ -88,28 +88,7 @@
             </form>
         </div>
     </div>
-
-    <div class="box box-primary">
-        <div class="box-header with-border">
-            <h3 class="box-title">1 Top Featured Article for each Category Section</h3>
-        </div>
-        <div class="box-body">
-            <form role="form" method="post" enctype="multipart/form-data" action="{{route('admin-select-category-home')}}">
-                {{csrf_field()}}
-                <div class="box-body">
-                    <div class="form-group">
-                        <select class="form-control" name="selectedCategory" id="selectedCategory">
-                            @foreach($categories as $category)
-                                <option value="{{$category->id}}" name="selectedCategory">{{$category->name}}</option>
-                            @endforeach
-                        </select>
-                    </div>
-                    <button class="btn btn-primary">Submit</button>
-                </div>
-            </form>
-        </div>
-    </div>
-
+    
     <div class="box box-primary">
         <div class="box-header with-border">
             <h3 class="box-title">Diagram Section</h3>

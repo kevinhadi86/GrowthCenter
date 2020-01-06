@@ -17,7 +17,7 @@ class LoginMiddleware
     public function handle($request, Closure $next)
     {
         if(Session::get('email')){
-            return redirect()->route('admin-home');
+            return redirect()->route('admin-article');
         }
         return $next($request);
     }

@@ -33,11 +33,6 @@
             <section class="sidebar">
                 <ul class="sidebar-menu" data-widget="tree">
                     @include('admin.layout.component.sidebar-item', [
-                        'name' => 'Home',
-                        'route' => 'admin-home',
-                        'icon' => 'fa fa-home'
-                    ])
-                    @include('admin.layout.component.sidebar-item', [
                         'name' => 'Team Member',
                         'route' => 'admin-team-member',
                         'icon' => 'fa fa-users'

@@ -18,6 +18,8 @@ class CreateSolutionsTable extends Migration
             $table->unsignedBigInteger('question_id');
             $table->string('image');
             $table->string('solution');
+            $table->string('name');
+            $table->string('position');
             $table->timestamps();
             $table->foreign('question_id')->references('id')->on('questions')->onUpdate('cascade')->onDelete('cascade');
         });

@@ -27,10 +27,10 @@ class LoginController extends Controller
         if(!empty($data)){
             if ($request->password == $data->password) {
                 Session::put('email',$data->email);
-                return redirect()->route('admin-home');
-            }else{
-                return redirect()->route('login')->with('alert','Email or Password is Wrong');
+                return redirect()->route('admin-article');
             }
+        }else{
+            return redirect()->route('login')->with('alert','Email or Password is Wrong');
         }
     }
 
