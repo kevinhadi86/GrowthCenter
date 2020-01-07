@@ -26,9 +26,6 @@ Route::group(['namespace' => "Client"], function() {
     Route::get('/success-story/{id}', "BlogDetailController@successStoryPage")->name('success-story');
     Route::post('/subscribe', "SubscribeController@post")->name('subscribe');
 });
-    #Home
-    Route::get('/', 'Cms\ConfigurationController@index')->name('admin-home');
-
 Route::get('admin/growth/login', 'Cms\LoginController@index')->name('login')->middleware(\App\Http\Middleware\LoginMiddleware::class);
 Route::post('admin/growth/login', 'Cms\LoginController@login')->name('login')->middleware(\App\Http\Middleware\LoginMiddleware::class);
 Route::get('admin/growth/logout', 'Cms\LoginController@logout')->name('logout')->middleware(\App\Http\Middleware\LoggedinMiddleware::class);
@@ -106,7 +103,7 @@ Route::group(['middleware'=>\App\Http\Middleware\LoggedinMiddleware::class,'pref
     Route::get('/manageBlog', 'Cms\ConfigurationController@manageBlog')->name('admin-manage-blog');
     Route::post('/blogTopArticle', 'Cms\ConfigurationController@insertBlogTopArticle')->name('admin-insert-blog-top-article');
     Route::post('/blogFeaturedArticle', 'Cms\ConfigurationController@insertBlogFeaturedArticle')->name('admin-insert-blog-featured-article');
-    
+
     #CompanyContact
     Route::get('/companyContact', 'Cms\CompanyContactController@index')->name('admin-company-contact');
     Route::post('/companyContact', 'Cms\CompanyContactController@store')->name('admin-insert-company-contact');
