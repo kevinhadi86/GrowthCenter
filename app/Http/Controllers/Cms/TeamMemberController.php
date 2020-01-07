@@ -6,6 +6,7 @@ use App\TeamMember;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Str;
 
 class TeamMemberController extends Controller
 {
@@ -52,8 +53,11 @@ class TeamMemberController extends Controller
         $member->name = $request->name;
         $member->position = $request->position;
         $member->description = $request->description;
-        $member->image =$request->file('image')->getClientOriginalName();
-        $request->file('image')->move(public_path().'/img',$member['image']);
+        $file = $request->file('image');
+        $uid = (string) Str::uuid();
+        $filename = $uid . "." . $file->extension();
+        $member->image =$filename;
+        $file->move(public_path().'/img',$member['image']);
         $member->save();
         return redirect()->route('admin-team-member');
     }
@@ -103,8 +107,11 @@ class TeamMemberController extends Controller
         $member->position = $request->position;
         $member->description = $request->description;
         if($request->file('image') != null){
-            $member->image =$request->file('image')->getClientOriginalName();
-            $request->file('image')->move(public_path().'/img',$member['image']);
+            $file = $request->file('image');
+            $uid = (string) Str::uuid();
+            $filename = $uid . "." . $file->extension();
+            $member->image =$filename;
+            $file->move(public_path().'/img',$member['image']);
         }
         $member->save();
         return redirect()->route('admin-team-member');

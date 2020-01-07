@@ -7,6 +7,7 @@ use App\Question;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Str;
 
 class SuccessStoryController extends Controller
 {
@@ -56,8 +57,11 @@ class SuccessStoryController extends Controller
         $successStory->author = $request->author;
         $successStory->content = $request->content;
         $successStory->question_id = $request->question;
-        $successStory->image =$request->file('image')->getClientOriginalName();
-        $request->file('image')->move(public_path().'/img',$successStory['image']);
+        $file = $request->file('image');
+        $uid = (string) Str::uuid();
+        $filename = $uid . "." . $file->extension();
+        $successStory->image =$filename;
+        $file->move(public_path().'/img',$successStory['image']);
         $successStory->save();
         return redirect()->route('admin-success-story');
     }
@@ -111,8 +115,11 @@ class SuccessStoryController extends Controller
         $successStory->content = $request->content;
         $successStory->question_id = $request->question;
         if($request->file('image') != null){
-            $successStory->image =$request->file('image')->getClientOriginalName();
-            $request->file('image')->move(public_path().'/img',$successStory['image']);
+            $file = $request->file('image');
+            $uid = (string) Str::uuid();
+            $filename = $uid . "." . $file->extension();
+            $successStory->image =$filename;
+            $file->move(public_path().'/img',$successStory['image']);
         }
         $successStory->save();
         return redirect()->route('admin-success-story');

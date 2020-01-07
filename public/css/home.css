@@ -51,10 +51,14 @@
 
 .home-2 {
     font-family: Georgia;
-    padding: 80px 0 0 120px;
+    padding: 80px 120px 0 0;
     position: relative;
     margin-bottom: 0;
     background-color: white;
+}
+
+.home-2 .insight-container {
+    margin-left: 120px;
 }
 
 .home-2 .title {
@@ -111,14 +115,12 @@
 
 .hexagon {
     display: inline-block;
-    width: 50%;
-    height: 90%;
-    position: absolute;
-    top: 60px;
+    width: 100%;
+    height: 100%;
+    position: relative;
     left: 50px;
     background-position: center;
-    background-size: 1000px 650px;
-    background-position-x: -200px;
+    background-size: cover;
     background-repeat: no-repeat;
     filter: grayscale(50%) contrast(110%) brightness(80%);
 }
@@ -131,6 +133,14 @@
 .home-3 {
     position: relative;
     padding-top: 0;
+}
+
+.testimony-logo {
+    height: 100px;
+    width: auto;
+    color: white !important;
+    cursor: pointer;
+    margin-left: 20px;
 }
 
 .home-3-background {
@@ -284,4 +294,158 @@
 
 .home-5-button {
     padding: 10px 20px;
+}
+
+.diagram-content {
+    padding-left: 100px;
+}
+
+.home-2 .carousel-control-next-icon {
+    filter: invert(100%);
+}
+
+.home-2 .carousel-control-prev-icon {
+    filter: invert(100%);
+}
+
+.testimony-logo-container {
+    height: 100px;
+}
+
+.true-testimony-logo-container {
+    position: absolute;
+    right: 200px;
+    width: 100%;
+    bottom: 0;
+}
+
+.carousel-indicators {
+    right: 0;
+    bottom: 37%;
+    left: -15%;
+    display: block;
+}
+
+.carousel-indicators li {
+    width: 10px;
+    height: 10px;
+    border-radius: 100%;
+    cursor: pointer;
+    margin-bottom: 10px;
+    background-color: black;
+}
+
+@media only screen and (min-width: 720px) {
+    .diagram-carousel {
+        display: none;
+    }
+}
+
+@media only screen and (max-width: 720px) {
+    .hexagon {
+        display: none;
+    }
+
+    .home-1 {
+        padding: 0 20px;
+    }
+
+    .home-1 img {
+        display: none;
+    }
+
+    .home-2 {
+        padding: 50px 0;
+        height: auto;
+        border-top: 1px solid grey;
+    }
+
+    .home-2-content {
+        width: 100%;
+        position: relative;
+        height: auto;
+        left: 0;
+        padding-right: 50px;
+        padding-left: 75px;
+    }
+
+    .home-2-header {
+        font-size: 2.5em;
+    }
+
+    .home-3 {
+        padding: 0 20px;
+    }
+
+    .home-3-content {
+        width: 75%;
+        right: 75px;
+        bottom: 20px;
+        top: auto;
+    }
+
+    .home-4 {
+        padding: 0;
+    }
+
+    .diagram-container {
+        display: none;
+    }
+
+    .home-5 {
+        padding: 10px 20px;
+    }
+
+    .home-5 .gc-content,
+    .home-5 input
+    {
+        font-size: 12px;
+    }
+
+    .tell-story {
+        width: 100%;
+        margin-bottom: 20px;
+    }
+
+    .tell-story .gc-title {
+        font-size: 3em;
+    }
+
+    .diagram-carousel {
+        color: black;
+    }
+
+    .diagram-carousel .carousel-control-next-icon {
+        filter: invert(100%);
+    }
+
+    .diagram-carousel .carousel-control-prev-icon {
+        filter: invert(100%);
+    }
+
+    .home-2-content .carousel-control-prev-icon {
+        filter: invert(100%);
+    }
+
+    #diagramCarousel {
+        padding-right: 50px;
+        padding-left: 50px;
+    }
+
+    .title {
+        margin-left: 75px;
+    }
+
+    .home-4-title-container {
+        text-align: right;
+        margin-right: 75px;
+    }
+
+    .gc-title-2 {
+        font-size: 1.5em;
+    }
+
+    .diagram-content {
+        padding-left: 50px;
+    }
 }

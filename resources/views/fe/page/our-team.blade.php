@@ -9,26 +9,26 @@
     </div>
     <div class="container-fluid">
         <div class="row" id="team-container">
-            @for($i = 0; $i < 6; $i++)
-            <div class="col-4 team">
+            @foreach($teams as $team)
+            <div class="col-md-4 col-sm-12 team">
                 <div class="team-content">
                     <div class="row justify-content-center">
                         <div class="team-picture">
-                            <img src="{{asset('static/images/Circle-icons-profile.svg')}}" alt="">
+                            <img src="{{asset('img/' . $team->image)}}" alt="">
                         </div>
                     </div>
                     <div>
-                        <span class="gc-baskerville gc-text-light-bold">Cika Theresia</span>
+                        <span class="gc-baskerville gc-text-light-bold">{{$team->name}}</span>
                     </div>
                     <div>
-                        <span class="gc-baskerville job-title">UI/UX Designer</span>
+                        <span class="gc-baskerville job-title">{{$team->position}}</span>
                     </div>
                     <div class="mt-3">
-                        <span class="gc-helvetica">But I must explain to you how all this mistaken idea of denouncing pleasure and praising pain was born and I will give you a complete.</span>
+                        <span class="gc-helvetica">{{$team->description}}</span>
                     </div>
                 </div>
             </div>
-            @endfor
+            @endforeach
         </div>
     </div>
     @include("fe.component.address-footer")
@@ -37,4 +37,34 @@
 @section("css")
     <link rel="stylesheet" href="{{asset('css/our-team.css')}}">
     <link rel="stylesheet" href="{{asset('css/component/address-footer.css')}}">
+    <link rel="stylesheet" href="{{asset('css/component/white-header.css')}}">
+    <style>
+        nav.navbar-light {
+            background-color: grey;
+        }
+    </style>
+@endsection
+
+@section("script")
+    <script>
+        $(function() {
+            if ($(window).scrollTop() > 50) {
+                $('.header').css('background-color', 'white');
+                $('.nav-item:not(:last-child) .nav-link').removeClass('white-able');
+            } else {
+                $('.header').css('background-color', 'rgba(100, 100, 100, 0.25)');
+                $('.nav-item:not(:last-child) .nav-link').addClass('white-able');
+            }
+
+            $(window).bind('scroll', function () {
+                if ($(window).scrollTop() > 50) {
+                    $('.header').css('background-color', 'white');
+                    $('.nav-item:not(:last-child) .nav-link').removeClass('white-able');
+                } else {
+                    $('.header').css('background-color', 'rgba(0, 0, 0, 0.25)');
+                    $('.nav-item:not(:last-child) .nav-link').addClass('white-able');
+                }
+            });
+        });
+    </script>
 @endsection

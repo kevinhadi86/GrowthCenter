@@ -59,17 +59,7 @@ class DiagramController extends Controller
      */
     public function edit(Diagram $diagram,$id)
     {
-        $diagram = Diagram::where('text_image',$id)->first();
-
-        if($diagram==null){
-            $diagram = new Diagram;
-            $diagram->text_image = $id;
-            $diagram->title='';
-            $diagram->description='';
-            $diagram->save();
-        }
-
-        return view('admin.page.app.home.diagram',compact('diagram'));
+        //
     }
 
     /**
@@ -89,15 +79,16 @@ class DiagramController extends Controller
         if ($validate->fails()) {
             return back()->withErrors($validate);
         }
-        $diagram = Diagram::where('text_image',$id)->first();
+        $diagram = Diagram::where('text_image',$request->text_image)->first();
         if($diagram==null){
+
             $diagram = new Diagram;
-            $diagram->text_image = $id;
+            $diagram->text_image = $request->text_image;
         }
+
         $diagram->title=$request->title;
         $diagram->description=$request->description;
         $diagram->save();
-        // dd($diagram->title);
 
         return redirect()->route('admin-manage-home');
     }

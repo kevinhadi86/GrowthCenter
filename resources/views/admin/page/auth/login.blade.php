@@ -7,14 +7,14 @@
 @section('content')
     <div class="login-box">
         <div class="login-logo">
-            <strong>Averin</strong>
+            <strong>Growth Center</strong>
         </div>
         <!-- /.login-logo -->
         <div class="login-box-body">
-            <form action="" method="post">
+            <form method="POST" action="{{route('login')}}">
                 {{csrf_field()}}
                 <div class="form-group has-feedback">
-                    <input type="text" class="form-control" placeholder="Username" name="username">
+                    <input type="text" class="form-control" placeholder="Email" name="email">
                     <span class="glyphicon glyphicon-user form-control-feedback"></span>
                 </div>
                 <div class="form-group has-feedback">
@@ -22,15 +22,8 @@
                     <span class="glyphicon glyphicon-lock form-control-feedback"></span>
                 </div>
                 <div class="row">
-                    <div class="col-xs-8">
-                        <div class="checkbox icheck">
-                            <label>
-                                <input type="checkbox" name="remember"> Remember Me
-                            </label>
-                        </div>
-                    </div>
                     <!-- /.col -->
-                    <div class="col-xs-4">
+                    <div class="col-xs-12">
                         <button type="submit" class="btn btn-primary btn-block btn-flat">Sign In</button>
                     </div>
                     @if(isset($errors) && count($errors) > 0)

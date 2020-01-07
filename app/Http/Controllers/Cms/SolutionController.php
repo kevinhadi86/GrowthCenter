@@ -7,6 +7,7 @@ use App\Question;
 use App\Http\Controllers\Controller;
 use Illuminate\Http\Request;
 use Illuminate\Support\Facades\Validator;
+use Illuminate\Support\Str;
 
 class SolutionController extends Controller
 {
@@ -44,6 +45,8 @@ class SolutionController extends Controller
             [
                 'solution'=>'required|min:1',
                 'question'=>'required',
+                'name'=>'required',
+                'position'=>'required',
                 'image'=>'required'
             ]);
         if ($validate->fails()) {
@@ -51,9 +54,14 @@ class SolutionController extends Controller
         }
         $solution = new Solution;
         $solution->solution = $request->solution;
+        $solution->name = $request->name;
+        $solution->position = $request->position;
         $solution->question_id = $request->question;
-        $solution->image =$request->file('image')->getClientOriginalName();
-        $request->file('image')->move(public_path().'/img',$solution['image']);
+        $file = $request->file('image');
+        $uid = (string) Str::uuid();
+        $filename = $uid . "." . $file->extension();
+        $solution->image =$filename;
+        $file->move(public_path().'/img',$solution['image']);
         $solution->save();
         return redirect()->route('admin-solution');
     }
@@ -93,6 +101,8 @@ class SolutionController extends Controller
             [
                 'solution'=>'required|min:1',
                 'question'=>'required',
+                'name'=>'required',
+                'position'=>'required',
                 'image'=>'required'
             ]);
         if ($validate->fails()) {
@@ -100,9 +110,16 @@ class SolutionController extends Controller
         }
         $solution = Solution::find($id);
         $solution->solution = $request->solution;
+        $solution->name = $request->name;
+        $solution->position = $request->position;
         $solution->question_id = $request->question;
-        $solution->image =$request->file('image')->getClientOriginalName();
-        $request->file('image')->move(public_path().'/img',$solution['image']);
+        if($request->file('image')!=null){
+            $file = $request->file('image');
+            $uid = (string) Str::uuid();
+            $filename = $uid . "." . $file->extension();
+            $solution->image =$filename;
+            $file->move(public_path().'/img',$solution['image']);
+        }
         $solution->save();
         return redirect()->route('admin-solution');
     }

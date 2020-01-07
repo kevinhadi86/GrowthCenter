@@ -10,8 +10,9 @@
             <h3 class="box-title">Featured Article for Category: {{$category->name}}</h3>
         </div>
         <div class="box-body">
-            <form role="form" method="post" enctype="multipart/form-data" action="{{route('admin-insert-home-featured-article')}}">
+            <form role="form" method="post" enctype="multipart/form-data" action="{{route('admin-insert-blog-featured-article')}}">
                 {{csrf_field()}}
+                <input type="hidden" value="{{$category->id}}" name="category">
                 <div class="box-body">
                     <div class="form-group">
                         <table class="table table-bordered table-striped" id="article-table">
@@ -29,10 +30,10 @@
                             <tbody>
                             @foreach($articles as $article)
                                 <tr id="article-id-{{$article->id}}">
-                                @if($article->id == $categoryConfig->value)
-                                    <td><input type="radio" name="selectedArticle" value="{{$article->id}}" checked="checked"/></td>
+                                @if(in_array($article->id,$categoryConfig))
+                                    <td><input type="checkbox" name="selectedArticle[]" value="{{$article->id}}" checked="checked"/></td>
                                 @else
-                                    <td><input type="radio" name="selectedArticle" value="{{$article->id}}" /></td>
+                                    <td><input type="checkbox" name="selectedArticle[]" value="{{$article->id}}" /></td>
                                 @endif
                                     <td>{{$article->title}}</td>
                                     <td>{{$article->category->name}}</td>

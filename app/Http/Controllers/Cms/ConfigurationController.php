@@ -13,17 +13,12 @@ use Illuminate\Http\Request;
 
 class ConfigurationController extends Controller
 {
-    // DASHBOARD
-    public function index()
-    {
-        return view('admin.page.dashboard');
-    }
 
     // HOME PAGE
     public function manageHome()
     {
         $configs = Configuration::where('key','like','home%')->get();
-        $homeConfigs=array('homeQuestion'=>array(),'homeTestimony'=>array(),'homeArticle'=>array(),'homeDiagram'=>array(),);
+        $homeConfigs=array('homeQuestion'=>array(),'homeTestimony'=>array(),'homeDiagram'=>array(),);
         foreach($configs as $config){
             $homeConfigs[$config->key]=unserialize($config->value);
         }
@@ -35,42 +30,12 @@ class ConfigurationController extends Controller
         return view('admin.page.app.home.manage', compact('questions','testimonies','categories','articles','diagrams','homeConfigs'));
     }
 
-    public function selectArticlePage($id){
-
-        $category = Category::find($id);
-        if ($category == null) {
-            return back()->withErrors("Category not found");
-        }
-
-        $articles = Article::where('category_id',$id)->get();
-        if ($articles == null) {
-            return back()->withErrors("No article available for this category");
-        }
-        
-        $categoryConfig = Configuration::where('key','like','article'.$id)->first();
-        if ($categoryConfig == null) {
-            $categoryConfig = new Configuration;
-            $categoryConfig->key = 'article'.$id;
-            $categoryConfig->value = '';
-        }
-        return view('admin.page.app.home.article',compact('categoryConfig','articles','category'));
-    }
-
-    public function selectCategory(Request $request){
-        
-        $articles = Article::where('category_id',$request->selectedCategory)->first();
-        if ($articles == null) {
-            return back()->withErrors("No article available for this category");
-        }
-        return redirect()->route('admin-manage-home-select-article', ['id' => $request->selectedCategory]);
-    }
-
     public function insertHomeFeaturedQuestion(Request $request)
     {
         $homeQuestionConfig = Configuration::where('key','homeQuestion')->first();
-        if($homeTestimonyConfig==null){
-            $homeTestimonyConfig = new Configuration;
-            $homeTestimonyConfig->key = 'homeTestimony';
+        if($homeQuestionConfig==null){
+            $homeQuestionConfig = new Configuration;
+            $homeQuestionConfig->key = 'homeQuestion';
         }
         $homeQuestionConfig->value = serialize($request->questionList);
         $homeQuestionConfig->save();
@@ -86,21 +51,6 @@ class ConfigurationController extends Controller
         }
         $homeTestimonyConfig->value = serialize($request->testimonyList);
         $homeTestimonyConfig->save();
-        return redirect()->route('admin-manage-home');
-    }
-
-    public function insertHomeFeaturedArticleEachCategory(Request $request)
-    {
-        $article = Article::find($request->selectedArticle);
-
-        $homeArticleConfig = Configuration::where('key','article'.$article->category->id)->first();
-        if($homeArticleConfig==null){
-            
-            $homeArticleConfig = new Configuration;
-            $homeArticleConfig->key = 'article'.$article->category->id;
-        }
-        $homeArticleConfig->value = $article->id;
-        $homeArticleConfig->save();
         return redirect()->route('admin-manage-home');
     }
 
@@ -171,5 +121,47 @@ class ConfigurationController extends Controller
         $aboutMainConfig->value = $request->weBelieveText;
         $aboutMainConfig->save();
         return redirect()->route('admin-manage-about');
+    }
+
+    public function manageBlog()
+    {
+        $configs = Configuration::where('key','like','blog%')->get();
+        $blogConfigs=array('blogTop'=>array(),'blogFeatured'=>array());
+        if($configs!=null){
+            foreach($configs as $config){
+                if($config->key == 'blogTop'){
+                    $blogConfigs[$config->key]=$config->value;
+                }else{
+                    $blogConfigs[$config->key]=unserialize($config->value);
+                }
+                
+            }
+        }
+        $articles = Article::all();
+        return view('admin.page.app.blog.manage', compact('articles','blogConfigs'));
+    }
+
+    public function insertBlogTopArticle(Request $request)
+    {
+        $blogConfig = Configuration::where('key','blogTop')->first();
+        if($blogConfig==null){
+            $blogConfig = new Configuration;
+            $blogConfig->key = 'blogTop';
+        }
+        $blogConfig->value = $request->topArticle;
+        $blogConfig->save();
+        return redirect()->route('admin-manage-blog');
+    }
+
+    public function insertBlogFeaturedArticle(Request $request)
+    {
+        $blogConfig = Configuration::where('key','blogFeatured')->first();
+        if($blogConfig==null){
+            $blogConfig = new Configuration;
+            $blogConfig->key = 'blogFeatured';
+        }
+        $blogConfig->value = serialize($request->articleList);
+        $blogConfig->save();
+        return redirect()->route('admin-manage-blog');
     }
 }

@@ -22,8 +22,13 @@
 
 .team-content {
     border-radius: 16px;
-    box-shadow: 0 0 8px #00528880;
+    box-shadow: 0 0 3px #00528880;
     padding: 10px 20px 20px 20px;
+    transition: box-shadow 0.25s;
+}
+
+.team-content:hover {
+    box-shadow: 0 0 8px #00528880;
 }
 
 .team-picture {

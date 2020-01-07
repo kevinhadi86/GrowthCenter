@@ -16,6 +16,7 @@
             <table class="table table-bordered table-striped" id="message-table">
                 <thead>
                 <tr>
+                    <th>Name</th>
                     <th>Email</th>
                     <th>Created At</th>
                 </tr>
@@ -23,6 +24,7 @@
                 <tbody>
                 @foreach($users as $user)
                     <tr>
+                        <td>{{$user->name}}</td>
                         <td>{{$user->email}}</td>
                         <td>{{$user->created_at}}</td>
                     </tr>

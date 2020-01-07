@@ -14,17 +14,22 @@
 Route::group(['namespace' => "Client"], function() {
     Route::get('/', 'HomeController@home')->name('home');
     Route::get('/contact-us', 'ContactUsController@page')->name('contact-us');
+    Route::post('/contact-us', 'ContactUsController@submit');
     Route::get('/about-us', "AboutUsController@page")->name("about-us");
     Route::get('/our-team', "OurTeamController@page")->name("our-team");
     Route::get('/our-solutions', "OurSolutionsController@page")->name('our-solutions');
-    Route::get('/our-solutions-detail', "OurSolutionsDetailController@page")->name('our-solutions-detail');
+    Route::get('/our-solutions-detail/{id}', "OurSolutionsDetailController@page")->name('our-solutions-detail');
+    Route::get('/our-solutions/question/{id}', "OurSolutionsController@getByQuestionId");
     Route::get('/blog', "BlogController@page")->name('blog');
-    Route::get('/blog-detail', "BlogDetailController@page")->name('blog-detail');
+    Route::get('/blog/category/{categoryId}', "BlogController@getByCategory");
+    Route::get('/blog-detail/{id}', "BlogDetailController@page")->name('blog-detail');
+    Route::get('/success-story/{id}', "BlogDetailController@successStoryPage")->name('success-story');
+    Route::post('/subscribe', "SubscribeController@post")->name('subscribe');
 });
-Route::group(['prefix'=>'admin/growth'], function(){
-    #Home
-    Route::get('/', 'Cms\ConfigurationController@index')->name('admin-home');
-
+Route::get('admin/growth/login', 'Cms\LoginController@index')->name('login')->middleware(\App\Http\Middleware\LoginMiddleware::class);
+Route::post('admin/growth/login', 'Cms\LoginController@login')->name('login')->middleware(\App\Http\Middleware\LoginMiddleware::class);
+Route::get('admin/growth/logout', 'Cms\LoginController@logout')->name('logout')->middleware(\App\Http\Middleware\LoggedinMiddleware::class);
+Route::group(['middleware'=>\App\Http\Middleware\LoggedinMiddleware::class,'prefix'=>'admin/growth'], function(){
     #Team Member
     Route::get('/teamMember', 'Cms\TeamMemberController@index')->name('admin-team-member');
     Route::post('/teamMember', 'Cms\TeamMemberController@store');
@@ -80,13 +85,9 @@ Route::group(['prefix'=>'admin/growth'], function(){
 
     #manageHomePage
     Route::get('/manageHome', 'Cms\ConfigurationController@manageHome')->name('admin-manage-home');
-    Route::post('/manageHome', 'Cms\ConfigurationController@selectCategory')->name('admin-select-category-home');
-    Route::get('/selectArticle/{id}', 'Cms\ConfigurationController@selectArticlePage')->name('admin-manage-home-select-article');
     Route::post('/homeFeaturedQuestion', 'Cms\ConfigurationController@insertHomeFeaturedQuestion')->name('admin-insert-home-featured-question');
     Route::post('/homeFeaturedTestimony', 'Cms\ConfigurationController@insertHomeFeaturedTestimony')->name('admin-insert-home-featured-testimony');
-    Route::post('/homeFeaturedArticle', 'Cms\ConfigurationController@insertHomeFeaturedArticleEachCategory')->name('admin-insert-home-featured-article');
-    Route::get('/updateDiagram/{id}', 'Cms\DiagramController@edit')->name('admin-update-diagram');
-    Route::post('/updateDiagram/{id}', 'Cms\DiagramController@update')->name('admin-update-diagram');
+    Route::post('/updateDiagram/{id}', 'Cms\DiagramController@update')->name('admin-diagram-update');
 
     #manageOurSolutionPage
     Route::get('/manageSolution', 'Cms\ConfigurationController@manageSolution')->name('admin-manage-solution');
@@ -98,9 +99,13 @@ Route::group(['prefix'=>'admin/growth'], function(){
     Route::post('/aboutOurBelief', 'Cms\ConfigurationController@insertAboutOurBelief')->name('admin-insert-about-our-belief');
     Route::post('/aboutWeBelieve', 'Cms\ConfigurationController@insertAboutWeBelieve')->name('admin-insert-about-we-believe');
 
+    #manageBlogPage
+    Route::get('/manageBlog', 'Cms\ConfigurationController@manageBlog')->name('admin-manage-blog');
+    Route::post('/blogTopArticle', 'Cms\ConfigurationController@insertBlogTopArticle')->name('admin-insert-blog-top-article');
+    Route::post('/blogFeaturedArticle', 'Cms\ConfigurationController@insertBlogFeaturedArticle')->name('admin-insert-blog-featured-article');
+
     #CompanyContact
     Route::get('/companyContact', 'Cms\CompanyContactController@index')->name('admin-company-contact');
     Route::post('/companyContact', 'Cms\CompanyContactController@store')->name('admin-insert-company-contact');
-
 
 });

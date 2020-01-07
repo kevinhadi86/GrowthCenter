@@ -3,30 +3,31 @@
 @section("content")
     <div class="gc-jumbotron">
         <div class="row gc-full-height">
-            <div class="col-6">
+            <div class="col-md-6 col-sm-12 phone-image">
                 <img class="contact-us-image" src="{{asset("static/images/contact-us-phone.png")}}" alt="">
             </div>
-            <div class="col-6 gc-full-height gc-container-justify-center" id="fade1" style="flex-direction: column">
+            <div class="col-md-6 col-sm-12 gc-full-height gc-container-justify-center" id="fade1" style="flex-direction: column">
                 <div class="gc-full-width" style="margin-bottom: 20px">
                     <span class="gc-title gc-georgia gc-text-bold contact-us-text">Contact Us</span>
                 </div>
                 <div class="gc-full-width">
-                    <form action="" id="contact-us-form" class="gc-full-width gc-text-light-bold gc-text-font-normal" style="line-height: 10px">
+                    <form method="post" id="contact-us-form" class="gc-full-width gc-text-light-bold gc-text-font-normal" style="line-height: 10px">
+                        {{csrf_field()}}
                         <div class="form-group">
-                            <label class="gc-baskerville gc-content">Nama *</label>
-                            <input type="text" class="form-control" style="width: 60%">
+                            <label class="gc-baskerville gc-content">Name *</label>
+                            <input type="text" name="name" class="form-control" style="width: 60%">
                         </div>
                         <div class="form-group">
                             <label class="gc-baskerville gc-content">E-mail *</label>
-                            <input type="email" class="form-control" style="width: 60%">
+                            <input type="email" name="email" class="form-control" style="width: 60%">
                         </div>
                         <div class="form-group">
                             <label class="gc-baskerville gc-content">Subject *</label>
-                            <input type="text" class="form-control" style="width: 60%">
+                            <input type="text" name="subject" class="form-control" style="width: 60%">
                         </div>
                         <div class="form-group">
                             <label class="gc-baskerville gc-content">Message *</label>
-                            <textarea name="" rows="5" class="form-control" style="width: 70%"></textarea>
+                            <textarea name="message" rows="5" class="form-control" style="width: 70%"></textarea>
                         </div>
                         <div class="form-group">
                             <button class="btn btn-growth contact-us-button"><strong>Send</strong></button>
