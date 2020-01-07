@@ -1,0 +1,136 @@
+hr {
+    border: 0.5px solid black;
+    margin: 75px 0;
+}
+
+.hexagon {
+    display: inline-block;
+    width: 100%;
+    height: 100%;
+    background-position: center;
+    background-size: 1000px 650px;
+    background-position-x: -200px;
+    background-repeat: no-repeat;
+    border: 1px solid black;
+    filter: grayscale(50%) contrast(110%) brightness(80%);
+}
+
+.hexagon {
+    -webkit-clip-path: polygon(47.5% 5.66987%, 48.2899% 5.30154%, 49.13176% 5.07596%, 50% 5%, 50.86824% 5.07596%, 51.7101% 5.30154%, 52.5% 5.66987%, 87.14102% 25.66987%, 87.85495% 26.16978%, 88.47124% 26.78606%, 88.97114% 27.5%, 89.33948% 28.2899%, 89.56505% 29.13176%, 89.64102% 30%, 89.64102% 70%, 89.56505% 70.86824%, 89.33948% 71.7101%, 88.97114% 72.5%, 88.47124% 73.21394%, 87.85495% 73.83022%, 87.14102% 74.33013%, 52.5% 94.33013%, 51.7101% 94.69846%, 50.86824% 94.92404%, 50% 95%, 49.13176% 94.92404%, 48.2899% 94.69846%, 47.5% 94.33013%, 12.85898% 74.33013%, 12.14505% 73.83022%, 11.52876% 73.21394%, 11.02886% 72.5%, 10.66052% 71.7101%, 10.43495% 70.86824%, 10.35898% 70%, 10.35898% 30%, 10.43495% 29.13176%, 10.66052% 28.2899%, 11.02886% 27.5%, 11.52876% 26.78606%, 12.14505% 26.16978%, 12.85898% 25.66987%);
+    clip-path: polygon(47.5% 5.66987%, 48.2899% 5.30154%, 49.13176% 5.07596%, 50% 5%, 50.86824% 5.07596%, 51.7101% 5.30154%, 52.5% 5.66987%, 87.14102% 25.66987%, 87.85495% 26.16978%, 88.47124% 26.78606%, 88.97114% 27.5%, 89.33948% 28.2899%, 89.56505% 29.13176%, 89.64102% 30%, 89.64102% 70%, 89.56505% 70.86824%, 89.33948% 71.7101%, 88.97114% 72.5%, 88.47124% 73.21394%, 87.85495% 73.83022%, 87.14102% 74.33013%, 52.5% 94.33013%, 51.7101% 94.69846%, 50.86824% 94.92404%, 50% 95%, 49.13176% 94.92404%, 48.2899% 94.69846%, 47.5% 94.33013%, 12.85898% 74.33013%, 12.14505% 73.83022%, 11.52876% 73.21394%, 11.02886% 72.5%, 10.66052% 71.7101%, 10.43495% 70.86824%, 10.35898% 70%, 10.35898% 30%, 10.43495% 29.13176%, 10.66052% 28.2899%, 11.02886% 27.5%, 11.52876% 26.78606%, 12.14505% 26.16978%, 12.85898% 25.66987%);
+}
+
+.hexagon-container {
+    padding-top: 30px;
+    padding-bottom: 30px;
+}
+
+.header-text-container {
+    padding-right: 100px;
+}
+
+.header-text-container div {
+    width: 100%;
+}
+
+.category-highlight {
+    position: relative;
+}
+
+.category-highlight:after {
+    box-shadow: inset 0 -12px 0 0 rgba(254, 194, 34, 0.5);
+    position: absolute;
+    content: '';
+    width: 100%;
+    height: 100%;
+    top: 3px;
+    left: 0;
+    z-index: -1;
+}
+
+.main-title {
+    line-height: 65px;
+    max-height: 200px;
+    display: -webkit-box;
+    -webkit-line-clamp: 3;
+    -webkit-box-orient: vertical;
+    overflow: hidden;
+    text-overflow: ellipsis;
+}
+
+.main-content {
+    max-height: 150px;
+    overflow: hidden;
+    text-overflow: ellipsis;
+    display: -webkit-box;
+    -webkit-line-clamp: 6;
+    -webkit-box-orient: vertical;
+}
+
+.read-more-button {
+    padding: 10px 20px;
+}
+
+.blog-container {
+    padding: 0 75px;
+}
+
+.article-title-highlight {
+    position: relative;
+}
+
+.article-title-highlight:after {
+    box-shadow: inset 0 -12px 0 0 rgba(254, 194, 34, 0.5);
+    position: absolute;
+    content: '';
+    width: 65px;
+    height: 100%;
+    top: 3px;
+    left: 0;
+    z-index: -1;
+}
+
+.category select {
+    width: 100px;
+}
+
+.category span {
+
+}
+
+.carousel-control-next,
+.carousel-control-prev{
+    filter: invert(100%);
+}
+
+#topInsightCarousel .carousel-control-prev{
+    left: -50px;
+}
+
+.article {
+    margin-top: 20px;
+}
+
+@media only screen and (max-width: 720px) {
+    .hexagon-container {
+        display: none;
+    }
+
+    .header-text-container {
+        padding-right: 15px;
+    }
+
+    .header-text-container .mb-3 {
+        font-size: 12px;
+    }
+
+    .blog-container {
+        padding-right: 10px;
+        padding-left: 10px;
+    }
+
+    .gc-title {
+        font-size: 2em;
+        line-height: 30px;
+    }
+}
