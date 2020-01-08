@@ -6,7 +6,7 @@
             <div class="col-md-5 img-container gc-full-height main-hexagon">
                 <img src="{{asset('static/images/Group 267.png')}}" alt="">
             </div>
-            <div class="col-md-7 col-sm-12 gc-full-height gc-container-center">
+            <div class="col-md-7 col-sm-12 gc-full-height gc-container-center" data-aos="fade-right">
                 <div class="row" style="padding-left: 20px;">
                     <div class="col-md-8 col-sm-12">
                         <div style="padding-bottom: 10px;">
@@ -22,9 +22,9 @@
     </div>
     <div class="gc-jumbotron position-relative">
         <div class="gc-full-bg-image parallax" style="background-image: url('{{asset("static/images/Group 268.png")}}')"></div>
-        <div class="row gc-full-height gc-full-width align-content-around justify-content-center">
+        <div class="row gc-full-height gc-full-width align-content-around justify-content-center our-belief">
             <div class="col-md-6 col-sm-8 gc-full-height-resp hexagon-container">
-                <div class="hexagon-content row align-content-center">
+                <div class="hexagon-content row align-content-center" data-aos="zoom-in">
                     <div>
                         <span class="gc-title gc-text-bold gc-georgia">Our Beliefs</span>
                     </div>
@@ -39,7 +39,7 @@
         <div class="row gc-full-height">
             <div class="col-md-6 col-sm-12 gc-full-height">
                 <div class="row gc-full-height align-content-end justify-content-center flex-column">
-                    <div class="col-md-9 col-sm-9 row justify-content-center flex-column align-self-center">
+                    <div class="col-md-9 col-sm-9 row justify-content-center flex-column align-self-center" data-aos="fade-right">
                         <div class="gc-text-font-gigantic gc-georgia position-relative">
                             <span class="open-quote">&ldquo;</span>
                         </div>

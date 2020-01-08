@@ -4,18 +4,20 @@
     <div class="gc-jumbotron picture-header" style="background-image: url('/img/{{$blog->image}}')">
         <div class="row gc-full-height align-content-end justify-content-center">
             <div class="col-10 blog-header">
-                <div class="position-relative">
-                    <span class="gc-text-light-bold gc-baskerville gc-content gc-normal-highlight">{{$blog->category == null ? $blog->question->category->name : $blog->category->name}}</span>
-                </div>
-                <div>
-                    <span class="gc-text-light-bold gc-georgia gc-title">{{$blog->title}}</span>
-                </div>
-                <div class="row blog-information">
-                    <div class="col-6">
-                        <span class="gc-helvetica gc-text-light-bold">Written by <span class="author">{{$blog->author}}</span></span>
+                <div class="gc-full-height" data-aos="zoom-in">
+                    <div class="position-relative">
+                        <span class="gc-text-light-bold gc-baskerville gc-content gc-normal-highlight">{{$blog->category == null ? $blog->question->category->name : $blog->category->name}}</span>
                     </div>
-                    <div class="col-6 gc-align-right">
-                        <span>August 12, 2019. 10:00 PM</span>
+                    <div>
+                        <span class="gc-text-light-bold gc-georgia gc-title">{{$blog->title}}</span>
+                    </div>
+                    <div class="row blog-information">
+                        <div class="col-6">
+                            <span class="gc-helvetica gc-text-light-bold">Written by <span class="author">{{$blog->author}}</span></span>
+                        </div>
+                        <div class="col-6 gc-align-right">
+                            <span>August 12, 2019. 10:00 PM</span>
+                        </div>
                     </div>
                 </div>
             </div>
@@ -24,10 +26,10 @@
     <div class="row gc-container-center justify-content-center">
         <div class="col-10 blog-container">
             <div class="row">
-                <div class="gc-helvetica col-md-7 col-sm-12">
+                <div class="gc-helvetica col-md-7 col-sm-12" data-aos="fade-up">
                     {!! $blog->content !!}
                 </div>
-                <div class="col-md-5 col-sm-12">
+                <div class="col-md-5 col-sm-12" data-aos="fade-right">
                     <div class="row">
                         <div class="col">
                             <span class="gc-text-light-bold">Related Reads</span>

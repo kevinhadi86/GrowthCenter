@@ -2,39 +2,58 @@
 
 @section("content")
     <div class="gc-jumbotron">
-        <div id="topInsightCarousel" class="carousel slide gc-full-height gc-full-width" data-ride="carousel">
-            <div class="carousel-inner gc-full-height gc-full-width">
-                @foreach($featured as $index=>$f)
-                <div class="carousel-item gc-full-height @if($index == 0) active @endif ">
+{{--        <div id="topInsightCarousel" class="carousel slide gc-full-height gc-full-width" data-ride="carousel">--}}
+{{--            <div class="carousel-inner gc-full-height gc-full-width">--}}
+{{--                <div class="carousel-item gc-full-height active">--}}
                     <div class="row gc-full-height">
                         <div class="col-md-6 col-sm-12 gc-full-height hexagon-container">
-                            <div class="hexagon" style="background-image: url('/img/{{$f->image}}');"></div>
+                            <div class="hexagon" style="background-image: url('/img/{{$topArticle->image}}');"></div>
                         </div>
-                        <div class="header-text-container col-md-6 col-sm-12 gc-full-height gc-container-center flex-column justify-content-center gc-align-left">
+                        <div class="header-text-container col-md-6 col-sm-12 gc-full-height gc-container-center flex-column justify-content-center gc-align-left" data-aos="fade-right">
                             <div class="position-relative mb-3">
-                                <span class="gc-baskerville gc-content-2 gc-text-light-bold category-highlight">{{$f->category->name}}</span>
+                                <span class="gc-baskerville gc-content-2 gc-text-light-bold category-highlight">{{$topArticle->category->name}}</span>
                             </div>
-                            <div class="mb-4 gc-georgia gc-title gc-text-light-bold highlight-clickable main-title">{{$f->title}}</div>
-                            <div class="mb-3 gc-helvetica main-content">{!! strip_tags($f->content) !!}</div>
+                            <div class="mb-4 gc-georgia gc-title gc-text-light-bold highlight-clickable main-title">{{$topArticle->title}}</div>
+                            <div class="mb-3 gc-helvetica main-content">{!! strip_tags($topArticle->content) !!}</div>
                             <div class="gc-helvetica">
-                                <a href="{{route('blog-detail', ['id' => $f->id])}}">
+                                <a href="{{route('blog-detail', ['id' => $topArticle->id])}}">
                                     <button class="btn btn-growth read-more-button">Read More</button>
                                 </a>
                             </div>
                         </div>
                     </div>
-                </div>
-                @endforeach
-            </div>
-            <a class="carousel-control-prev" href="#topInsightCarousel" role="button" data-slide="prev">
-                <span class="carousel-control-prev-icon" aria-hidden="true"></span>
-                <span class="sr-only">Previous</span>
-            </a>
-            <a class="carousel-control-next" href="#topInsightCarousel" role="button" data-slide="next">
-                <span class="carousel-control-next-icon" aria-hidden="true"></span>
-                <span class="sr-only">Next</span>
-            </a>
-        </div>
+{{--                </div>--}}
+{{--                @foreach($featured as $index=>$f)--}}
+{{--                <div class="carousel-item gc-full-height">--}}
+{{--                    <div class="row gc-full-height">--}}
+{{--                        <div class="col-md-6 col-sm-12 gc-full-height hexagon-container">--}}
+{{--                            <div class="hexagon" style="background-image: url('/img/{{$f->image}}');"></div>--}}
+{{--                        </div>--}}
+{{--                        <div class="header-text-container col-md-6 col-sm-12 gc-full-height gc-container-center flex-column justify-content-center gc-align-left">--}}
+{{--                            <div class="position-relative mb-3">--}}
+{{--                                <span class="gc-baskerville gc-content-2 gc-text-light-bold category-highlight">{{$f->category->name}}</span>--}}
+{{--                            </div>--}}
+{{--                            <div class="mb-4 gc-georgia gc-title gc-text-light-bold highlight-clickable main-title">{{$f->title}}</div>--}}
+{{--                            <div class="mb-3 gc-helvetica main-content">{!! strip_tags($f->content) !!}</div>--}}
+{{--                            <div class="gc-helvetica">--}}
+{{--                                <a href="{{route('blog-detail', ['id' => $f->id])}}">--}}
+{{--                                    <button class="btn btn-growth read-more-button">Read More</button>--}}
+{{--                                </a>--}}
+{{--                            </div>--}}
+{{--                        </div>--}}
+{{--                    </div>--}}
+{{--                </div>--}}
+{{--                @endforeach--}}
+{{--            </div>--}}
+{{--            <a class="carousel-control-prev" href="#topInsightCarousel" role="button" data-slide="prev">--}}
+{{--                <span class="carousel-control-prev-icon" aria-hidden="true"></span>--}}
+{{--                <span class="sr-only">Previous</span>--}}
+{{--            </a>--}}
+{{--            <a class="carousel-control-next" href="#topInsightCarousel" role="button" data-slide="next">--}}
+{{--                <span class="carousel-control-next-icon" aria-hidden="true"></span>--}}
+{{--                <span class="sr-only">Next</span>--}}
+{{--            </a>--}}
+{{--        </div>--}}
     </div>
     <div class="container-fluid blog-container">
         <div class="row">
@@ -42,25 +61,23 @@
                 <span class="article-title-highlight gc-baskerville gc-text-light-bold gc-content-2">Featured Article</span>
             </div>
         </div>
-        <div class="row slick-container">
-            @for($i = 0; $i < 2; $i++)
-                @foreach($featureds as $featured)
-                    <div class="col-md-12 col-sm-12 article gc-full-width">
-                        <div class="btn col-12 shadow-container" onclick="window.location='{{route('blog-detail', ['id' => $featured->id])}}';">
-                            <div class="article-image-container">
-                                <div class="article-image" style="background-image: url('/img/{{$featured->image}}')"></div>
-                            </div>
-                            <div class="article-title mt-3 gc-text-light-bold gc-georgia gc-align-left">{{$featured->title}}</div>
-                            <div class="mt-3 article-content gc-align-left">
-                                {{strip_tags($featured->content)}}
-                            </div>
-                            <div class="mt-3 gc-helvetica gc-align-left">
-                                <a href="{{route('blog-detail', ['id' => $featured->id])}}">Read more</a>
-                            </div>
+        <div class="row slick-container" data-aos="fade-up">
+            @foreach($featured as $f)
+                <div class="col-md-12 col-sm-12 article gc-full-width">
+                    <div class="btn col-12 shadow-container" onclick="window.location='{{route('blog-detail', ['id' => $f->id])}}';">
+                        <div class="article-image-container">
+                            <div class="article-image" style="background-image: url('/img/{{$f->image}}')"></div>
+                        </div>
+                        <div class="article-title mt-3 gc-text-light-bold gc-georgia gc-align-left">{{$f->title}}</div>
+                        <div class="mt-3 article-content gc-align-left">
+                            {{strip_tags($f->content)}}
+                        </div>
+                        <div class="mt-3 gc-helvetica gc-align-left">
+                            <a href="{{route('blog-detail', ['id' => $f->id])}}">Read more</a>
                         </div>
                     </div>
-                @endforeach
-            @endfor
+                </div>
+            @endforeach
         </div>
         <hr>
         <div class="row mb-3">
@@ -71,7 +88,7 @@
                 <span class="gc-baskerville gc-content gc-text-light-bold mr-3">Categories</span>
                 <select id="category" name="" id="" class="form-control">
                     @foreach($categories as $category)
-                        <option value="{{$category->id}}">{{$category->name}}</option>
+                        <option value="{{$category->id}}" @if(request()->query('category') != null && request()->query('category') == $category->id) selected @endif>{{$category->name}}</option>
                     @endforeach
                 </select>
             </div>
@@ -130,6 +147,12 @@
             $('.slick-container').slick({
                 slidesToShow: 3,
                 slidesToScroll: 1,
+                responsive: [
+                    {
+                        breakpoint: 720,
+                        settings: "unslick"
+                    },
+                ]
             });
             $("#category").change(function(e) {
                 const categoryId = e.target.value;

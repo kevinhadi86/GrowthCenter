@@ -3,7 +3,7 @@
 @endphp
 <div class="subscribe">
     <div class="row gc-full-height">
-        <div class="col-md-5 col-sm-12 gc-container-justify-center gc-container-center gc-full-height">
+        <div class="col-md-5 col-sm-12 gc-container-justify-center gc-container-center gc-full-height" data-aos="fade-right">
             <div class="gc-helvetica address-container" id="fade2">
                 <div class="gc-text-light-bold gc-content-2">
                     <span>{{$footer->name}}</span>
@@ -19,7 +19,7 @@
             </div>
         </div>
         <div class="col-md-7 col-sm-12 gc-container-justify-center gc-container-center gc-full-height">
-            <div class="subscribe-container" id="fade3">
+            <div class="subscribe-container" data-aos="fade-right">
                 <div style="margin-bottom: 20px">
                     <span class="gc-text-light-bold gc-content">Subscribe to our latest insight</span>
                 </div>

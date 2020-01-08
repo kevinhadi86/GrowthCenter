@@ -8,6 +8,7 @@
     <link rel="stylesheet" href="{{asset('lib/bootstrap/css/bootstrap.css')}}">
     <link rel="stylesheet" href="{{asset('lib/animate/animate.css')}}">
     <link rel="stylesheet" href="{{asset('css/master.css')}}">
+    <link rel="stylesheet" href="https://unpkg.com/aos@next/dist/aos.css" />
     @yield('css')
 </head>
 <body>
@@ -43,9 +44,11 @@
     <span>&copy; Copyright 2019, Growth Center, Inc. All rights reserved.</span>
 </div>
 </body>
+
 <script src="{{asset('lib/jquery/jquery-3.4.1.min.js')}}"></script>
 <script src="{{asset('lib/popper/popper.min.js')}}"></script>
 <script src="{{asset('lib/bootstrap/js/bootstrap.js')}}"></script>
+<script src="https://unpkg.com/aos@next/dist/aos.js"></script>
 <script>
     $(function() {
         if ($(window).scrollTop() > 50) {
@@ -64,6 +67,8 @@
                 $('.nav-item:not(:last-child) .nav-link').addClass('white-able');
             }
         });
+        AOS.init();
+
     });
 </script>
 @yield('script')
