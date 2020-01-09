@@ -12,14 +12,14 @@
             <div class="col-md-5 col-sm-12 gc-full-height">
                 <div class="pt-5 pb-5 gc-full-height position-relative">
                     <div class="gradient-fade"></div>
-                    <div id="scroll-container" class="gc-full-height slick-container">
+                    <div id="scroll-container" class="gc-full-height slick-container accordion">
                         @foreach($questions as $i=>$question)
                             <div class="solution mb-5 solution-{{$i}}">
                                 <div class="hr-slot">
                                     <hr>
                                 </div>
-                                <a class="gc-georgia gc-text-light-bold collapsed gc-no-decoration-link mt-3 mb-3 solution-title solution-title-{{$i}}" href="{{route('our-solutions-detail', ['id' => $question->id])}}" data-href="{{route('our-solutions-detail', ['id' => $question->id])}}">{{$question->question}}</a>
-                                <div class="mt-3 mb-5 solution-collapsible" id="collapseSolution{{$i}}">
+                                <a class="gc-georgia gc-text-light-bold collapsed gc-no-decoration-link mt-3 mb-3 solution-title solution-title-{{$i}}" data-toggle="collapse" href="#collapseSolution{{$i}}" aria-controls="collapseSolution{{$i}}" data-href="{{route('our-solutions-detail', ['id' => $question->id])}}">{{$question->question}}</a>
+                                <div class="mt-3 mb-5 solution-collapsible collapse" id="collapseSolution{{$i}}" data-parent="#scroll-container">
                                     {{$question->description}}
                                 </div>
                                 <div class="hr-slot">
@@ -49,7 +49,7 @@
     <script>
         $(function() {
             $('.slick-container').slick({
-                slidesToShow: 4,
+                slidesToShow: 5,
                 slidesToScroll: 1,
                 vertical: true,
                 centerMode: true,
@@ -58,11 +58,10 @@
                 verticalSwiping: true,
             });
             $('.slick-container').on('beforeChange', function(event, slick, currentSlide, nextSlide){
-                // console.log('beforeChange', currentSlide, nextSlide);
                 // $before = $('.solution-' + currentSlide);
                 // $("#collapseSolution" + currentSlide).collapse('hide');
-                // $next = $('.solution-' + nextSlide);
-                // $("#collapseSolution" + nextSlide).collapse('show');
+                $next = $('.solution-' + nextSlide);
+                $("#collapseSolution" + nextSlide).collapse('show');
             });
            // $(".solution-collapsible").on("show.bs.collapse", function() {
            //     $solution = $(this).closest('.solution');
@@ -157,7 +156,6 @@
                 }
             })
 
-            console.log($('.slick-center'))
         });
     </script>
 @endsection

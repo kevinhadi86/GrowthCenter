@@ -9,7 +9,7 @@
 .testimony img {
     height: 85%;
     width: auto;
-    max-width: 100%;
+    max-width: 80%;
     padding: 0 25px;
 }
 
@@ -140,5 +140,9 @@
         max-width: 100%;
         padding: 0 25px;
     }
+
+}
+
+.question-list {
 
 }

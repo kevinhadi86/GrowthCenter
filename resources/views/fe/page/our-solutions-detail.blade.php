@@ -19,19 +19,19 @@
                         @foreach($question->solutions as $index=>$solution)
                         <div class="carousel-item gc-full-height gc-full-width @if($index == 0) active @endif">
                             <div class="testimony gc-full-height flex-column-reverse d-flex">
-                                <div class="align-self-end gc-full-height flex-column-reverse d-flex position-relative">
-                                    <img src="{{asset('/img/'.$solution->image)}}" class="align-self-end" alt="">
+                                <div class="align-self-center gc-full-height flex-column-reverse d-flex position-relative">
+                                    <img src="{{asset('/img/'.$solution->image)}}" class="align-self-center" alt="">
                                     <div class="testimony-box-container">
                                         <div class="testimony-box">
                                             <div class="gc-helvetica mb-3">
                                                 "{{$solution->solution}}"
                                             </div>
-{{--                                            <div class="gc-helvetica gc-text-light-bold">--}}
-{{--                                                Cika Theresia--}}
-{{--                                            </div>--}}
-{{--                                            <div class="gc-helvetica">--}}
-{{--                                                UI/UX Designer GrowthCenter.id--}}
-{{--                                            </div>--}}
+                                            <div class="gc-helvetica gc-text-light-bold">
+                                                {{$solution->name}}
+                                            </div>
+                                            <div class="gc-helvetica">
+                                                {{$solution->position}}
+                                            </div>
                                         </div>
                                     </div>
                                 </div>
@@ -54,9 +54,10 @@
     <div class="row questions">
         <div class="col-md-4 col-sm-12">
             <div class="mb-4">
-                <span class="other-questions gc-baskerville gc-text-light-bold">Other Questions</span>
+                <span class="other-questions gc-baskerville gc-text-light-bold hide-resp">Other Questions</span>
+                <button class="btn btn-growth gc-baskerville other-question-toggle show-resp">Other Questions</button>
             </div>
-            <div class="gc-georgia gc-text-light-bold question-list gc-text-font-normal pr-5  hide-resp" data-aos="fade-down">
+            <div class="gc-georgia gc-text-light-bold question-list gc-text-font-normal pr-5 hide-resp" data-aos="fade-down">
                 <ul class="list-group list-group-flush accordion" id="category-accordion">
                     @foreach($categories as $i=>$category)
                         <li class="list-group-item px-0">
@@ -77,6 +78,7 @@
                         </li>
                     @endforeach
                 </ul>
+                <br>
             </div>
         </div>
         <div class="col-md-8 col-sm-12">
@@ -129,7 +131,9 @@
 @section('script')
     <script>
         $(function() {
-
+            $(".other-question-toggle").click(function() {
+                $('.question-list').toggle(500);
+            });
         });
     </script>
 @endsection

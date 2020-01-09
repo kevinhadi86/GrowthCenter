@@ -11,7 +11,7 @@
                         </div>
                         <a href="/blog">
                         <div>
-                            <span class="highlight-clickable problem-question-main-text typing"></span>
+                            <span class="highlight-clickable problem-question-main-text typing" style="color: black !important;"></span>
                         </div>
                         </a>
                     </div>
@@ -210,7 +210,7 @@
                     <span class="sr-only">Next</span>
                 </a>
             </div>
-            <div class="col-md-6 col-sm-12 diagram-container show-resp">
+            <div class="col-md-6 col-sm-12 diagram-container">
                 <div class="gc-position-relative">
                     <img class="diagram" src="{{asset('static/images/diagram/01.png')}}" alt="">
                     <span class="flying-text flying-text-1" data-idx="0">Understanding<br/>the Problem</span>
@@ -275,7 +275,7 @@
                 @foreach($homeQuestions as $question)
                 {
                     image: '{{asset('/img/'.$question->image)}}',
-                    link: '{{route('blog-detail', ['id' => $question->id])}}'
+                    link: '{{route('our-solutions-detail', ['id' => $question->id])}}'
                 },
                 @endforeach
             ];

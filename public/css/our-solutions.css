@@ -39,11 +39,11 @@ hr {
 }
 
 .solution-collapsible {
-    display: none;
+    /*display: none;*/
 }
 
 .slick-center .solution-collapsible {
-    display: none;
+    /*display: none;*/
 }
 
 .slick-center {}

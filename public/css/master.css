@@ -325,7 +325,6 @@ body {
 
     .article-image-container {
         height: 75vw;
-
     }
 
     .show-resp {
@@ -334,5 +333,9 @@ body {
 
     .hide-resp {
         display: none;
+    }
+
+    .navbar-nav {
+        margin-top: 20px;
     }
 }

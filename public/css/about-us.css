@@ -100,4 +100,8 @@
     .our-belief {
         background-color: rgba(100, 100, 100, 0.6);
     }
+
+    .hexagon-content {
+        height: 100%;
+    }
 }

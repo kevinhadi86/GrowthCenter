@@ -62,5 +62,7 @@
         border-left: 0;
     }
 
-
+    .address-container {
+        padding-left: 0;
+    }
 }
