@@ -52,9 +52,11 @@
 
 @section('add-script')
     <script src="{{asset('/lib/admin/ckeditor/ckeditor.js')}}"></script>
+    <script src="{{asset('/lib/admin/ckfinder/ckfinder.js')}}"></script>
     <script>
         $(function() {
-            CKEDITOR.replaceAll('.editor');
+            var editor = CKEDITOR.replace( 'content' );
+            CKFinder.setupCKEditor( editor );
             $('#upload').change(function(){
                 var input = this;
                 var url = $(this).val();

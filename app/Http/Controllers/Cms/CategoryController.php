@@ -40,7 +40,7 @@ class CategoryController extends Controller
     {
         $validate = Validator::make($request->all(),
             [
-                'name'=>'required|min:1'
+                'name'=>'required|min:1|max:20'
             ]);
         if ($validate->fails()) {
             return back()->withErrors($validate);

@@ -43,8 +43,8 @@ class ArticleController extends Controller
     {
         $validate = Validator::make($request->all(),
             [
-                'title'=>'required|min:1',
-                'author'=>'required|min:1',
+                'title'=>'required|min:1|max:75',
+                'author'=>'required|min:1|max:30',
                 'content'=>'required|min:1',
                 'category'=>'required',
                 'image'=>'required'
@@ -101,8 +101,8 @@ class ArticleController extends Controller
     {
         $validate = Validator::make($request->all(),
             [
-                'title'=>'required|min:1',
-                'author'=>'required|min:1',
+                'title'=>'required|min:1|max:75',
+                'author'=>'required|min:1|max:30',
                 'content'=>'required|min:1',
                 'category'=>'required',
             ]);

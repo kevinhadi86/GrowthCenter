@@ -43,10 +43,10 @@ class CompanyContactController extends Controller
     {
         $validate = Validator::make($request->all(),
             [
-                'name'=>'required|min:1',
-                'address'=>'required|min:1',
-                'email'=>'required|min:1',
-                'website'=>'required|min:1'
+                'name'=>'required|min:1|max:30',
+                'address'=>'required|min:1|max:100',
+                'email'=>'required|min:1|max:40',
+                'website'=>'required|min:1|max:100'
             ]);
         if ($validate->fails()) {
             return back()->withErrors($validate);

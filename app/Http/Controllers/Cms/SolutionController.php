@@ -43,10 +43,10 @@ class SolutionController extends Controller
     {
         $validate = Validator::make($request->all(),
             [
-                'solution'=>'required|min:1',
+                'solution'=>'required|min:1|max:150',
                 'question'=>'required',
-                'name'=>'required',
-                'position'=>'required',
+                'name'=>'required|max:20',
+                'position'=>'required|max:30',
                 'image'=>'required'
             ]);
         if ($validate->fails()) {
@@ -99,11 +99,10 @@ class SolutionController extends Controller
     {
         $validate = Validator::make($request->all(),
             [
-                'solution'=>'required|min:1',
+                'solution'=>'required|min:1|max:150',
                 'question'=>'required',
-                'name'=>'required',
-                'position'=>'required',
-                'image'=>'required'
+                'name'=>'required|max:20',
+                'position'=>'required|max:30',
             ]);
         if ($validate->fails()) {
             return back()->withErrors($validate);

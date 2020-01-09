@@ -43,9 +43,10 @@ class QuestionController extends Controller
     {
         $validate = Validator::make($request->all(),
             [
-                'question'=>'required|min:1',
+                'question'=>'required|min:1|max:40',
                 'category'=>'required',
-                'description'=>'required|min:1',
+                'description'=>'required|min:1|max:150',
+                'image'=>'required',
             ]);
         if ($validate->fails()) {
             return back()->withErrors($validate);
@@ -96,10 +97,9 @@ class QuestionController extends Controller
     {
         $validate = Validator::make($request->all(),
             [
-                'question'=>'required|min:1',
+                'question'=>'required|min:1|max:40',
                 'category'=>'required',
-                'description'=>'required|min:1',
-                'image'=>'required'
+                'description'=>'required|min:1|max:150',
             ]);
         if ($validate->fails()) {
             return back()->withErrors($validate);

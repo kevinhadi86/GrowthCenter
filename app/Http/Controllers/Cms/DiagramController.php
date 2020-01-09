@@ -73,8 +73,8 @@ class DiagramController extends Controller
     {
         $validate = Validator::make($request->all(),
             [
-                'title'=>'required|min:1',
-                'description'=>'required|min:1'
+                'title'=>'required|min:1|max:70',
+                'description'=>'required|min:1|max:254'
             ]);
         if ($validate->fails()) {
             return back()->withErrors($validate);

@@ -41,11 +41,11 @@ class TestimonyController extends Controller
     {
         $validate = Validator::make($request->all(),
             [
-                'company'=>'required|min:1',
-                'name'=>'required|min:1',
+                'company'=>'required|min:1:max:30',
+                'name'=>'required|min:1|max:20',
                 'image'=>'required',
-                'position'=>'required|min:1',
-                'quote'=>'required|min:1'
+                'position'=>'required|min:1|max:30',
+                'quote'=>'required|min:1|max:50'
             ]);
         if ($validate->fails()) {
             return back()->withErrors($validate);
@@ -97,10 +97,10 @@ class TestimonyController extends Controller
     {
         $validate = Validator::make($request->all(),
             [
-                'company'=>'required|min:1',
-                'name'=>'required|min:1',
-                'position'=>'required|min:1',
-                'quote'=>'required|min:1'
+                'company'=>'required|min:1:max:30',
+                'name'=>'required|min:1|max:20',
+                'position'=>'required|min:1|max:30',
+                'quote'=>'required|min:1|max:50'
             ]);
         if ($validate->fails()) {
             return back()->withErrors($validate);
