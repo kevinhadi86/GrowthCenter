@@ -41,10 +41,10 @@ class TeamMemberController extends Controller
     {
         $validate = Validator::make($request->all(),
             [
-                'name'=>'required|min:1',
+                'name'=>'required|min:1|max:30',
                 'image'=>'required',
-                'position'=>'required|min:1',
-                'description'=>'required|min:1'
+                'position'=>'required|min:1|max:30',
+                'description'=>'required|min:1|max:150'
             ]);
         if ($validate->fails()) {
             return back()->withErrors($validate);
@@ -95,9 +95,9 @@ class TeamMemberController extends Controller
     {
         $validate = Validator::make($request->all(),
             [
-                'name'=>'required|min:1',
-                'position'=>'required|min:1',
-                'description'=>'required|min:1'
+                'name'=>'required|min:1|max:30',
+                'position'=>'required|min:1|max:30',
+                'description'=>'required|min:1|max:150'
             ]);
         if ($validate->fails()) {
             return back()->withErrors($validate);

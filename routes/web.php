@@ -28,8 +28,9 @@ Route::group(['namespace' => "Client"], function() {
 });
 Route::get('admin/growth/login', 'Cms\LoginController@index')->name('login')->middleware(\App\Http\Middleware\LoginMiddleware::class);
 Route::post('admin/growth/login', 'Cms\LoginController@login')->name('login')->middleware(\App\Http\Middleware\LoginMiddleware::class);
-Route::get('admin/growth/logout', 'Cms\LoginController@logout')->name('logout')->middleware(\App\Http\Middleware\LoggedinMiddleware::class);
-Route::group(['middleware'=>\App\Http\Middleware\LoggedinMiddleware::class,'prefix'=>'admin/growth'], function(){
+Route::get('admin/growth/logout', 'Cms\LoginController@logout')->name('logout')->middleware(\App\Http\Middleware\LoggedInMiddleware::class);
+Route::group(['middleware'=>\App\Http\Middleware\LoggedInMiddleware::class,'prefix'=>'admin/growth'], function(){
+
     #Team Member
     Route::get('/teamMember', 'Cms\TeamMemberController@index')->name('admin-team-member');
     Route::post('/teamMember', 'Cms\TeamMemberController@store');
