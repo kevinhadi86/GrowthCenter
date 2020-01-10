@@ -32,7 +32,7 @@
                         <div class="input-group email-input-container">
                             <input type="email" name="email" class="form-control" placeholder="Insert your e-mail address">
                             <div class="input-group-append">
-                                <button class="btn btn-outline-secondary" type="button"><span>&#10230;</span></button>
+                                <button class="btn btn-outline-secondary" type="submit"><span>&#10230;</span></button>
                             </div>
                         </div>
                     </form>

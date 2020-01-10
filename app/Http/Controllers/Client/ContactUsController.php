@@ -3,6 +3,7 @@
 namespace App\Http\Controllers\Client;
 
 use App\ContactUs;
+use App\Mail\SendContactUsData;
 use Illuminate\Http\Request;
 use App\Http\Controllers\Controller;
 use Illuminate\Support\Facades\Mail;
@@ -28,12 +29,16 @@ class ContactUsController extends Controller
         $contactUs->message = $request->message;
         $contactUs->save();
 
-//        Mail::send("mail.contact", json_decode($contactUs, true), function ($mail) {
+//        Mail::send("mail.contact", $contactUs, function ($mail) {
 //            $mail->from("adminweb@growthcenter.id");
 //            $mail->to("inquiries@growthcenter.id")->subject("Inquiries");
-//            $mail->bcc('guidancesocs@gmail.com', 'Guidance SOCS');
 //        });
 
+        try {
+            Mail::send(new SendContactUsData($contactUs));
+        } catch (\Exception $e) {
+            dd($e);
+        }
 
         return redirect()->back();
     }

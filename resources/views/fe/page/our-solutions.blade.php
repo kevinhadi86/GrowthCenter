@@ -12,21 +12,23 @@
             <div class="col-md-5 col-sm-12 gc-full-height">
                 <div class="pt-5 pb-5 gc-full-height position-relative">
                     <div class="gradient-fade"></div>
-                    <div id="scroll-container" class="gc-full-height slick-container accordion">
+                    <div id="scroll-container" class="gc-full-height accordion">
+                        <div class="empty"></div>
                         @foreach($questions as $i=>$question)
                             <div class="solution mb-5 solution-{{$i}}">
                                 <div class="hr-slot">
-                                    <hr>
+
                                 </div>
-                                <a class="gc-georgia gc-text-light-bold collapsed gc-no-decoration-link mt-3 mb-3 solution-title solution-title-{{$i}}" data-toggle="collapse" href="#collapseSolution{{$i}}" aria-controls="collapseSolution{{$i}}" data-href="{{route('our-solutions-detail', ['id' => $question->id])}}">{{$question->question}}</a>
+                                <a class="gc-georgia gc-text-light-bold collapsed gc-no-decoration-link mt-3 mb-3 solution-title solution-title-{{$i}}" href="{{route('our-solutions-detail', ['id' => $question->id])}}" aria-controls="collapseSolution{{$i}}" data-href="{{route('our-solutions-detail', ['id' => $question->id])}}">{{$question->question}}</a>
                                 <div class="mt-3 mb-5 solution-collapsible collapse" id="collapseSolution{{$i}}" data-parent="#scroll-container">
                                     {{$question->description}}
                                 </div>
                                 <div class="hr-slot">
-                                    <hr>
+
                                 </div>
                             </div>
                         @endforeach
+                        <div class="empty"></div>
                     </div>
                 </div>
             </div>
@@ -48,29 +50,31 @@
     <script src="{{asset('lib/slick/slick.js')}}"></script>
     <script>
         $(function() {
-            $('.slick-container').slick({
-                slidesToShow: 5,
-                slidesToScroll: 1,
-                vertical: true,
-                centerMode: true,
-                infinite: true,
-                adaptiveHeight: true,
-                verticalSwiping: true,
+            // $('.slick-container').slick({
+            //     slidesToShow: 5,
+            //     slidesToScroll: 1,
+            //     vertical: true,
+            //     centerMode: true,
+            //     infinite: false,
+            //     adaptiveHeight: true,
+            //     verticalSwiping: true,
+            // });
+            // $('.slick-container').on('beforeChange', function(event, slick, currentSlide, nextSlide){
+            //     // $before = $('.solution-' + currentSlide);
+            //     // $("#collapseSolution" + currentSlide).collapse('hide');
+            //     $next = $('.solution-' + nextSlide);
+            //     $("#collapseSolution" + nextSlide).collapse('show');
+            // });
+           $(".solution-collapsible").on("show.bs.collapse", function() {
+               $solution = $(this).closest('.solution');
+               $solution.find('.solution-title').removeClass('collapsed');
+               $solution.find('.hr-slot').html("<hr/>");
+           });
+            $(".solution-collapsible").on("hide.bs.collapse", function() {
+                $solution = $(this).closest('.solution');
+                $solution.find('.solution-title').addClass('collapsed');
+                $solution.find('.hr-slot').html("");
             });
-            $('.slick-container').on('beforeChange', function(event, slick, currentSlide, nextSlide){
-                // $before = $('.solution-' + currentSlide);
-                // $("#collapseSolution" + currentSlide).collapse('hide');
-                $next = $('.solution-' + nextSlide);
-                $("#collapseSolution" + nextSlide).collapse('show');
-            });
-           // $(".solution-collapsible").on("show.bs.collapse", function() {
-           //     $solution = $(this).closest('.solution');
-           //     $solution.find('.hr-slot').html("<hr/>");
-           // });
-           //  $(".solution-collapsible").on("hide.bs.collapse", function() {
-           //      $solution = $(this).closest('.solution');
-           //      $solution.find('.hr-slot').html("");
-           //  });
 
             // // init controller
             // var controller = new ScrollMagic.Controller({
@@ -144,16 +148,22 @@
                 }
             }, 100);
 
+            $($('.solution')[0]).find('.solution-collapsible').collapse('show');
+
             $('#scroll-container').on('wheel', function(e) {
-                e.preventDefault();
-                if (scrollTimeout === 0) {
-                    scrollTimeout = MAX_SCROLL_COUNT;
-                    if (e.originalEvent.deltaY > 0) {
-                        $(this).slick('slickNext');
-                    } else {
-                        $(this).slick('slickPrev');
-                    }
-                }
+                $('.solution').each(function(key, val) {
+                    var top = $(val).offset().top;
+                    if (top > 300 && top < 400) $(val).find('.solution-collapsible').collapse('show');
+                });
+                // e.preventDefault();
+                // if (scrollTimeout === 0) {
+                //     scrollTimeout = MAX_SCROLL_COUNT;
+                //     if (e.originalEvent.deltaY > 0) {
+                //         $(this).slick('slickNext');
+                //     } else {
+                //         $(this).slick('slickPrev');
+                //     }
+                // }
             })
 
         });
