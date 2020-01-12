@@ -152,18 +152,10 @@
 
             $('#scroll-container').on('wheel', function(e) {
                 $('.solution').each(function(key, val) {
-                    var top = $(val).offset().top;
-                    if (top > 300 && top < 400) $(val).find('.solution-collapsible').collapse('show');
+                    var height = $('#scroll-container').height();
+                    var top = $(val).offset().top - $('#scroll-container').offset().top;
+                    if (top > height * 0.4 && top < height * 0.75) $(val).find('.solution-collapsible').collapse('show');
                 });
-                // e.preventDefault();
-                // if (scrollTimeout === 0) {
-                //     scrollTimeout = MAX_SCROLL_COUNT;
-                //     if (e.originalEvent.deltaY > 0) {
-                //         $(this).slick('slickNext');
-                //     } else {
-                //         $(this).slick('slickPrev');
-                //     }
-                // }
             })
 
         });

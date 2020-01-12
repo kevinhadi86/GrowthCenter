@@ -14,11 +14,9 @@ class OurSolutionsController extends Controller
         $questionIds = unserialize(Configuration::where('key', 'solutionQuestion')->first()->value);
         $q = Question::whereIn('id', $questionIds)->get();
         $questions = [];
-        for($i = 0; $i < 2; $i++) {
             foreach($q as $a) {
                 $questions[] = $a;
             }
-        }
         return view('fe.page.our-solutions', compact('questions'));
     }
 }
