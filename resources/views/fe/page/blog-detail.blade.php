@@ -26,7 +26,7 @@
     <div class="row gc-container-center justify-content-center">
         <div class="col-10 blog-container">
             <div class="row">
-                <div class="gc-helvetica col-md-7 col-sm-12" data-aos="fade-up">
+                <div class="gc-helvetica col-md-7 col-sm-12 blog-content" data-aos="fade-up">
                     {!! $blog->content !!}
                 </div>
                 <div class="col-md-5 col-sm-12" data-aos="fade-right">
