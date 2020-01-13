@@ -9,6 +9,7 @@
 .testimony img {
     height: 85%;
     width: auto;
+    max-width: 80%;
     padding: 0 25px;
 }
 
@@ -59,12 +60,14 @@
     filter: invert(100%);
 }
 
+.hr-slot {
+    display: none;
+}
+
 .carousel-control-next {
-    right: -20px;
 }
 
 .carousel-control-prev {
-    left: 10%;
 }
 
 .category-toggle:not(.collapsed) {
@@ -79,11 +82,13 @@
 
 @media only screen and (max-width: 720px) {
     .gc-jumbotron {
-        height: 200vh;
+        height: auto;
+        padding-top: 80px;
     }
 
     .gc-jumbotron .row > .col-md-6 {
-        height: 100vh
+        height: auto;
+        margin-bottom: 20px;
     }
 
     .questions {
@@ -128,4 +133,16 @@
     li.list-group-item.px-0 {
         font-size: 14px;
     }
+
+    .testimony img {
+        height: auto;
+        width: 100%;
+        max-width: 100%;
+        padding: 0 25px;
+    }
+
+}
+
+.question-list {
+
 }

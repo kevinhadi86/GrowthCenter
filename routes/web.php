@@ -26,6 +26,11 @@ Route::group(['namespace' => "Client"], function() {
     Route::get('/success-story/{id}', "BlogDetailController@successStoryPage")->name('success-story');
     Route::post('/subscribe', "SubscribeController@post")->name('subscribe');
 });
+
+Route::get("/email-test/{file}", function($file) {
+    return view($file);
+});
+
 Route::get('admin/growth/login', 'Cms\LoginController@index')->name('login')->middleware(\App\Http\Middleware\LoginMiddleware::class);
 Route::post('admin/growth/login', 'Cms\LoginController@login')->name('login')->middleware(\App\Http\Middleware\LoginMiddleware::class);
 Route::get('admin/growth/logout', 'Cms\LoginController@logout')->name('logout')->middleware(\App\Http\Middleware\LoggedInMiddleware::class);

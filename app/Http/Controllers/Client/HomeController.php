@@ -21,11 +21,14 @@ class HomeController extends Controller
 
         $diagrams = Diagram::get();
 
-        $featuredIds = Configuration::where('key', 'like', 'article%')->get()->pluck('id');
+        $topId = Configuration::where('key', 'blogTop')->first();
+        $topArticle = Article::find($topId->value)->first();
+
+        $featuredIds = unserialize(Configuration::where('key', 'blogFeatured')->first()->value);
         $featured = Article::whereIn('id', $featuredIds)->get();
 
         return view('fe.page.home',
-            compact('homeQuestions', 'homeTestimony', 'diagrams', 'featured')
+            compact('homeQuestions', 'homeTestimony', 'diagrams', 'featured', 'topArticle')
         );
     }
 }

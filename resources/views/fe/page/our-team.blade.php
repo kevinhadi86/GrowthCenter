@@ -3,12 +3,12 @@
 @section("content")
     <div class="gc-jumbotron position-relative">
         <div class="gc-full-bg-image parallax" style="background-image: url('{{asset("static/images/Group 269.png")}}')"></div>
-        <div class="gc-full-width gc-full-height">
+        <div class="gc-full-width gc-full-height" data-aos="fade-left">
             <span class="our-team-title gc-georgia gc-color-white gc-title gc-text-light-bold">Our Team.</span>
         </div>
     </div>
     <div class="container-fluid">
-        <div class="row" id="team-container">
+        <div class="row" id="team-container" data-aos="fade-up">
             @foreach($teams as $team)
             <div class="col-md-4 col-sm-12 team">
                 <div class="team-content">
