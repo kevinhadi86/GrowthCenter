@@ -60,7 +60,7 @@
                     </div>
                 </div>
             </div>
-            <div class="col-6 overflow-hidden team-image-container">
+            <div class="col-6 overflow-hidden team-image-container" style="z-index: -1;">
                 <img class="team-image" src="{{asset("static/images/Mask Group 8.png")}}" alt="">
             </div>
         </div>

@@ -150,7 +150,7 @@
 
             $($('.solution')[0]).find('.solution-collapsible').collapse('show');
 
-            $('#scroll-container').on('wheel', function(e) {
+            $('#scroll-container').on('scroll', function(e) {
                 $('.solution').each(function(key, val) {
                     var height = $('#scroll-container').height();
                     var top = $(val).offset().top - $('#scroll-container').offset().top;
