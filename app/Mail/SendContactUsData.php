@@ -31,7 +31,7 @@ class SendContactUsData extends Mailable
      */
     public function build()
     {
-        return $this->subject("Inquiry")->to("inquiries@growthcenter.id")->from("adminweb@growthcenter.id")->view('mail.contact')->with([
+        return $this->subject("Inquiry")->to("kevinhadinata86@gmail.com")->from("adminweb@growthcenter.id")->view('mail.contact')->with([
             'contactUs' => $this->contactUs
         ]);
     }

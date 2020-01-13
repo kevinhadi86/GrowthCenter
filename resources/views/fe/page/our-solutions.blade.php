@@ -158,6 +158,10 @@
                 });
             })
 
+            $('.solution').hover(function() {
+                $(this).find('.solution-collapsible').collapse('show');
+            })
+
         });
     </script>
 @endsection

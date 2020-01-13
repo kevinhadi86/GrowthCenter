@@ -25,6 +25,13 @@ body {
     text-decoration: none;
 }
 
+.hexagon-container-2 {
+    width: 90%;
+    padding-top: 90%;
+    position: relative;
+    height: 0;
+}
+
 @media only screen and (max-width: 991px) {
     .header {
         width: 100vw;

@@ -6,8 +6,10 @@
 {{--            <div class="carousel-inner gc-full-height gc-full-width">--}}
 {{--                <div class="carousel-item gc-full-height active">--}}
                     <div class="row gc-full-height">
-                        <div class="col-md-6 col-sm-12 gc-full-height hexagon-container">
-                            <div class="hexagon" style="background-image: url('/img/{{$topArticle->image}}');"></div>
+                        <div class="col-md-6 col-sm-12 gc-full-height hexagon-container d-flex justify-content-end align-items-center">
+                            <div class="hexagon-container-2">
+                                <div class="hexagon" style="background-image: url('/img/{{$topArticle->image}}');"></div>
+                            </div>
                         </div>
                         <div class="header-text-container col-md-6 col-sm-12 gc-full-height gc-container-center flex-column justify-content-center gc-align-left" data-aos="fade-right">
                             <div class="position-relative mb-3">
