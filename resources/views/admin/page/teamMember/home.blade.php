@@ -163,9 +163,7 @@
             $('.delete-member-button').click(function() {
                 var name = $(this).parent().parent().find('.name').html();
                 var link = $(this).data('link');
-                $row = $('#member-id-' + id);
                 $modal = $('#delete-member-modal');
-                $modal.find('.name').val($row.find(".member-name").html())
                 $modal.find('form').attr('action', link);
             });
             $('.update-member-button').click(function() {
