@@ -5,13 +5,13 @@
 {{--        <div id="topInsightCarousel" class="carousel slide gc-full-height gc-full-width" data-ride="carousel">--}}
 {{--            <div class="carousel-inner gc-full-height gc-full-width">--}}
 {{--                <div class="carousel-item gc-full-height active">--}}
-                    <div class="row gc-full-height">
+                    <div class="row gc-full-height" data-aos="fade-right">
                         <div class="col-md-6 col-sm-12 gc-full-height hexagon-container d-flex justify-content-end align-items-center">
                             <div class="hexagon-container-2">
                                 <div class="hexagon" style="background-image: url('/img/{{$topArticle->image}}');"></div>
                             </div>
                         </div>
-                        <div class="header-text-container col-md-6 col-sm-12 gc-full-height gc-container-center flex-column justify-content-center gc-align-left" data-aos="fade-right">
+                        <div class="header-text-container col-md-6 col-sm-12 gc-full-height gc-container-center flex-column justify-content-center gc-align-left">
                             <div class="position-relative mb-3">
                                 <span class="gc-baskerville gc-content-2 gc-text-light-bold category-highlight">{{$topArticle->category->name}}</span>
                             </div>
