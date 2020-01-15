@@ -280,6 +280,10 @@
             body {
                 overflow: scroll;
             }
+
+            .home-4 {
+                height: auto;
+            }
         }
     </style>
 @endsection
