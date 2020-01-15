@@ -31,7 +31,7 @@
                 <div class="carousel-inner gc-full-height">
                     <div class="carousel-item gc-full-height active">
                         <div class="row gc-full-height">
-                            <div class="col-md-6">
+                            <div class="col-md-6 hide-resp">
                                 <div class="gc-full-width gc-full-height d-flex justify-content-end align-items-center">
                                     <div class="hexagon-container-home">
                                         <div class="hexagon" style="background-image: url('/img/{{$topArticle->image}}');"></div>
@@ -63,7 +63,7 @@
                     @foreach($featured as $index=>$f)
                         <div class="carousel-item gc-full-height">
                             <div class="row gc-full-height">
-                                <div class="col-md-6">
+                                <div class="col-md-6 hide-resp">
                                     <div class="gc-full-width gc-full-height d-flex justify-content-end align-items-center">
                                         <div class="hexagon-container-home">
                                             <div class="hexagon" style="background-image: url('/img/{{$f->image}}');"></div>
