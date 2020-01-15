@@ -7,6 +7,8 @@ hr {
     display: inline-block;
     width: 100%;
     height: 100%;
+    top: 0;
+    position: absolute;
     background-position: center;
     background-size: 1000px 650px;
     background-position-x: -200px;
@@ -132,5 +134,9 @@ hr {
     .gc-title {
         font-size: 2em;
         line-height: 30px;
+    }
+
+    .hexagon-container {
+        display: none !important;
     }
 }

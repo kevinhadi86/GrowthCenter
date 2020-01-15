@@ -29,7 +29,7 @@
                 <a href="{{route('about-us')}}" class="nav-link @if(request()->is('about-us*')) active @endif white-able">About Us</a>
             </li>
             <li class="nav-item">
-                <a href="{{route('blog')}}" class="nav-link @if(request()->is('blog*')) active @endif white-able">Insight</a>
+                <a href="{{route('blog')}}" class="nav-link @if(request()->is('blog*')) active @endif white-able">Insights</a>
             </li>
             <li class="nav-item">
                 <a href="{{route('contact-us')}}">
