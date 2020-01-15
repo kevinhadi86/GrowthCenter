@@ -275,6 +275,12 @@
         body {
             overflow: hidden;
         }
+
+        @media only screen and (max-height: 720px) {
+            body {
+                overflow: scroll;
+            }
+        }
     </style>
 @endsection
 
