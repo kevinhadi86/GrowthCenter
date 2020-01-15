@@ -276,7 +276,7 @@
             overflow: hidden;
         }
 
-        @media only screen and (max-height: 720px) {
+        @media only screen and (max-width: 720px) {
             body {
                 overflow: scroll;
             }
